@@ -1,6 +1,6 @@
 # Ingeniería de Datos 2026-2
 
-Repositorio con los entregables del curso de **Ingeniería de Datos**. Reúne las tareas y las prácticas organizadas por corte.
+Repositorio con los entregables del curso de **Ingeniería de Datos**. Reúne las tareas y trabajos organizados por corte.
 
 - **Autora:** Jessica Alejandra Gil Tellez
 - **Curso:** Ingeniería de Datos · 2026-2
