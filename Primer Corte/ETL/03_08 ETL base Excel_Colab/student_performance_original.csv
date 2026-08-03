@@ -1,0 +1,1023 @@
+student_id,gender,study_time_hours,attendance_percent,sleep_hours,parental_education,Internet_Access,extracurricular_activities,part_time_job,previous_grade,final_exam_score,final_grade,enrollment_date
+781,Female,6.3,  97.4% ,7.3,Masters,Yes,Y,Yes,92.7,100.0,A,03/04/2023
+543,Female,2.0,74.8,6.2,PhD,Yes,No,No,48.3,56.6,F,20/05/24
+34,Female,4.7,92.3%,4.7,NULL,1,Y,No,62.8,74.2,C,"January 11, 2024"
+459,Female,3.3,82.9,NA,Masters,Yes,Yes,No,77.6,74.8,C,20240103
+100,Male,"6,2",  74.7 ,5.0,masters,yes,Yes,No,50.6,76.0,C,17/01/2024
+311,MALE,6.0,85.3,7.1,Ph.D.,Yes,No,No,94.9,100.0,A,11/05/24
+756,Male,1.2,82.6,"5,0",High School,Yes,No,Yes,93.1,65.8,D,2023-05-19
+184,FEMALE,2.3,73.9,4.7,Highschool,No,No,1,85.8,70.2,C,"October 21, 2023"
+323,Male,7.0,78.3,7.2,N/A,No,No,No,69.1,83.4, b,20230212
+174,Female,4.5,96.1,8.5,PhD,YES,Yes,1,35.9,61.0,D,12/03/2023
+S-0355,Hombre,"5,0",87.7,-,Universitario,Yes,FALSE,True,90.9,87.8,B,20230310
+647, Male,5.6,88.5,5.5,Bachelor,TRUE,Yes,No,40.8,61.5,D,04/21/2024
+S-0868,Female,2.6,73.9,8.9,Bachelors,True,N,Yes,83.3, ,B,30/07/2024
+S-0344,Male,3.5,66.7,NULL,PHD,Yes,No,Yes,92.2,-,D,N/A
+125,Hombre,"4,8",68.9,NULL,PhD,Yes,Yes,No,"65,0",82.7,B,11/06/2023
+673,Femenino,6.2,82.0%,5.1,High School,Yes,N,No,38.0,72.9,C,10/04/23
+610,Female,6.1,73.8,8.8,None,Yes,Yes,Yes,45.3,79.8,C,20230118
+812,Male,3.5,76.4,4.2,PhD,Yes,Sí,No,78.8,74.2,C,20231014
+S-0574,Male,2.7,  90.1 ,7.1,Ninguno,Sí,0,1,37.9,57.8,F,04/02/2023
+547,male,1.9,82.0,7.6,Bachillerato,Yes,No,no,82.3,-,C,07 de July de 2024
+942,Female ,5.7,89.8,"5,0",none,No,FALSE,No,71.3,80.5,B,"October 23, 2023"
+725,Female,3.4,71.0,4.6,NULL,Y,Yes,No,88.5,62.6,D,05/01/2024
+198,FEMALE,3.4,77.1,"6,3",Maestría,Yes,Yes,Y,44.2,71.5,C,2024-08-04
+S-0645,Femenino,1.0,88.8,7.6,Bachelors,Yes,No,Yes,"47,1",69.8,D,2024-08-02
+583,female,3.6,  67.2 ,5.3,PHD,Yes,YES,No,71.1,65.2,D,02/07/2024
+384,Male,6.9,92.4,8.7,Ninguno,False,Yes,No,62.1,,B,15/01/23
+546,MALE,4.8,97.2%,6.0,Masters,Sí,no,True,87.8,94.5,A,04/28/2023
+S-0662,HOMBRE,5.0,73.4,7.9,Highschool,Yes,Yes,NO,58.1,72.1,C,2024-03-29
+418,Male,1.1,73.7,4.3,HS,TRUE,FALSE,Yes,74.7,58.9,F,10/01/24
+463,Mujer,"4,0",81.1,8.8,Bachelor,si,1,Yes,82.3,81.6,B,20241227
+S-0222,Female,1.0,81.6,7.8,High School,Yes,No,No,66.2,57.5,F,02/09/23
+172,Male,1.6,  81.4% ,null,High School,1,no,1,51.4,57.9,F,02/07/2024
+813,Male,3.3,74.7%,6.1,Doctorate,yes,True,Yes,74.5, 73.1 ,C,"October 08, 2024"
+423,Male,"4,6",97.7,8.0,Masters,Yes,False,No, ,78.5,C,"April 11, 2023"
+291, Male,2.3,82.3,5.0,Masters,No,No,No,87.6,79.6,C,2024-08-23
+749,Male,0.6,74.5,7.9,Masters,No,Yes,Yes,82.9,66.4,D, 
+249,Male,1.4,76.2,5.8,PhD,YES,Yes,Yes,,57.2,F,"August 05, 2023"
+638,Female,1.7,sin dato,8.8,None,FALSE,si,Yes,80.6,78.2,C,01/27/2023
+784,Male,5.8,90.2,"8,7",High School,Yes,Yes,No,"48,0",83.4,B,05/31/2024
+477,F,5.8,79.1%,6.2,Universitario,Y,No,NO, ,83.7,B,25 de January de 2024
+802,Male,1.7,99.6%,5.5,HIGH SCHOOL,Yes,FALSE,Yes,71.4,65.1,D,24-05-2023
+397,Masculino,"1,4",75.7,-,Maestría,1,No,No,50.4,61.3,D,2023-10-10
+774,Male,0.7,NaN,5.0,BACHELORS,Yes,YES,N,92.9,66.7,D,29 de May de 2024
+S-0338,Female ,"1,7",87.2, ,None,null,No,No,80.0,61.2,D,12/07/24
+224,Male,"2,4",69.9,6.2,None,yes,No,Sí,?,63.8,D,20240116
+771,Female,5.1,96.2,7.0,Postgrado,No,Yes,FALSE,78.0, 97.5 ,A,"March 29, 2023"
+128,Male,5.7,82.2,"8,5",Masters,Yes,No,Yes,"44,2",80.8,B,20241003
+53,Female,"3,6",69.2,4.7,null,si,Yes,NO,NA,67.8, d,31/02/2023
+592,Male,2.1,70.6,?,Masters,Y,1,No,84.8,71.6,C,22-05-2024
+351,Male,0.9,97.1,5.6,Sin educación,no,1,1,77.9,74.2,C,2024-12-04
+745,Hombre,4.6,94.4,"7,7",Masters,yes,no,FALSE,58.6,79.5,C,01/04/2024
+623,Female,5.1,75.0,7.3,none,TRUE,No,0,85.1,97.5,A,NaN
+76,Hombre,1.4,77.8,4.3,Pregrado,Yes,No,No,73.1, 67.2 , d,13/01/23
+609,Male,6.4,95.8,4.7,PhD,YES,NO,Yes,74.8, 100.0 ,A,28/06/2024
+721,Hombre,2.9,85.5%,8.6,Bachelors,1,si,No,81.4,75.1,C,02/27/2024
+211,Male,2.6,71.2,7.3,Ninguno,Yes,NO,Yes,69.9,67.6,D,17/02/23
+210,Female,2.6,69.5,4.9,High School,No,No,Yes,NULL,60.4, d,20231122
+704,Male,"4,6",98.4,7.6,High School,None,No,No,90.2,91.2,A,2024-05-17
+134,Male,4.1,94.0,7.6,Bachelors,Yes,No,No,"64,2",78.9,C,06 de February de 2023
+727,male,"6,0",67.7%,4.8,Highschool,True,Yes,si,87.5,95.6,A,15-09-2024
+864,female,5.0,94.6%,6.7,PhD,?,Yes,No,45.6,80.0,B,"June 04, 2024"
+1,Male,3.4,95.1,N/A,Masters,yes,No,No,"82,2",82.7,B,2024-12-13
+215,Male,4.7,86.4,7.9,Bachelors,Yes,Yes,1,63.5,74.0,C,03 de June de 2024
+730,Male,6.7,93.7,null,Doctorate,TRUE,yes,No,50.4,85.0,B,10 de May de 2023
+282,Female,0.6,98.5,6.9,Maestría,Yes,Sí,Yes,65.6,64.7,D,2023-10-03
+922,Male,"2,9",99.0,8.5,Masters,Yes,yes,Yes,47.3,68.5, d,23 de January de 2023
+867,Female,"2,1",84.4%,5.6,Masters,Yes,TRUE,No,62.3,61.3,D,2024-04-26
+181,Female,3.1,  91.1 ,5.9,Ninguno,TRUE,Sí,No,"63,8",62.4, d,05/23/2023
+226,Female,4.4,65.8,6.6,BACHELORS,Yes,False,Yes,"82,0",81.4,B,2023-11-04
+737,FEMALE,1.8,76.9,7.1, ,Yes,yes,Yes,90.0,69.1,D,"February 22, 2023"
+531,Female,6.5, ,8.8,PhD,No,Yes,No,43.2,80.7,B,
+689,MALE,0.7,91.2,5.9,Doctorado,Yes,No,Yes,67.0,65.5,D,30 de June de 2023
+706,Female,1.3,95.4,5.8,bachelors,Yes,Yes,No,null,67.6,D,31/05/23
+424, Male,3.3,74.8,7.4,High School,TRUE,no,No,"67,3",69.0,D,15-07-2024
+232,F,"1,7",,5.3,Master,True,Yes,No,63.0,54.2,F,12 de September de 2023
+563,male,2.4,77.0%,6.3,Bachelors,Yes,FALSE,Yes,64.3,65.6,D,12/19/2024
+684,Hombre,4.7,  86.1 ,6.3,PhD,Yes,Yes,No,"60,5",77.0,C,24/05/2024
+356,Masculino,"6,5",87.7,8.6,PhD,Yes,Yes,Yes,41.6,76.2,C,03/01/2023
+447,Male,5.7,98.1,7.3,NaN,Sí,No,False,65.7,96.7,A,20231217
+650,Female,4.3,83.0,6.8,Doctorate,Yes,1,Yes,73.8,69.3,D,03/15/2024
+298,Male,5.8,  91.1 ,5.7,bachelors,1,No,Yes,70.0,83.8, b,15 de September de 2024
+550,Female,"6,9",73.0,5.2,High School,No,No,Y,77.9,89.4,B,"June 27, 2023"
+261,Mujer,5.2,67.3,8.3,Highschool,Yes,Yes,Yes,38.4,64.9,D,03/06/2023
+385,Masculino,"2,4",91.3,8.0,None,Yes,Yes,Yes,93.0,77.4, c,20230808
+258,Male,5.5,82.4%,"8,6",None,YES,No,no,39.8,77.2,C,"February 18, 2023"
+499,Male,1.2,74.5,5.8,NULL,Yes,Yes,No,"81,2",64.4,D,27 de December de 2023
+257,Female,4.4,96.4%,9.0,Bachelors,Yes,Yes,TRUE,56.1,86.3,B,10/08/2023
+734,M,1.3,79.4%,"8,3",phd,Yes,yes,No,51.4,60.2,D,20230714
+480,FEMALE,4.1,86.6,4.3,PhD,Yes,No,True,79.5,,C,2024-02-07
+691,Male,3.4,80.2%,8.5,High School,YES,no,yes,56.1,63.7,D,2024-08-20
+247,Female,6.7, ,5.8,Doctorado,N/A,No,Yes,88.9,92.2,A,31 de October de 2023
+760,Female ,6.7,99.8%,5.9,High School,Yes,Yes,Yes,"55,2",91.1,A,25/10/23
+819,Female,3.0,98.1,4.3,N/A,Yes,Yes,No, ,59.8,F,31/02/2023
+263,Mujer,3.6,96.0,sin dato,Ninguno,TRUE,No,No,57.0,73.1,C,"July 12, 2023"
+S-0875,Male,2.8,75.4,5.1,None,Yes,YES,0,89.6,58.5,F,20240426
+899,Female ,"1,7",91.2,7.6,None,Yes,YES,Yes,85.4,69.0,D,20/01/23
+830,Male,"3,8",97.1,6.8,PhD,Yes,Yes,No,50.9,72.5,C,03 de August de 2023
+557,Male,"3,8",82.0,7.0,High School,si,FALSE,no,87.7,82.4,B,02 de November de 2024
+821,FEMALE,5.5,83.8,"5,3",PhD,yes,No,No,35.8,61.3,D,?
+518,Hombre,3.2,93.4,5.7,Bachelors,No,0,Yes,53.4, 69.8 ,D,2023-07-19
+907, Male,"4,0",67.6%,"8,5",Bachelors,Yes,yes,NO,58.5,71.9,C,02/22/2024
+809,Male,2.2,  94.0 ,4.7,High School,1,N,FALSE,39.8,60.4,D,"December 19, 2024"
+64,Female,2.7,94.6,6.4,Bachelors,True,False,No,89.6,75.4,C,13 de September de 2024
+908,Female,3.8,66.2%,6.0,Masters,No,N,FALSE,72.4,67.5,D,09/30/2023
+919,Female,4.4,78.8,6.5,Bachelors,TRUE,N,0,"89,9",91.3,A,03-05-2023
+112,Female,"1,5",87.1%,6.0,Ninguno,No,N,No,62.7,60.0,D,2023-08-21
+66,Male,1.7,65.9,8.6,High School,Yes,Yes,No,35.4,55.3, f,08/13/2023
+97,Mujer,1.1,  72.2 ,7.7,Masters,si,Yes,Sí,78.2,65.2,D,15/12/2024
+379,Female,1.2,88.1%,4.7,NA,Yes,No,Yes,null, 44.2 ,F,2023-02-09
+235,Femenino,3.9,83.7,4.9,None,si,YES,No,50.9,64.0, d,11 de January de 2023
+873,Male,1.7,85.6,7.5,N/A,Yes,No,Yes,40.0,53.6, f,"February 01, 2023"
+414,Female,6.8,73.7,"7,5",Masters,Yes,No,No,69.4,96.9,A,14/11/24
+697,Femenino,"3,0",68.0,8.2,Bachillerato,Yes,No,No,55.1,65.4,D,"January 04, 2024"
+770,Female,2.3,89.8%,"6,5",none,Yes,Yes,True,81.4,67.3, d,11/03/2024
+593,Female ,0.8,95.4,6.9,High School,1,Yes,No,79.9,71.6,C,20/02/2023
+244,Female,4.2,null,4.3,none,?,Yes,Yes, ,72.7, c,18/08/2024
+920,Female,"5,3",  98.2% ,6.3,High School,Yes,Yes,No,75.4, 84.2 ,B,20240517
+681,Female,1.7,80.6,"4,9",None,Yes,False,No,71.7,null,D,
+715,Female,2.0,70.4,7.5,Doctorate,YES,Yes,False,52.7,56.8,F,14/05/24
+S-0621,Male,0.6,84.9,None,Bachelors,no,Yes,No,63.5,62.8,D,31/02/2023
+753,Male,"3,4",NULL,sin dato,Bachelor,Yes,1,Yes,77.9,76.5,C,"October 01, 2023"
+S-0904,Female ,2.2,72.2,8.1,Bachelors,si,No,No,69.4,999,D,10/01/2024
+155,Male,6.6,94.3,4.6,None,Yes,Yes,TRUE,67.1,82.9, b,"September 01, 2024"
+S-0287,Female,"1,3",  97.4 ,4.1,PHD,Y,Yes,Sí,35.2,48.5,F,None
+879,Female,"3,1",93.5,6.9,Masters,True,Yes,Yes,"61,4", 72.5 ,C,null
+65,Masculino,2.7,82.5,6.7,Doctorado,yes,Sí,0,72.8,67.1,D,2023-10-18
+S-0668,Male,5.3,98.2,8.9,PhD,N,No,No,85.3,100.0,A,08/04/2023
+4,Male,1.5,88.9,7.7,none,No,Yes,yes,NaN,73.3, c,"August 26, 2023"
+829,Male,5.8,77.4%,6.3,None,NaN,Yes,No,51.5, ,C,16/01/24
+628,FEMALE,6.4,93.0,4.7,Highschool,Yes,No,Yes,66.7,84.6,B,02-11-2023
+526,F,0.8,69.6,7.2,masters,Yes,True,False,52.2,58.4,F,14-06-2023
+77,Hombre,6.7,91.3%,6.7,Bachelors,Yes,yes,Yes,54.5,88.3, b,16-10-2024
+828,Male,0.7,96.7,"8,8",Bachelors,?,No,Yes,81.9,82.8,B,05 de June de 2023
+225,male,4.7,None,4.1,High School,Yes,Yes,Yes,83.6,76.0,C,30/11/23
+535,Female,4.0,84.3,7.6,Bachelors,Yes,Yes,False,59.7,73.1,C,30-04-2024
+254,MALE,1.7,76.9,"7,5",Bachelors,Yes,False,No,80.9,64.8, d,31/02/2023
+S-0822,Mujer,"4,3",72.4%,7.8,Bachelors,Yes,FALSE,No,74.5, 86.1 ,B,11 de March de 2023
+657,F,2.4,81.3,4.0,Doctorate,1,No,No,"45,2",63.2,D,20230809
+936,M,5.5,92.4,6.1,Masters,Sí,True,Yes,NA,81.3, b,20241115
+63,Male,2.1,None,"7,2",N/A,Yes,Yes,No,38.5,54.9,F,"May 04, 2024"
+68,Female,6.1,69.0,7.7,Masters,Yes,FALSE,No,93.2, 85.4 ,B,"February 08, 2024"
+121, Male,6.9,91.1,7.8,PhD,Yes,si,No,49.4,87.6,B,20231217
+390,Male,"4,9",74.7%,8.8,Ph.D.,Yes,Yes,No,90.1,90.5,A,22-12-2024
+869,male,5.0,  68.2 ,7.5,,Yes,YES,Yes,78.1,None,D,04/09/23
+678,Female,1.1,None,5.3,NA,No,No,False,58.2,55.2,F,"October 28, 2023"
+529,Female,"3,3",74.5,7.3,Pregrado,Yes,0,False,73.6,74.7,C,20230606
+277,Female,1.2,86.3,8.8,PhD,Y,Yes,FALSE,null,78.8,C,07/02/23
+369, Male,2.5,65.4,"6,2",Ninguno,Yes,Y,No,85.8,71.1,C,07-08-2024
+473,Female,6.7,74.8,8.8,Bachelors,False,Yes,No,76.2,92.6,A,2023-07-26
+77,Hombre,6.7,91.3%,6.7,Bachelors,Yes,yes,Yes,54.5,88.3, b,16-10-2024
+814,F,4.7,82.1,4.7,PhD,No,Yes,Yes,87.7, 86.4 ,B,sin dato
+552,Female,"1,0",76.1%,8.4,Masters,True,Yes,No,47.5,53.1,F,"October 28, 2023"
+619,Female,1.3,99.4,7.4,High School,No,No,No,58.1,64.6,D,2024-07-03
+663,F,7.0,98.9%,5.1,BACHELORS,Yes,Yes,Yes,75.0,92.6,A,09/09/23
+333,male,4.1,84.7%,6.4,High School,yes,Y,No,40.9,73.1,C,2023-06-03
+192,FEMALE,4.2,82.3%,4.3,Masters,Yes,No,Y,NA,73.9,C,23/09/2024
+S-0492,Male,"2,5",96.6,8.2,None,TRUE,No,No,84.7,87.6,B,25 de February de 2024
+113,Female,3.6,98.3%,"5,7",Bachelors,Yes,Yes,No,37.4,56.8,F,"May 10, 2024"
+548,Male,1.5,77.7,7.6,Masters,Yes,No,no,38.2,50.7, f,20230518
+S-0669,Female,1.3,97.3,4.9,None,Yes,Yes,Yes,36.2,59.8, f,29/11/2023
+676,MALE,"4,5",86.2,8.9, ,Yes,Y,N,73.3,86.0,B,17 de February de 2023
+31,Masculino,"0,8",85.7,7.4,None,Yes,No,No,87.5,66.1,D,21 de August de 2023
+5,Male,3.6,72.9,7.3,Ninguno,si,Yes,No,53.7,63.8,D,30/08/24
+363,Female,2.0,71.6,7.8,High School,False,Yes,0,70.7,66.0,D,13-04-2023
+772,HOMBRE,"4,1",77.8,0,High School,Yes,si,N,58.8,77.6,C,09/05/2023
+605,Female,3.4,65.2,"6,9",Bachelors,True,No,No,"66,8", 71.1 ,C,08/05/23
+878,Male,3.2,95.6,8.5,null,No,No,Yes,90.8,80.6,B,2024-10-07
+370,M,"3,8",72.8,8.7,PhD,Yes,No,True,57.0,67.4,D,2023-01-20
+314,Female,"4,9",66.9,8.8,High School,N,No,FALSE,48.2,69.1,D,23-06-2024
+921,Female,2.7,89.7,6.0,None,Yes,False,No,42.2,65.6,D,05 de December de 2023
+171,Female,1.0,81.8,7.9,Masters,YES,Yes,0,84.2,66.5,D,20240818
+788,F,4.2,67.2,"5,4",High School,Yes,FALSE,No,55.2,66.5,D,fecha desconocida
+782,male,2.6,82.9,5.5,High School,No,Yes,Yes,"60,8",64.7,D,11 de June de 2023
+664,Male,5.9,76.8%,7.3,Bachelor,Yes,False,Yes,"92,0",99.0,A,01/02/23
+70,female,6.9,79.4,8.0,Bachelors,Yes,Yes,No,90.5,100.0,A,NA
+283,M,2.7,73.7,6.6,Pregrado,Y,True,YES,54.2,58.2,F,N/A
+881, Male,4.5,70.9,5.8,High School,Yes,Yes,NO,50.1,69.0,D,10/01/24
+209,Female,2.2,76.2,6.7,MSc,YES,Yes,False,59.5, 72.0 ,C,20240105
+620,Female,"5,2",98.3,"6,8",masters,Yes,No,No,60.6, 88.2 ,B,24/12/23
+238,Female,5.5,  91.8 ,NA,High School,No,Yes,No,250,98.5, a,"November 14, 2023"
+39,Male,5.7,98.1%,5.3,Masters,yes,Yes,No,45.3,83.6,B,11/03/23
+163,MALE,"1,7",76.2,7.3,bachelors,Yes,si,Yes,78.3,73.2,C,2023-11-14
+67, Male,4.6,99.4,7.1,Masters,Yes,N,False,N/A,80.2,B,20240709
+720,Male,6.9,74.1,7.3,Sin educación,Yes,No,No,"35,7",75.2,C,28 de April de 2023
+102,Female,6.9,99.4%,8.8,PhD,Yes,Yes,Yes,68.2,82.4,B,11/04/23
+196,Male,6.5,NaN,4.8,PhD,Yes,Yes,Yes,39.3,83.3,B,31/02/2023
+798,Hombre,"4,1",82.2,"8,0",High School,No,0,False,77.3,78.5, c,"April 06, 2023"
+22,Male,6.6,73.4,4.6,High School,1,No,Yes,71.0,75.5, c,"April 22, 2023"
+937,Male,3.2,95.2,4.1,High School,Y,No,si,"82,5",68.5,D,"May 11, 2024"
+410,Male,0.8,86.0,4.5,HIGH SCHOOL,YES,Yes,No,53.0,49.2,F,20240702
+138,MALE,3.2,null,4.7,HIGH SCHOOL,No,1,Yes,38.3,68.7,D,22/08/23
+20,Femenino,2.2,97.8,4.8,Bachelors,Y,1,N,88.5,84.4,B,-
+348,female,3.3,96.5,4.5,phd,Yes,TRUE,NO,85.6,79.0,C,2024-06-10
+941,Male,"5,8",65.7%,4.9,high school,TRUE,No,No,85.3, 81.1 ,B,"February 06, 2024"
+916,Female,5.0,72.0%,7.8,PHD,Yes,No,FALSE,57.0,79.3,C,08 de July de 2024
+146,Female,6.6,78.7%,8.6,NaN,Yes,No,1,75.8,95.3,A,04/01/23
+185,Male,"1,6",87.4%,7.9,None,Yes,Yes,No,85.9,84.5,B,31 de October de 2024
+930,Hombre,3.7,84.8,4.5,BACHELORS,Y,No,TRUE,"93,4",90.1,A,"May 06, 2023"
+565,Femenino,6.6,75.2,6.1,Bachelors,Sí,No,Yes,94.7,91.2,A,2023-09-08
+S-0940,Female,3.4,93.1%,"6,1",Secundaria,Sí,Sí,si,82.6,86.5,B,26/07/2023
+707,Male,6.8,89.6,"5,4",Ninguno,Yes,Yes,No,52.5,87.6,B,2023-08-05
+S-0571,M,"2,6",97.5,5.7,Bachelors,YES,Yes,No,"88,7",77.5,C,16/10/24
+267,Male,1.3,84.4,7.0,Ninguno,Yes,FALSE,No,83.3,57.0,F,03/07/24
+170,male,1.6,77.5,6.4,Masters,Yes,Yes,True,42.6,50.5, f,19/07/23
+589,Female,"0,6",87.1,9.0,high school,Sí,False,Yes,60.5,63.6,D,15/05/23
+11,Female,"5,0",80.6,5.9,None,Yes,FALSE,1,40.3, 60.6 , d,05/04/24
+686,Male,4.8,71.9,7.6,PhD,Yes,Yes,No,71.7,84.5,B,11/07/2023
+S-0795,Male,3.2,90.1,5.0,PhD,Yes,Yes,No,67.7,N/A,C,16/01/23
+144,MALE,4.8,84.4,5.6,bachelors,Yes,Y,Yes,45.0,75.6,C,04/10/23
+S-0453,male,1.5,80.8,5.8,Pregrado,Yes,Yes,Sí,67.4,55.9,F,06/16/2024
+933,Male,"5,1",95.8,7.4,None,Yes,Yes,No,52.7,74.1,C,20240101
+902,Mujer,"4,5",80.4,7.2,NA,No,Yes,No,50.5,75.6, c,2024-08-07
+213,Female,6.4,84.2, ,Sin educación,1,No,No,71.0,?,C,00/00/0000
+S-0105,Female,2.2,  94.6 ,4.9,Sin educación,Yes,Yes,Yes,"77,6",77.5,C,"November 25, 2023"
+300,M,"1,6",  93.7 ,4.2,PhD,1,No,No,67.0,61.9,D,2024-09-27
+406,F,2.6,67.9,4.8,Highschool,1,NO,Yes,47.8,57.0,F,04 de October de 2024
+85,Male,5.1,70.3,4.2,Bachelors,Yes,Yes,Yes, , 70.0 ,C,01/11/24
+S-0394,Hombre,"2,6",81.5,6.4,High School,No,Yes,No,86.8,80.9,B,20230325
+449,Female,1.4,97.4,6.4,Masters,Sí,No,YES,57.0,51.4,F,NA
+S-0201,Male,4.9,88.9,4.4,Masters,Yes,1,YES,"48,3",64.5,D,26 de October de 2023
+31,Masculino,"0,8",85.7,7.4,None,Yes,No,No,87.5,66.1,D,21 de August de 2023
+S-0471,Mujer,5.6,94.0%,6.4,Masters,yes,N,Yes,86.3,89.3, b,08 de June de 2024
+52,Male,6.6,75.5,6.9,Sin educación,Yes,Yes,No,"43,9",77.0,C,fecha desconocida
+140,Masculino,6.0,91.4,8.1,None,1,Yes,Yes,59.1,91.1,A,12/28/2024
+903,Male,0.8,91.9,NA,Bachelor,YES,TRUE,Yes,55.3,48.6,F,"July 09, 2023"
+129,Masculino,0.8,65.0,6.2,none,Yes,True,No,84.4,61.2,D,20230126
+855,Male,"3,8",71.3%,6.3,Bachelors,,Yes,FALSE,81.8,73.0,C,2024-05-01
+383,Male,2.7,88.8,7.8,PhD,True,No,No,68.6,73.9,C,"August 22, 2024"
+462,FEMALE,1.8,83.3%,"5,4",Bachelor,NO,YES,No,49.9, 55.9 ,F,2023-10-17
+S-0517,Female ,6.2,68.8,6.9,PhD,NA,Yes,No,62.3,90.4,A,15 de May de 2024
+12,Masculino,6.4,89.5,5.3,PhD,no,Yes,No,62.0,82.2,B,"July 22, 2024"
+604,Female,1.3,93.4,8.1,N/A,True,Sí,Yes,84.6,65.9,D,02/12/24
+168,Hombre,3.5,72.5,7.7,-,True,Y,No,79.8,76.1,C,25-05-2023
+880,Male,"2,4",84.5%,4.4,MSc,Yes,True,1,47.9,61.2,D,null
+61,Masculino,6.9,70.0%,6.2,None,1,Sí,No,61.0,91.7,A,28-02-2023
+713,Female,"1,2",78.8,6.3,N/A,Yes,False,No,41.5,55.4,F,28 de October de 2023
+837,Male,6.8,84.3,5.5,Maestría,Yes,Yes,Yes,35.4,75.5,C,09-02-2023
+10,Male,5.8,70.8,4.1,Bachelors,1,No,False,44.7, 67.7 ,D,11-06-2024
+674,Male,5.8,83.3,7.1,none,Sí,No,N,46.5,78.9, c,"February 20, 2023"
+364,F,5.1,93.7,6.4,Maestría,Y,Y,Yes,"74,9",88.3, b,25/08/23
+634,Female,5.5,150.0,8.9,Masters,Yes,N,Sí,84.6,100.0,A,20230318
+833,Male,-3.5,86.8,"6,9",PhD,TRUE,No,True,76.9, 96.3 ,A,02-02-2024
+133,F,"6,2",99.1,,High School,Yes,No,False,52.3,78.7,C,06/11/2023
+860,F,6.1,74.4,8.5,PhD,True,N,No,42.2, 81.1 ,B,"November 06, 2023"
+546,Male,4.8,97.2%,6.0,Masters,Sí,no,True,87.8,94.5,A,04/28/2023
+90,Male,1.4,89.3,4.9,Sin educación,Yes,1,YES,NULL,61.8,D,24-12-2024
+472,Female ,5.7,  76.9% ,"4,7",None,Y,Yes,no,39.2,70.7,C,23/01/24
+748,Male,"2,9",67.1,NA,Bachelors,Yes,si,No,NaN,49.4,F,03/13/2023
+652,M,1.6,81.7,7.0,N/A,Sí,Yes,Yes,"53,7",63.5,D,?
+823,Male,6.2,81.2%,"4,5",Secundaria,Yes,No,Yes,64.8,sin dato,C,"May 25, 2023"
+205,Female,"0,7",84.9,4.8,Masters,No,no,No,54.6,51.3,F,"May 03, 2023"
+322,Female ,"6,9",68.1,8.9,Masters,Yes,no,No,58.0,89.5, b, 
+498,Female,"6,1",74.8,7.9,High School,Y,N,No,66.5,88.9,B,07/30/2023
+801,Female,1.8,72.5,5.0,high school,Yes,NO,No,"41,3",52.3,F,20230410
+693,Female,6.6,98.7,7.1,N/A,YES,Sí,Yes,"60,8",100.0,A,08/31/2024
+332,FEMALE,0.9,73.4,4.3,Masters,Yes,No,No,"82,5",55.8,F,28/04/23
+167,Female,2.8,88.2,7.4,Maestría,No,No,No,83.7,79.0,C,sin dato
+9,Female,2.0,67.0%,5.4,PHD,Yes,Yes,No,82.0,69.0,D,2024-04-28
+101,Male,6.7,87.8%,"6,5",Pregrado,Yes,si,Yes,80.9,93.2,A,fecha desconocida
+468, Male,1.2,84.9,4.9,Universitario,Yes,1,N,76.1,67.5,D,20230221
+117,MALE,6.1,73.6,7.3,Masters,Yes,No,YES,52.0,80.7,B,20/07/2023
+460,Female,3.9,66.2,5.9,HIGH SCHOOL,Yes,Yes,Yes,76.4,76.1,C,06/07/2023
+340,Female,4.5,70.3,5.1,Universitario,Yes,Sí,NO,49.7,65.1,D,12-03-2024
+165,Female,3.2,67.3,"7,0",?,Yes,No,Y,93.9, 87.2 ,B,10/04/24
+895,Male,1.5,69.5,,PHD,Sí,Yes,False,67.0,54.9, f,20241216
+24,Female,3.8,89.3,6.9,None,Yes,No,FALSE,79.3,81.2, b,20240810
+282,Female,0.6,98.5,6.9,Maestría,Yes,Sí,Yes,65.6,64.7,D,2023-10-03
+658,Female,6.2,66.6,9.0,phd,Yes,No,Yes,51.1,81.7,B,2023-08-14
+672,Male,1.4,85.0,8.0,None,N,N,No,44.3,57.6,F,08-04-2024
+712,Male,1.8, ,7.5,Bachelors,TRUE,No,No,"82,0",71.8,C,01/21/2024
+481,Male,"1,2",97.9,4.3,PhD,Yes,Yes,si,36.1, 52.5 ,F,05/09/2024
+350,Masculino,6.1,71.4,4.0,Masters,Yes,Yes,Yes,"46,2", 62.8 ,D,16-09-2023
+777,Male,"4,4",83.5,8.5,Doctorado,Yes,No,yes,"35,1",72.0, c,15 de August de 2024
+503,Female ,4.1,92.0%,5.6,High School,Yes,No,No,"40,4",70.0,C,2023-12-18
+929,Masculino,"4,1",72.2,6.0,NA,Yes,No,FALSE,85.2,77.4,C,02/25/2024
+148,female,4.2,74.5,4.8,High School,Yes,Y,No,92.9,70.2, c,29/12/23
+211,Male,2.6,71.2,7.3,Ninguno,Yes,NO,Yes,69.9,67.6,D,17/02/23
+S-0928,Female,3.7,  78.1 ,6.8,phd,FALSE,No,No,55.1,?,D,29/03/2023
+228,Male,4.1,70.1,5.7,Bachelors,No,si,No,85.6,81.1,B,12 de January de 2023
+S-0739,Male,2.7,95.9,4.7,Bachelors,Yes,No,No,"83,4",88.1,B,06 de July de 2023
+646, Male,5.0,94.6,7.6,Pregrado,Yes,Yes,Yes,76.2,98.9,A,25 de September de 2023
+850,Male,3.2,99.7%,"7,3",null,No,Y,False,81.3,88.1,B,17/04/2023
+825,Female,"3,3",68.1,5.8,N/A,Yes,TRUE,No,"84,1",79.7,C,20241030
+386,Female,"4,1",79.3,6.8,Bachelor,Yes,No,No,90.9,88.6,B,20240826
+328,Female ,6.7,95.6,4.8,Masters,Yes,Yes,No,66.1,81.9,B,None
+711,Masculino,"4,7",72.4,4.1,High School,yes,No,0,67.1,72.3,C,13-11-2023
+395,Male,"3,9",75.2,8.0,HS,Yes,N,No, ,82.2,B,06/11/24
+388,Female ,4.3,65.1,8.3,Bachelors,Yes,Yes,No,78.0,79.9,C,20230405
+659,Male,3.1,87.9%,8.2,HIGH SCHOOL,TRUE,FALSE,Yes,84.0,76.0,C,2024-03-09
+778,Female,6.8,65.2,7.6,None,Yes,No,True,36.6,78.7,C,07 de December de 2024
+45,Female,3.4,75.6,8.6,Bachelors,Sí,N,No,"87,8",79.3,C,20230322
+661,Female,"4,7",84.1,4.4,Pregrado,TRUE,si,si,44.3,55.1,F,2023-08-14
+S-0601,Female ,1.7,90.5,6.3,HS,Yes,Yes,Yes,56.2,63.2,D,01 de December de 2024
+27,Femenino,3.5,92.5,4.1,phd,Yes,Yes,FALSE,49.0,63.2,D,28/08/24
+876,female,3.0,88.0,6.9,NaN,Yes,0,Yes,56.5,75.3,C,11/30/2024
+251,Male,6.8,83.3,8.5,sin dato,Yes,si,No,"76,9",100.0,A,02/12/2023
+S-0479,Female,2.2,93.7,4.0,Master,YES,Yes,False,86.2,69.2, d,13/11/2024
+834,Female,"6,2",None,5.8,BACHELORS,Yes,No,YES,62.7,80.7,B,02/13/2023
+791,Female,"2,5",80.8,7.3,PhD,Yes,No,1,"75,6",71.4,C,11/05/2023
+733,Male,6.1,  72.7 ,4.5,Ninguno,Yes,Yes,si,65.6,87.9,B,06/06/24
+S-0358,Male,2.3,93.4,7.8,Bachillerato,Yes,Yes,False,75.6,78.3,C,2023-04-12
+302,Male,1.4,95.1,"5,1",High School,Yes,No,Yes,68.4,63.1,D,24-12-2024
+S-0475,FEMALE,3.1,95.0,5.4,None,Y,No,Yes,"71,9",73.5,C,06/01/2023
+561,Femenino,4.1,69.2,8.1,None,Yes,Yes,FALSE,71.2,81.1,B,05-02-2024
+480,FEMALE,4.1,86.6,4.3,PhD,Yes,No,True,79.5,,C,2024-02-07
+717,Male,5.1,  74.3 ,"6,8",Masters,No,YES,No,92.2,76.8,C,02-07-2023
+635,MALE,1.2,91.7,NULL,None,TRUE,No,N,87.9,68.7,D,10/10/2024
+49,Male,1.8,69.4,6.5,None,yes,FALSE,No,44.3,45.1,F,04/04/24
+751,Male,5.8,  78.7 ,5.7,Bachelors,Yes,No,FALSE,66.0,79.9,C,06 de December de 2023
+483,Hombre,3.9,94.1,4.9,NaN,Yes,N,True,88.5,70.8,C,2024-04-23
+888,Male,2.3,65.9,7.9,PHD,yes,si,0,85.4,56.0, f,fecha desconocida
+804,F,6.2,71.9,7.9,PhD,Yes,NO,No,86.2, 78.2 ,C,26/01/2024
+371, Male,6.2,75.2,6.6,Pregrado,yes,no,Yes,41.2,74.1,C,08/22/2024
+375,Mujer,1.6,  82.8 ,6.1,PHD,True,0,No,92.3, 78.3 , c,30 de October de 2024
+853,Mujer,"4,9",78.1,5.8,Bachelors,yes,TRUE,No,48.5,59.1,F,06 de November de 2023
+906,Male,"3,0",88.5,7.4,high school,False,No,yes,92.9, 79.3 ,C,28-05-2023
+207,Female,"2,1",74.2,6.9,High School,No,Yes,No,73.3,54.8,F,12/23/2024
+S-0662,Hombre,5.0,73.4,7.9,Highschool,Yes,Yes,NO,58.1,72.1,C,2024-03-29
+229,Male,6.9,81.6,4.7,Bachelors,Yes,No,Yes,"65,2",79.7,C,
+831,Male,0.6,98.1%,9.0,none,TRUE,Yes,No,79.6,82.9,B,"March 20, 2023"
+793,M,5.5,90.5,7.0,Secundaria,Sí,Yes,No,69.7,89.0,B,fecha desconocida
+655,Hombre,0.7,69.8,8.0,PhD,Yes,Yes,0,72.4,65.5, d,31/02/2023
+805,Female,0.8,80.7,8.5,Bachelors,Y,Yes,No,84.6,75.6,C,02/07/2023
+241,Female,6.2,74.5,8.5,Bachelors,YES,No,No,60.1, 85.0 ,B,28 de August de 2023
+157,Male,6.1,89.8%,8.2,None,No,No,No,42.6, 83.4 ,B,2024-09-06
+584,female,1.8,87.8,6.9,BACHELORS,Yes,N,1,38.0,63.6,D,08-10-2024
+137,Female,"6,6",67.1,5.1,Bachelors,Yes,Yes,No,47.8,67.1,D, 
+S-0432,Male,6.5,73.9,4.7,PhD,Yes,Y,N,90.5,73.0,C,12/01/2024
+779,Hombre,"6,9",99.3,5.7,Bachelors,Yes,N,N,71.0,92.0,A,15/03/2023
+S-0488,Male,2.8,80.4,4.9,Masters,Sí,Yes,No,82.9,81.6, b,25 de April de 2023
+419,Femenino,6.7,88.8,8.1,PhD,NaN,Yes,No,39.7,81.9,B,"December 25, 2023"
+273,Female,"4,7",92.7%,7.1,Masters,TRUE,Yes,si,"51,4",74.4, c,"March 18, 2024"
+590,Male,2.7,78.9,4.2,masters,No,Sí,Yes,40.2, 54.8 ,F,2023-10-25
+911,Female,6.7,80.0%,8.9,Masters,Yes,No,True,NA,90.5,A,20240319
+147, Male,5.3,94.8,6.5,None,Yes,Yes,no,54.8,79.6,C,NaN
+871,Male,5.1,84.1,8.2,HS,yes,No,Yes,82.5,94.8,A,19-12-2023
+883,Male,2.2,N/A,"8,7",High School,,yes,0,sin dato,70.2,C,09/07/2023
+S-0250,Female,1.8,74.2,7.1,Highschool,Yes,Yes,No,81.3,69.8, d,"September 10, 2023"
+103,FEMALE,4.5,84.0,4.8,PhD,YES,Yes,No,70.1, 70.2 ,C,04/28/2023
+498,FEMALE,"6,1",74.8,7.9,High School,Y,N,No,66.5,88.9,B,07/30/2023
+405,Male,5.4,77.3,"5,9",None,Yes,Yes,Yes,"47,6",75.0,C,19/09/2024
+738,Female,6.9,  88.4 ,6.6,Masters,1,False,0,92.5,100.0, a,03 de October de 2023
+643,Male,1.2,92.0,7.1,Sin educación,TRUE,N,0,"58,8",64.9,D,24/10/2024
+7,Male,5.6,81.1,6.8,Master,True,Y,False,63.3,71.1,C,20230325
+343,Male,5.6,-5,5.6,Masters,si,1,No,90.1,78.6,C,28/11/23
+747,Female,"6,1",92.9,4.5,Universitario,No,1,False,82.6,96.1,A,11/01/23
+905,male,6.8,95.5,5.1,Masters,Yes,YES,Y,68.2,83.6,B,09/09/2023
+294,female,"5,4",85.1,8.3,Postgrado,TRUE,No,NO,"82,9",94.9,A,05 de October de 2024
+S-0126,Female,6.9,100.0,6.6,Masters,sin dato,No,No,54.1,95.0,A,"June 15, 2024"
+55,Male,4.2,89.6,7.2,Bachelor,Yes,no,N,,72.6, c,NULL
+47, Male,5.5,71.9,"8,6",None,Yes,No,Yes,38.1,61.3,D,"January 27, 2023"
+227,Male,4.4,  91.7 ,5.4,None,Yes,No,No,93.9,83.7, b,06/04/2024
+299,F,2.1,88.5,5.3,Masters,yes,yes,True,87.5,79.6, c,20241123
+40,Male,3.5,83.3,7.8,Pregrado,Yes,no,NO,90.9,87.5, b,20231226
+382,Masculino,2.6,76.3,4.0,Bachelors,Yes,Yes,Sí,37.4, 44.2 , f, 
+177,Female,2.4,70.9,5.0,Pregrado,Yes,No,No,85.0,64.5,D,20241123
+741,F,0.7,81.0,7.3,sin dato,FALSE,Yes,N,48.4, 49.6 , f,09 de March de 2024
+259,Male,1.9,71.9%,6.9,PhD,True,No,Y,"84,6", 71.6 ,C,20240228
+579,Female ,3.1,80.7,5.9,phd,,Yes,si,41.1,-,F,2023-08-02
+217,Female,0.6,97.4,8.8,PhD,True,No,No,89.4,71.3,C,11-07-2024
+175,Male,"3,1",84.9,6.8,Pregrado,Yes,No,Yes,82.6,67.6,D,20230321
+861,Male,4.2,77.3,"8,7",HS,Yes,No,No,sin dato,76.0,C,07/25/2023
+689,Male,0.7,91.2,5.9,Doctorado,Yes,No,Yes,67.0,65.5,D,30 de June de 2023
+580,Female,1.2,81.8,6.2,None,Yes,Yes,Yes,49.2,53.2,F,04/01/23
+614,female,2.7,94.5,6.6,Doctorado,YES,Yes,No,52.9, 74.4 ,C,"September 04, 2024"
+330,Female ,2.6,74.9,,Bachelors,YES,TRUE,FALSE,42.7,66.0,D,"December 09, 2023"
+429,Male,0.7,88.7,5.7,Bachelors,No,NO,No,N/A,43.1,F,08/25/2023
+429,MALE,0.7,88.7,5.7,Bachelors,No,NO,No,N/A,43.1,F,08/25/2023
+S-0193,Female,5.4,74.0,8.3,Sin educación,Yes,NO,True,66.9,80.0,B,08/10/24
+558,Male,"4,5",80.2,NaN,Postgrado,Yes,No,Y,86.1,84.6,B,01/19/2023
+844,M,5.6,67.3,5.6,Doctorado,No,Yes,No,75.1, 77.5 ,C,14/07/24
+763,Male,0.7,76.5,None,sin dato,Yes,no,N,58.9,53.0,F,15/02/2023
+484,Female,2.5,82.0%,7.7,PhD,Yes,No,No,93.7,77.1,C,31/01/24
+366,Female,4.3,82.2,6.4,Masters,NA,Yes,No,63.8,76.6,C,06/07/24
+256,Female,"5,2",98.2%,7.8,None,Yes,Sí,No,"54,5",46.5,B,2023-12-21
+S-0858,Female,2.7,  73.4 ,null,Bachelors,NULL,False,No,40.5,65.0,D,23/06/2024
+275,MALE,"3,4",95.2,7.6,Bachillerato,Sí,Sí,si,43.6,76.4,C,26/09/2023
+692,Femenino,4.8,94.3%,6.8,Bachelors,Sí,1,yes,null,90.4,A,2023-05-10
+127,Male,0.8,88.5,5.8,Bachelors,Yes,No,0,60.0,63.4,D,30/08/2024
+24,Female,3.8,89.3,6.9,None,Yes,No,FALSE,79.3,81.2, b,20240810
+S-0062,Female,1.7,96.7,4.2,Ninguno,YES,Yes,No,70.2,50.4,F,"August 02, 2023"
+527, Male,3.4,86.6,8.3,None,Yes,No,no,"56,8",54.6,F,2023-05-24
+183,Female,3.5,72.0%,4.9,None,Yes,Yes,No,"89,5",72.6,C,"July 31, 2023"
+520,Male,"5,3",99.9%,N/A,Postgrado,Yes,Yes,No,78.7,82.4,B,27-11-2023
+569,Male,4.1,66.5,6.2,Pregrado,Yes,No,FALSE,53.0,70.7,C,31 de October de 2024
+S-0286,Male,7.0,65.6,6.8,?,Yes,Yes,No,72.2,85.5,B,08/26/2024
+839,Female,2.4,69.2%,6.2,phd,Yes,N,Yes,NULL,63.4,D,07/10/24
+80,Hombre,1.7,84.7,4.5,Masters,Sí,1,No,61.0,64.9,D,11/28/2024
+758,Female,4.5,  74.0 ,8.9,bachelors,Y,N,si,73.2,76.7,C,20230429
+438,Female,4.5,71.2,8.4,none,Yes,no,N,52.7,75.7,C,20230308
+60,Female,0.6,72.3,6.6,Masters,Yes,No,No,94.3,61.2,D,02/05/2023
+29,Female,2.0,91.1,8.1,Secundaria,Yes,No,No,"43,8",73.7,C,18 de February de 2023
+359,Male,3.6,80.4,4.6,Masters,Yes,Yes,Y,43.0, 63.8 ,D,03/14/2023
+507,Male,4.8,91.4%,4.2,None,Y,No,Y,87.6, 81.6 , b,25 de February de 2024
+S-0551,Female,3.7,  73.5% ,5.2,none,si,Yes,Yes,36.9,53.9, f,28 de September de 2023
+526,F,0.8,69.6,7.2,masters,Yes,True,False,52.2,58.4,F,14-06-2023
+530,female,3.4,65.2,"4,4",None,Yes,Yes,Yes,74.3,NULL,D,01-03-2023
+400,Male,2.4,69.6,"6,5",Pregrado,Yes,Yes,TRUE,"43,6",46.9,F,13-11-2024
+606,Masculino,1.7,67.2,7.4,Masters,si,True,no,38.3,59.4,F,"March 19, 2023"
+469,Male,"2,7",70.3,N/A,None,No,No,Yes,"68,4",63.4,D,16/03/24
+26,Male,4.1,87.2%,4.5,None,Yes,No,False,70.8,68.9, d,"November 02, 2023"
+318,Masculino,3.3,NULL,6.3,MSc,si,No,Yes,41.3,63.1,D,19/01/24
+373,MALE,2.8,84.6,6.4,Bachelors,Yes,Yes,Yes,55.8,72.1, c,05/01/2024
+119,Female,"3,1",89.0,4.1,Ph.D.,Yes,No,No,61.6,70.8,C,30/09/24
+413,Male,5.7,97.7,6.4,MSc,Y,False,No,60.9,92.2,A,2024-01-11
+786,Female,"4,6",91.5,7.7,High School,Yes,YES,Yes,63.8,71.5,C,13/05/23
+735,male,0.6,  96.8% ,7.2,BACHELORS,Yes,Yes,No,75.6,72.3,C,20230528
+210,Female,2.6,69.5,4.9,High School,No,No,Yes,NULL,60.4, d,20231122
+108,Female,"1,6",84.4,5.0,PhD,,No,Yes,90.0,75.1,C,sin dato
+295,Male,7.0,  79.7 ,?,PhD,Yes,Sí,False,58.7,76.7,C,11/27/2023
+511,Masculino,6.5,99.5%,7.3,Masters,Yes,No,No,sin dato, 90.3 ,A,"August 23, 2023"
+528,Female,4.0,  79.5 ,8.9,PhD,Yes,No,No,"65,2",73.5, c,11 de November de 2024
+19,female,0.7,84.4,5.9,Secundaria,Yes,1,yes,92.2, 70.6 , c,13 de August de 2024
+230,Female,6.5,82.6,8.9,Universitario,Yes,No,0,"61,9",92.8,A,04/01/24
+173,Hombre,"2,5",77.9%,5.2,bachelors,Yes,Yes,No,"73,6",55.3,F,2024-11-09
+910,Female,0.6,99.3%,5.3,High School,Yes,FALSE,si,58.9, 48.6 ,F,08 de August de 2023
+396,Female,6.4,71.5,8.9,Bachelors,si,False,No,85.2,95.9,A,09/20/2024
+428,Female,2.9,  78.7 ,"7,0",High School,Yes,Yes,No,77.4,71.2,C,10/08/24
+68,Female,6.1,69.0,7.7,Masters,Yes,FALSE,No,93.2, 85.4 ,B,"February 08, 2024"
+326,MALE,4.4,72.3,6.8,MSc,No,No,NO,54.3, 64.0 , d,01/05/24
+337,Male,"3,0",?,4.3,Postgrado,True,Yes,No,77.4,84.5,B,20230617
+306,Female,0.7,72.9,7.6,Bachelors,Yes,Yes,N,82.9,74.0,C,"February 28, 2023"
+810,male,3.5,88.1,"8,4",Postgrado,True,si,No,"39,4",65.1,D,23 de January de 2024
+882,Masculino,2.4,96.7%,7.3,Bachelors,Yes,Yes,yes,"85,3",82.3,B,09 de October de 2024
+33,Female,5.9,66.8,None,None,Yes,0,No,93.8,NaN,A,07/09/24
+S-0537,Female,"1,0",65.4%,4.6,PHD,Yes,Yes,No,"51,5",54.9,F,"October 03, 2024"
+851,Male,3.8,99.7,4.9,Masters,No,No,No,66.7,74.2,C,20231021
+180,Female,1.9,65.2,6.9,Ph.D.,NaN,No,Yes,66.1,65.1,D,00/00/0000
+838,Female,"2,4",72.7,7.4,Master,No,Yes,Yes,86.3,72.8,C,20230807
+671,Female,1.1,74.3,6.5,Highschool,1,Yes,No,48.5, 54.7 ,F,02-02-2024
+S-0865,Female,5.3,73.5,8.4,Masters,sin dato,Yes,Yes,83.3,78.9,C,17 de July de 2023
+S-0420,Male,1.1,94.3,8.7,PhD,1,Yes,No,92.6,78.0,C,19/01/24
+231,male,3.0,-,8.9,PhD,Yes,No,True,58.5,77.1,C,"August 09, 2023"
+848,Female,2.6,89.7,7.5,Ph.D.,Y,Y,True,54.0,63.2,D,16 de February de 2023
+862,Male,"6,9",89.2,4.3,High School,si,No,No,76.0,82.7, b,2023-03-06
+S-0875,Male,2.8,75.4,5.1,None,Yes,YES,0,89.6,58.5,F,20240426
+104,Female,2.9,79.2, ,-,Yes,Yes,FALSE,42.2,NULL,D,31/02/2023
+740,Male,6.0,77.9,5.6,Ninguno,Yes,Yes,No,43.2,68.9,D,11/14/2023
+849,Femenino,1.9,83.5,4.2,PhD,-,TRUE,No,81.6,68.6,D,10 de July de 2024
+132,Female,1.6,71.1,8.1,None,Yes,No,Yes,74.2,71.3, c,12/23/2024
+409,Male,1.6,79.9%,6.4,masters,Yes,False,Yes,92.1,81.0,B,03/11/2023
+949,Male,4.7,93.0,NA,Master,?,No,No,79.2, 82.8 ,B,17/04/2023
+923,Male,"6,2",75.7,6.1,PhD,1,True,Yes,-, 99.1 , a,2024-02-02
+500,Female,4.5,  81.1 ,4.7,Bachelors,Yes,No,Yes,80.4,85.7,B,10/28/2023
+S-0917,Female,6.6,88.3%,8.8,PhD,N,0,NO,NA,80.7,B,23 de May de 2023
+703,Female,3.3,76.8%,4.8,High School,Yes,No,NO,"87,8",84.7,B,29/09/24
+412,Male,"3,4",90.7,8.3,Masters,Yes,No,N,86.1,92.1,A,25-12-2024
+891,Male,4.3,85.7,5.8,PhD, ,N,Yes,87.0,81.7, b,20230822
+897,Male,4.3,69.4%,8.1,None,False,Yes,No,sin dato,59.4,F,"May 07, 2023"
+467,Male,5.4,91.3,5.0,Master,None,0,Y,77.0,80.4,B,2023-11-24
+769, Male,"2,1",90.3,6.9,Doctorate,Yes,No,N,89.3,73.3, c,2024-04-15
+162,Mujer,"6,7",77.2,4.5,Doctorate,Yes,Yes,No,57.7,77.3,C,16 de November de 2023
+393,FEMALE,5.7,73.0,7.0,Masters,1,TRUE,No,-,82.2,B,08/10/2023
+14,MALE,3.3,87.0,"6,9",masters,Yes,NO,False,-,71.7,C,"March 03, 2023"
+582,Male,2.4,75.7%,NULL,None,1,FALSE,No,47.1,65.7,D,2024-04-21
+15,Male,1.4,  68.6 ,"6,9",High School,Yes,Yes,No,55.8,60.6,D,06/11/24
+898,F,"2,2",99.7,4.2,None,No,Yes,N,62.1, 69.4 ,D,NULL
+701,Male,"3,7",86.0,"5,2",Master,TRUE,No,yes,"70,9",71.5,C,23-09-2024
+841,Female,2.9,74.0,None,None,Yes,NO,0,57.6, 69.2 ,D,fecha desconocida
+154,Male,"0,7",83.7,9.0,Bachelors,No,No,No,53.1,60.0,D,01/30/2023
+938,Female,1.5,99.1,5.0,Sin educación,Yes,Yes,No,74.3,71.0,C,26 de November de 2024
+139,Hombre,4.5,72.2%,8.4,High School,No,NO,Sí,41.9,56.3, f,03/14/2023
+S-0023,Male,5.6,99.0,"6,5",Highschool,Yes,0,yes,42.9,81.8, b,01/11/2023
+354,Female,0.9,67.8,7.6,Sin educación,No,yes,Yes,46.7, 51.6 ,F,"April 15, 2023"
+S-0776,Mujer,3.9,92.9%,NaN,PhD,Y,No,False,79.5,69.7,D,13/10/23
+274,Mujer,4.9,68.2,null,PhD,Yes,Yes,No,70.6,73.3,C,"June 19, 2024"
+284,FEMALE,3.7,87.5,null,Bachelors,Yes,no,Yes,50.7,79.9, c,05/20/2024
+840,M,"4,7",98.2,4.4,PhD,Yes,Yes,0,89.2,81.2,B,07/01/2023
+92,MALE,4.8,94.3,4.1,Highschool,si,Yes,no,"50,2",65.9,D,06/18/2023
+887,MALE,6.1,66.9,5.7,None,Sí,Yes,Yes,NULL,80.2,B,16/12/23
+218, Male,1.0,94.7,,Bachelor,Yes,Yes,No,44.2, 49.0 ,F,sin dato
+514,Mujer,1.8,74.3,5.4,High School,Yes,N,Yes,-,59.1, f,26-08-2023
+525,Masculino,4.4,79.4,5.6,Highschool,No,Yes,yes,"89,6",98.6,A,2023-09-08
+58,male,"2,5",NA,4.1,Ninguno,Yes,No,si,44.2,53.4,F,2024-09-17
+360,Male,2.8,76.3%,8.5,High School,Yes,No,Sí,41.9,69.7,D,01 de November de 2024
+437,Femenino,3.7,74.2%,NaN,None,Yes,si,si,39.4,63.9,D,12/30/2023
+307,female,4.9,83.4,7.3,masters,False,No,yes,"39,3",78.4, c,03/15/2023
+894,Male,4.3,  75.7 ,7.5,Bachelors,NO,Yes,Yes,"67,6",76.6,C,16/04/2024
+576,Male,3.9,96.3%,6.9,None,Yes,Yes,YES,75.5, 81.6 ,B,"May 12, 2024"
+345,Male,5.4,87.4,7.4,PhD,yes,FALSE,yes,91.3,93.7,A,16/04/2024
+189,Hombre,1.7,92.8,8.8,Bachelors,Yes,No,No,56.1,67.5, d,"November 01, 2024"
+203,Femenino,3.9,86.1,7.7,Bachelors,Yes,True,No,90.3,,A,01/12/2024
+83,Hombre,6.1,  65.0 ,?,Ninguno,Yes,Yes,No,81.8,79.2,C,01/09/2023
+187,F,6.2,83.5,7.7,NaN,YES,si,Yes,-,70.0, c,"July 01, 2024"
+S-0685,Female,3.3,99.7,"7,5",NULL,Yes,no,No,37.2,64.0,D,2023-09-29
+S-0150,Female,"4,4",79.9,5.8,PHD,Yes,Yes,No,85.3,83.7,B,28/03/23
+811,F,3.1,  78.5 ,5.4,N/A,YES,No,Yes,45.4,80.0,B,"March 27, 2024"
+74,Male,2.3,96.0,4.9,High School,1,No,no,83.4,85.7,B,07 de September de 2023
+945,Female ,4.2,97.5,"4,8",High School,True,Yes,0,"56,9",76.0,C,19/03/23
+486,Male,"5,2",71.8,8.5,None,Sí,No,Yes,48.5,83.8,B,01/17/2024
+515,Female,5.0,71.2,"5,1",HIGH SCHOOL,Yes,Sí,FALSE,"37,3",65.4,D,01/01/2023
+69,M,"5,3",91.2,5.7,High School,Y,Yes,No,"64,4",67.7,B,"January 30, 2023"
+51, Male,1.6,  68.2% ,4.9,Masters,No,No,No,73.2,61.6,D,01/12/2023
+285,Female,4.5,88.7,"7,7",none,N/A,No,1,37.5, 81.2 ,B,16 de March de 2024
+327,Femenino,"0,6",  99.5 ,5.1,High School,None,No,Yes,60.1, 64.2 ,D,04/05/2023
+140,Masculino,6.0,91.4,8.1,None,1,Yes,Yes,59.1,91.1,A,12/28/2024
+857,Male,3.1,95.0,6.0,None,Yes,True,No,44.1,62.7,D,14/07/2023
+746,Male,1.3,79.8,5.9,Universitario,Sí,Sí,No,69.7,64.8,D,20/07/2023
+597,Male,5.2,72.6,8.1,HIGH SCHOOL,1,N,NO,46.3, 65.0 ,D,23 de May de 2024
+846,Female,3.2,66.9%,8.7,none,No,no,0,"65,5",78.0,C,05/02/23
+651,Female,2.7,93.9,7.6,masters,sin dato,Yes,0,52.4,58.0,F,2023-05-23
+406,F,2.6,67.9,4.8,Highschool,1,NO,Yes,47.8,57.0,F,04 de October de 2024
+946,Male,1.4,94.2,8.1,Bachelors,Yes,No,Yes,73.5,73.2, c,30/06/2024
+729,F,5.0,83.6,7.2,PhD,True,TRUE,No,61.6,79.8,C,"November 13, 2023"
+135,Male,5.4,93.9,6.8,bachelors,Y,No,No,53.9,85.4,B,2023-07-17
+75,FEMALE,3.2,69.8,6.9,high school,No,No,no,58.5,63.8,D,"May 26, 2024"
+S-0411,Male,3.3,95.9%,5.2,N/A,Yes,NO,1,"44,2",63.1, d,"May 14, 2024"
+679,Female,0.5,67.0%,5.8,PhD,True,True,yes,54.1,48.3,F,07 de September de 2023
+313,Male,"5,0",66.4,4.1,PhD,Yes,No,No,61.1,72.5,C,26-07-2023
+450, Male,"4,8",84.2,6.2,PhD,Yes,Yes,Yes,92.2,85.9,B,sin dato
+252,Female,1.1,,null,Bachelors,TRUE,Yes,No,87.2,66.4,D,06-01-2024
+389,Male,6.1,79.5,None,High School,Yes,No,No,"69,0",100.0, a,15/04/24
+347,Female,"2,7",76.6,"6,3",Ninguno,TRUE,0,No,42.7,56.1,F,21-05-2023
+319,Female ,3.2,84.5,8.7,None,True,No,No,36.2,57.3, f,29/03/24
+136,Female ,"0,9",65.0,5.1,Masters,No,No,1,"88,4",70.6,C,16/04/2024
+36,Male,5.0,-,"8,7",Secundaria,N,No,1,67.1,92.7,A,18/12/2023
+504,Male,1.4,sin dato,4.2,phd,yes,Yes,No,56.3, 55.9 ,F,23/12/24
+169,Female,1.2,98.5,4.8,Secundaria,Yes,Yes,No,88.0,72.4,C,01 de August de 2023
+417,Female,5.4,81.3,5.7,Bachelors,Yes,Yes,no,44.9,60.1,D,20230723
+336,male,"3,1",91.0,25,High School,True,si,Yes,51.0,,C,"August 18, 2023"
+577,M,3.4,77.1,7.8,PhD,Yes,No,YES,"45,2",60.1,D,07/07/2023
+702,Female,4.3,79.1,N/A,PhD,Yes,Yes,no,63.2, 65.1 ,D,20241130
+768,Female,5.6,79.7,6.5,Masters,Yes,Yes,Y,89.7,86.8,B,04/05/2023
+268,female,2.4,76.5%,8.7,Bachelors,Yes,No,No,67.2,86.0,B,"December 12, 2024"
+216,female,0.8,72.8,6.3,High School,Yes,Yes,FALSE,90.5,72.5,C,20230509
+109,Female,"3,5",79.0,6.7,Masters,1,No,NO,79.5,66.4,D,12/22/2024
+886,Male,5.5,  72.1 ,8.7,PHD,No,No,No,68.7,78.8,C,"May 01, 2024"
+560,Male,3.1,73.6%,9.0,Secundaria,TRUE,No,Yes,93.8,89.5,B,29-08-2024
+114,Male,5.4,99.7,6.7,NULL,Yes,Yes,False,"57,0",90.5,A,"August 09, 2023"
+783,Male,6.1,69.9,6.9,High School,YES,Yes,Yes,51.4,70.5, c,05/05/2023
+232,F,"1,7",,5.3,Master,True,Yes,No,63.0,54.2,F,12 de September de 2023
+422,MALE,3.2,74.6%,4.1,masters,Yes,yes,si,36.2,56.7,F,17/08/23
+521,Female,5.2,94.9,6.0,High School,Yes,TRUE,N,66.5,85.2,B,20/10/2023
+950,Female,"2,5",73.5,8.3,phd,True,No,1,88.9,82.6,B,31-10-2023
+276,Male,"6,6",82.7,5.2,high school,Y,Yes,NO,58.0,79.6, c,null
+202,Femenino,2.0,94.0%,6.7,MSc,YES,no,False,72.2,73.0,C,11-12-2023
+767,Male,4.8,90.9,7.7,Master,No,No,No,"51,8",81.8,B,13 de September de 2023
+123,Male,5.7,94.4,4.7,HS,Yes,NO,Yes,"94,9",86.4,B,26 de March de 2023
+S-0191,male,2.5,92.0,"5,7",PhD,Yes,Yes,NO,36.5,49.4,F,20240425
+585,Female,6.5,82.2%,NaN,phd,No,No,FALSE,"57,9",87.9,B,25-08-2024
+S-0856,Masculino,2.3,66.6,6.7,Secundaria,Yes,No,False,46.8,66.1,D,"July 15, 2024"
+624,Female,3.4,75.9,7.2,N/A,Yes,NO,No,79.1,78.5,C,08-01-2023
+41,Female,1.1,88.0,6.1,None,Yes,TRUE,Yes,"88,9", 71.7 ,C,fecha desconocida
+342,Mujer,6.1,96.7,5.7,Maestría,Yes,Yes,Yes,48.3,94.1, a,20/03/24
+642,Male,"2,1",90.8,"8,4",phd,Yes,No,No,"84,2",75.1,C,2024-08-15
+719,Male,5.4,81.3,8.3,high school,Yes,Yes,No,50.3,75.8,C,"December 12, 2024"
+493,Male,2.5,66.4,5.6,High School,No,NO,Yes,62.5,60.4, d,27 de October de 2024
+845,Masculino,5.8,N/A,7.4,BACHELORS,Y,No,Yes,"79,5",94.0,A,08-09-2024
+430,Female,"2,9",72.1,4.6,Universitario,1,No,No,"35,1",63.2,D,30 de December de 2024
+426,female,2.4,80.4,"7,4",Bachelors,Yes,No,Yes,76.0,70.9,C,03/08/2024
+641, Male,"0,7",89.8,6.7,High School,TRUE,No,0,94.7,60.2,D,2023-03-05
+377,Female,5.0,99.1,4.1,None,Yes,No,Yes,41.6,74.9,D,11/07/2024
+482,Mujer,5.8,69.5,4.6,Bachelors,Yes,yes,No,92.0,86.2,B,20230621
+124,FEMALE,3.2,86.7,8.7,Ninguno,NO,No,True,82.4,82.7, b,20/02/2023
+533,FEMALE,"3,3",72.3%,,Masters,si,Yes,No,59.5,58.6,F,2024-13-40
+925,Male,5.0,94.0,4.5,High School,Yes,Yes,Y,69.0,82.0,B,19-06-2024
+160,Femenino,6.8, ,"6,6",Secundaria,No,False,yes,37.9,74.0,C,14/12/24
+143,Female,"3,3",87.2%,8.6,bachelors,N,NO,Yes,62.1,84.7, b,"October 13, 2023"
+240,Female,6.1,68.4,5.4,Masters,Yes,No,No,50.9,76.1,C,31/01/2023
+752,Mujer,"4,1",77.4,7.6,?,si,Yes,No,38.7,67.0,D,"October 08, 2023"
+596,Male,5.9,  76.0% ,4.7,Masters,No,0,No,74.0, 75.6 , c,23-01-2023
+889,Masculino,5.2,  88.7 ,5.8,Ph.D.,Yes,No,no,77.6,78.0,C,20230625
+442,Mujer,4.7,  68.1 ,6.2,Bachelors,TRUE,Yes,Yes,39.3, 68.1 ,D,20 de June de 2023
+260,Female,5.0,95.4,5.8,Bachelors,Yes,No,Yes,39.1,78.9,C,20230220
+615,Male,0.5,98.7,"6,7",High School,NA,yes,No,"52,4",66.8,D,13 de March de 2024
+927,Female ,1.8,83.4,8.0,Ph.D.,Yes,No,No,44.6,59.4,F,26/03/2023
+137,Female,"6,6",67.1,5.1,Bachelors,Yes,Yes,No,47.8,67.1,D, 
+346,Mujer,5.1,NA,6.3,High School,?,Yes,N,51.2,73.2,C,27-04-2023
+441,MALE,6.7,  70.1% ,6.6,None,Yes,No,Yes,38.3,N/A,C,"February 25, 2023"
+901,Male,5.2,78.2,6.9,Secundaria,TRUE,No,No,56.4,81.9,B,23/05/2023
+613,Female,2.1,80.0,7.4,sin dato,Yes,No,Yes,46.9,64.2,D,"October 30, 2024"
+S-0292,Masculino,6.6,85.0,"6,1",Bachillerato,Yes,Yes,Yes,NaN,84.3,B,20230908
+538,Male,2.5,69.8%,7.3,High School,yes,No,Yes,"78,9",68.6,D,20-07-2024
+768,FEMALE,5.6,79.7,6.5,Masters,Yes,Yes,Y,89.7,86.8,B,04/05/2023
+S-0792,M,"5,1",70.5,6.1,HS,YES,TRUE,True,86.1,97.3,A,12 de July de 2024
+465,female,1.2,69.7,4.3,Doctorate,Yes,Yes,No,68.1,60.2,D,28 de February de 2023
+456,Male,1.1,89.9,"7,6",PhD,N,YES,TRUE,84.7,70.3,C,20240114
+826,Mujer,0.8,87.9,?,N/A,Yes,No,No,49.4,60.1,D,12-12-2023
+361, Male,5.7,95.8,6.4,HIGH SCHOOL,0,No,Yes,64.3,87.2,B,20240208
+425,Mujer,4.0,  74.5 ,5.6,MSc, ,No,No,72.3,70.9,C,2024-03-31
+408,F,2.4,77.1,8.0,Postgrado,No,Yes,No,51.7,61.9,D,08/24/2023
+229,MALE,6.9,81.6,4.7,Bachelors,Yes,No,Yes,"65,2",79.7,C,
+682,Male,2.6,97.1,7.7,-,Yes,Yes,Yes,52.0, 72.0 ,C,10-06-2024
+392,Female,1.2,70.4,8.2,Pregrado,Yes,Yes,Yes,63.4,65.8,D, 
+S-0151,Female,"6,2",65.8,6.6,HIGH SCHOOL,Yes,Yes,Yes,75.1,83.7, b,18/05/2024
+454,Male,4.5,67.6,4.9,Pregrado,si,No,No,46.2,None,D,00/00/0000
+586,Female,5.2,71.2,7.7,Bachelors,No,Yes,No,57.7,67.9,D,20230809
+497,female,4.8,83.8,5.2,Bachelors,Yes,Yes,No,"73,2",75.7,C,09/12/2024
+723,male,5.3,87.8,5.1,,TRUE,Yes,NO,37.7,64.2,D,"December 08, 2024"
+485,Male,"4,3",70.1,6.2,Bachelor,Y,False,No,44.9,58.5, f,28 de March de 2023
+585,FEMALE,6.5,82.2%,NaN,phd,No,No,FALSE,"57,9",87.9,B,25-08-2024
+353,male,"0,8",95.3,5.8,MSc,1,Yes,N,50.4,48.9,F,06 de January de 2024
+448,Female,4.0,69.3,6.0,MSc,Sí,No,Yes,"84,3",65.0,D,"September 10, 2024"
+694,Masculino,6.5,87.8,4.6,PhD,Yes,No,No,43.3,76.4,C,31/02/2023
+799,Male,2.7,65.2,8.9,High School,yes,No,No,37.4,,F,NA
+21,Female,6.3,83.2%,5.6,PhD,Yes,Yes,Yes,40.7,83.8,B,28 de April de 2024
+542,Female ,4.4,86.1%,5.7,Sin educación,No,Yes,Yes,sin dato,80.8,B,09 de September de 2024
+48,Female,2.1,94.7%,4.3,PhD,Yes,0,No,NaN,76.6,C,08 de November de 2024
+629,Male,5.0,74.0,8.5,High School,si,NO,No,87.1,91.9,A,20240830
+912,Male,3.2,None,5.6,Bachelors,Yes,1,No,"51,1",67.6,D,28-08-2023
+187,F,6.2,83.5,7.7,NaN,YES,si,Yes,-,70.0, c,"July 01, 2024"
+710,M,5.8,sin dato,"5,0",Bachelors,Yes,Yes,Yes,78.5,,B,2024-01-18
+944,male,"4,2",73.4%,"8,7",High School,No,Yes,No,65.0,69.6,D,07/30/2023
+750,M,2.1,66.5,7.0,Bachelors,False,False,Yes,73.6,59.8,F,05/09/2024
+736,Female,4.3,92.7%,"5,3",PhD,TRUE,N,No,58.2,74.5,C,27-05-2024
+S-0559,Femenino,4.5,71.9,"8,5",Bachelors, ,False,FALSE,49.4, 70.5 ,C,20241007
+120,FEMALE,2.6,  84.1% ,6.4,Doctorado,Yes,No,Sí,"89,8",80.2,B,01 de September de 2023
+553,Male,"6,4",None,5.6,PhD,Yes,Yes,Yes,73.0,78.4,C,13 de August de 2023
+175,Male,"3,1",84.9,6.8,Pregrado,Yes,No,Yes,82.6,67.6,D,20230321
+270,Male,5.2,?,7.5,N/A,YES,1,NO,78.1,73.4,C,06/07/24
+612,Femenino,3.5,76.4,4.6,Bachelors,N,No,Yes, ,69.0,D,09-05-2023
+566,Male,4.7,94.0,8.3,Masters,Yes,No,True,"71,9", 97.8 ,A,04 de August de 2023
+149,Femenino,1.7,85.8,8.4,PhD,Yes,True,No,63.9,66.8,D,03/15/2023
+523,Male,5.7,73.6,sin dato,High School,N,Yes,Yes,NaN,-, b,2024-02-18
+807,Male,2.1,89.8%,7.8,none,Sí,Sí,No,79.4,78.7,C,2024-04-24
+223,Male,6.7,87.8%,4.6,Bachelors,No,No,Yes,44.2,72.4, c,20231224
+339,M,4.7,97.2,5.2,Pregrado,No,TRUE,No,82.0,76.6,C,20230313
+329,F,0.6,73.7,8.6,None,Yes,0,yes,70.5,63.5,D,08 de December de 2024
+688,Masculino,"3,7",84.6,4.9,Bachelor,Yes,0,Yes,52.4,62.8,D,09 de May de 2024
+158,Male,"4,0",96.5,8.9,BACHELORS,TRUE,No,FALSE,58.2,69.8,D,19/12/2023
+376,Male,6.5,84.5,5.0,PhD,Yes,No,False,-,80.8,B,20240205
+541,Female,5.0,85.5,6.6,HS,Yes,No,No,58.3,94.6,A,11-06-2023
+385,Masculino,"2,4",91.3,8.0,None,Yes,Yes,Yes,93.0,42.8, c,20230808
+854, Male,"2,6",94.1,4.6,Bachelors,1,No,NO,68.2,67.5,D,27 de April de 2023
+290,Male,"1,4",86.5%,"5,2",None,Yes,Yes,FALSE,84.2, 55.3 ,F,14-09-2023
+803,Female,4.6,81.9,8.2,High School,Yes,Yes,No,84.2,92.7,A,20230731
+607,Male,1.4,83.1,4.5,Masters,yes,No,No,47.5, 55.7 ,F,20230215
+S-0130,M,6.1,93.8,6.7,Sin educación,Yes,Yes,1,79.3, 92.4 , a,"March 09, 2023"
+46,female,1.2,100.0,7.3,NaN,Yes,No,No,36.7,53.6,F,2023-03-08
+516,MUJER,6.5,72.5%,5.6,PhD,si,yes,No,42.6,57.3,F,2024-09-08
+516,Mujer,6.5,72.5%,5.6,PhD,si,yes,No,42.6,57.3,F,2024-09-08
+120,FEMALE,2.6,  84.1% ,6.4,Doctorado,Yes,No,Sí,"89,8",77.5,B,01 de September de 2023
+S-0403,Female,4.9,87.5,4.9,PhD,TRUE,No,No,59.9,70.2,C,05 de December de 2024
+S-0934,Male,6.6,95.0,5.7,PhD,Yes,Yes,No,74.3,85.4,B,24/07/2023
+404,MALE,5.8,72.6,8.0,None,Yes,no,YES,84.0,84.7,B,"July 21, 2023"
+461,male,2.1,83.8,6.2,Bachelors,yes,No,True,89.5,80.5,B,20240229
+188,Masculino,3.8,85.4,6.0,Universitario,si,0,Sí,79.2,75.9,C,28/10/2024
+195,male,4.7,72.1,-,Bachelors,Yes,Yes,no,43.5,65.1,D,13-09-2023
+S-0073,Female ,6.3,  88.5% ,5.2,Bachelors,No,No,no,"52,9",67.8,D,"September 12, 2023"
+918,male,6.8,90.4,5.3,None,Yes,False,No,None,89.5,B,2023-11-05
+843,FEMALE,5.1,79.2,7.0,High School,No,Yes,No,"69,4",79.3,C,12/19/2024
+617,Female,2.7,88.5,4.7,Highschool,No,YES,TRUE,"45,5",53.1,F,23-09-2023
+91,Female,1.3,96.4,8.4,Bachelors,Yes,Yes,Yes,sin dato,52.5, f,NULL
+470,Female,0.7,90.6%,7.9,Doctorado,Yes,No,Sí,87.1, 70.8 ,C,2023-05-06
+631,Female ,4.3,79.7,None,None,Yes,False,No,"88,5",79.9,C,23/05/23
+625,Male,2.5,79.7,null,none,TRUE,Yes,Yes,"75,1",67.7,D,"February 21, 2023"
+443,Masculino,6.9,  99.9 ,8.9,Bachelors,null,No,Yes,49.3,89.7,B,20230228
+434,Male,6.2,84.1,8.1,PhD,Yes,yes,NO,58.2,84.2,B,"December 13, 2023"
+505,Female,2.1,90.4,5.4,PHD,TRUE,Yes,Yes,75.5, 69.3 ,D,20240513
+708,Female,6.2,88.0,7.8,Masters,Yes,Yes,Yes,"42,7",85.8,B,10/02/2024
+458,Female,"3,0",99.9,"4,8",PhD,YES,No,NO,89.5,92.6,A,16-12-2023
+654,female,"3,9",94.7,4.1,bachelors,Yes,Yes,no,,69.2,D,NA
+272,Male,4.0,81.8,6.9,HIGH SCHOOL,Yes,Sí,No,70.1,74.1,C,2023-10-23
+416,Female,1.1,90.1%,5.3,Bachelors,N,No,Yes,40.1,51.1,F,14-08-2023
+S-0122,Female,2.2,85.5,6.0,Highschool,1,No,No,45.1,58.7, f,18 de August de 2024
+377,Female,5.0,99.1,4.1,None,Yes,No,Yes,41.6,68.2,D,11/07/2024
+745,Hombre,4.6,94.4,"7,7",Masters,yes,no,FALSE,58.6,52.8,C,01/04/2024
+806,Male,4.2,66.9,5.6,None,Yes,1,Yes,86.6,73.9,C,28/10/24
+303,Female,2.8,  79.4 ,4.8,PHD,Yes,N,yes,58.6,60.9,D,"July 26, 2024"
+152,Female,"0,8",81.2,6.6,Master,Yes,Yes,Yes, ,50.1,F,04/12/2023
+534,Male,4.3,83.1,7.4,Bachelors,Y,1,No,36.0,74.0,C,17/11/24
+847,Female,"4,3",69.1,4.0,PhD,yes,False,No,57.4,62.8, d,11/23/2024
+324,Female,4.0,88.6%,6.3,N/A,Yes,No,No,"37,1",60.8,D,"June 28, 2023"
+S-0142,Mujer,"4,3",69.5,5.6,High School,si,No,No,70.4,82.7,B,17-03-2023
+297,Femenino,4.2,81.4%,7.1,none,Yes,Yes,No,69.9,77.9,C,19-10-2023
+401,Female,2.0,88.0,NULL,None,True,Yes,No,76.7,76.9,C,10/11/2024
+932,female,6.9,92.9%,6.5,Masters,1,No,FALSE,90.9,100.0,A,05-03-2024
+773,Female,4.0,71.1,7.0,Bachelors,NaN,No,Yes,"49,9", 64.4 ,D,"July 18, 2024"
+872,MALE,"6,0",90.9,7.1,sin dato,si,N,NO,79.8,84.2,B,20230403
+884, Male,3.8,94.7,4.4,-,TRUE,Yes,Yes,66.5,71.7,C,10/04/2024
+387,Male,"5,1",  94.3 ,6.8,sin dato,Yes,Yes,No,NA,91.0, a,07/01/2024
+220,Female,1.9,81.2,8.7,N/A,Y,Yes,No,57.7,59.5,F,2023-06-07
+S-0304,Female,2.4,84.4,5.7,None,NULL,N,Yes,66.8,76.1,C,20231202
+335,Male,6.3,91.7%,7.5,High School,TRUE,No,No,"40,5",85.0,B,01/06/2024
+513,Female,3.8,72.5,8.7,Bachelor,Yes,0,Yes,72.4,82.7,B,18/10/24
+110,Female,6.5,76.9,4.3,None,yes,Yes,No,80.1,NULL,B,02-08-2024
+88,F,"2,6",93.0%,-,PhD,Yes,No,Sí,39.7, ,D,null
+842,Female,4.5,80.4%,5.9,PhD,No,FALSE,No,72.0,78.8,C,20240822
+372,Male,5.7,85.6,7.9,Masters,Yes,No,Y,37.3,81.7,B,24 de January de 2023
+900,Male,2.4,74.1,NaN,Maestría,YES,No,No,69.9,61.1,D,2023-04-03
+598, Male,1.1,71.7,6.3,Masters,No,Sí,Y,93.7,56.2,F,15-02-2024
+280,Female,5.9,70.1%,?,Secundaria,True,No,Yes,68.8,82.3,B,07/06/23
+219,Female,5.2,94.7,6.4,none,Y,No,No,79.0,92.7,A,"August 16, 2023"
+458,Female,"3,0",99.9,"4,8",PhD,YES,No,NO,89.5,92.6,A,16-12-2023
+S-0754,Hombre,4.1, ,5.0,Masters,Yes,No,No, ,69.6,D,NA
+S-0221,Femenino,4.5,97.4,5.3,High School,Yes,No,Yes,40.3,64.8,D,2024-12-21
+200,Female,2.4,  84.9% ,"5,4",Doctorado,si,Y,False,72.4,68.6, d,29 de March de 2024
+178,F,1.6,93.4,5.3,None,0,False,No,83.9,64.9,D,20230413
+81,Female,"1,2",66.4,5.2,PhD,Yes,No,No,53.8,49.8,F,20231129
+759,Female,5.1,99.7%,7.6,PhD,Yes,Sí,Yes,"48,3", 77.6 ,C,"March 14, 2024"
+885,Male,"6,3",  94.4 ,8.8,MSc,No,Sí,Yes,88.8,97.9,A,11/21/2023
+670,Male,6.4,75.0%,5.1,PhD,Y,Yes,Yes,NA,85.4,B,11/27/2023
+398,MALE,"5,5",92.7,6.0,Sin educación,TRUE,Sí,No,58.4, 90.3 ,A,"October 30, 2024"
+S-0926,Female,5.9,82.9,7.1,Bachillerato,Yes,Yes,Yes,89.2,91.6,A,17/01/23
+S-0852,Female,"6,4",99.1,9.0,-,Yes,FALSE,N,36.4, 81.2 ,B,20231126
+S-0732,female,2.2,68.3%,6.0,HS,NaN,FALSE,Yes,N/A,60.0, d,2023-03-25
+59,Femenino,2.9,98.5,9.0,None,si,Yes,N,77.3,80.9,B,08/16/2023
+2,Female,2.9,97.4%,7.2,Bachelors,TRUE,no,Yes,68.3,70.0, c,20-11-2023
+630,Female,3.9,96.6,4.8,Bachelors,Sí,Yes,yes,87.1,87.7, b,"July 04, 2024"
+264,Male,2.6,75.7,5.3,Bachelors,Yes,yes,No,71.1,67.1,D,"April 20, 2023"
+870,Male,6.2,74.4,4.3,High School,Yes,No,Yes,65.4,NA,C,20-03-2023
+436,Hombre,4.1,83.8,8.1,HS,Yes,Yes,No,70.2,79.6, c,31/02/2023
+422,MALE,3.2,74.6%,4.1,masters,Yes,yes,si,36.2,56.7,F,17/08/23
+491,MALE,"1,7",86.5,5.1,High School,Y,Yes,Yes,43.3,49.0,F,20231004
+431,Male,3.2,90.1,8.6,-,Yes,FALSE,no,37.4,57.3,F,05/12/23
+619,Female,1.3,99.4,7.4,High School,No,No,No,58.1,64.6,D,2024-07-03
+S-0724,Male,"7,0",75.6%,4.1,High School,True,si,Yes,94.5,85.6,B,2023-03-03
+96,Female,3.9,91.0,7.7,Highschool,Yes,N,1,89.2, 82.4 ,B,20240221
+13,Male,6.4,  81.0 ,5.0,None,Yes,No,Y,86.4,89.7,B,2024-02-27
+84,Female,2.6,73.5,6.4,High School,si,Y,Yes,90.8,67.8,D,16/06/23
+S-0106,Female,2.7,83.6,5.2,PhD,Yes,Yes,N,88.3,70.9,C,28-04-2023
+495,Female,4.3,66.6,8.1,Ninguno,Sí,No,Yes,93.2, 86.9 ,B, 
+357,F,"5,1",NA,7.0,HIGH SCHOOL,TRUE,no,yes,35.8,74.2,C,fecha desconocida
+S-0683,M,3.4,66.5%, ,none,No,Sí,False,55.5,65.7,D,18/05/24
+194,FEMALE,2.0,66.0,"8,8",High School,Yes,Yes,No,66.9,77.9,C,20240408
+738,Female,6.9,  88.4 ,6.6,Masters,1,False,0,92.5,100.0, a,03 de October de 2023
+253,Femenino,5.4,94.5,8.3,Masters,Yes,1,Yes,86.6,96.5,A,11 de February de 2024
+451,Male,6.8,89.6,4.8,Doctorado,sin dato,Yes,N,51.9,91.0,A,2023-03-28
+775,Male,2.6,87.0%,7.0,MSc,Yes,Yes,TRUE,42.7, 63.2 ,D,2023-01-04
+S-0587,Female,5.6,84.4,5.5,None,Yes,0,no,86.8,92.0, a,31-08-2023
+245,Male,1.3,97.8,8.5,MSc,Yes,Yes,NO,78.1,70.2,C,08/24/2023
+S-0824,Male,7.0,70.7,7.0,None,No,0,No,77.9,89.8,B, 
+308,FEMALE,4.9,94.4,"9,0",Pregrado,si,Yes,no,37.9, 76.5 ,C,00/00/0000
+141, Male,"4,2",  93.2 ,"4,9",PhD,No,Yes,No,93.3,85.2,B,"December 31, 2023"
+690,Male,3.3,80.6,5.1,None,TRUE,Yes,N,41.8,72.2,C,20230417
+S-0042,Female,2.9,76.0,4.8,High School,Yes,Yes,FALSE,58.0,70.8, c,11/14/2024
+293,FEMALE,6.3,87.1%,6.6,Bachelors,Y,1,Yes,"84,4",86.9,B,"December 06, 2023"
+666,Male,3.5,69.2,6.8,Doctorado,si,No,No,74.3,80.6,B,14 de February de 2023
+762,Male,0.8,87.7%,6.8,bachelors,Yes,Yes,N,56.0,52.6,F,02/19/2024
+687,Male,"1,8",82.0,4.2,Sin educación,Yes,1,Yes,62.6,70.8, c,29 de July de 2024
+262,Female,4.1,79.9,8.0,High School,Yes,Yes,no,N/A,74.8,C,01/01/2024
+116,Male,1.3,68.2%,7.3,Bachelors,si,No,Yes,54.6,65.3,D,04/28/2024
+627,Female,1.0,80.2,4.9,Bachelors,No,Sí,False,56.6,58.2, f,00/00/0000
+579,Female ,3.1,80.7,5.9,phd,,Yes,si,41.1,-,F,2023-08-02
+794,male,6.1,98.4,"5,0",Maestría,Yes,No,no,"69,2",79.6,C,04 de March de 2024
+728, Male,2.8,69.1,null,Bachelors,Yes,No,NO,65.1,61.8,D,18/05/2024
+665,Female,5.0,98.7,"8,5",Sin educación,si,si,N,84.0,100.0,A,2023-10-02
+407,male,4.9,73.4,?,Doctorado,si,Yes,Yes,69.5,89.1,B,04/04/2023
+508,Female,6.0,71.7,sin dato,HS,YES,NO,yes,75.7,NA,B,24-12-2023
+301,Femenino,5.1,81.4,8.5,phd,True,Yes,No,93.3,86.6, b,05/05/2023
+S-0281,Female,6.4,sin dato,8.6,Masters,NO,No,No,72.2,90.1,A,null
+17,Female,2.2,76.6,6.6,Bachelors,Yes,True,No,88.8,72.4,C,"January 16, 2023"
+334,Female,2.1,91.1,4.4,Bachelors,Yes,FALSE,Yes,39.8,55.1,F,06/03/24
+790,Male,3.1,65.2,8.8,NULL,no,1,False,54.0,77.0,C,01/08/2023
+744,Male,3.7,  70.8% ,6.7,Bachelor,Yes,Yes,Yes,86.4,75.4,C,25-04-2023
+367,Male,2.6,  74.0 ,9.0,PhD,TRUE,yes,Yes,"36,5", 70.0 ,C,2023-02-04
+179,Female,6.8,?,6.1,NULL,Yes,No,FALSE,81.3,89.8,B,04-07-2023
+98,Female,2.6,86.3,6.9,High School,Yes,Yes,NO,63.1, 74.6 ,C,"March 15, 2024"
+572,Masculino,"1,1",81.6,5.1,Masters,Yes,Yes,Yes,70.4,64.5,D,03-01-2023
+575,FEMALE,"3,8",83.5,7.3,None,Sí,No,No,38.3,60.1,D,20230103
+667,male,"6,1",sin dato,7.5,Maestría,Y,Yes,Yes,38.5,None,C,?
+626,Hombre,0.8,84.7,6.0,Postgrado,sin dato,N,yes,NA,69.9,D,26-07-2024
+948,Female,2.5,99.1,5.7,None,Yes,No,No,79.6,81.0,B,"June 28, 2024"
+816,Female,"3,7",78.5,7.5,Bachelors,YES,True,No,63.7,75.1,C,21/07/23
+544,F,"5,7",  82.5 ,5.4,Ph.D.,Yes,No,No,69.3,81.4,B,03/10/24
+512,M,6.1,75.6%,7.4,phd,Yes,No,Yes,43.2,83.9, b,08/24/2023
+341,Male,"3,4",79.3,4.9,Secundaria,Yes,Sí,si,92.8,81.5,B,24-11-2023
+206,Male,5.4,73.1%,8.5,Universitario,TRUE,Yes,No,94.9,80.9,B,05-07-2024
+772,Hombre,"4,1",77.8,0,High School,Yes,si,N,58.8,77.6,C,09/05/2023
+S-0602,female,5.6,  65.2 ,None,Pregrado,Y,No,0,90.7,NaN,A,fecha desconocida
+705,Male,2.3,82.5,N/A,Bachelors,No,Yes,0,55.9,62.6,D,06/01/2024
+364,F,5.1,93.7,6.4,Maestría,Y,Y,Yes,"74,9",88.3, b,25/08/23
+54,Female,3.2,72.6,6.9,BACHELORS,Yes,No,NO,63.4,75.2,C,01/27/2023
+380,Male,"0,9",94.8%,8.3,MSc,Yes,YES,No,44.3,63.1,D,2024-04-26
+S-0818,Male,4.0,93.8,6.7,Doctorate,Yes,si,No,"60,5",80.5,B,27-02-2023
+S-0502,female,1.1,79.5,7.9,HS,No,Yes,No,null,63.9,D,2024-06-19
+700,Male,5.1,70.5,8.2,High School,No,No,No,"65,3",77.0,C,22-04-2023
+863,Male,6.2,72.1,7.5,HIGH SCHOOL,Yes,Yes,FALSE,sin dato,null,C,04 de August de 2023
+539, Male,1.1,  98.2% ,6.3,None,Sí,No,Yes,65.3,64.5,D,17/01/23
+445,Female,"3,7",70.3,-,none,-,Yes,Yes,90.8,73.7,C,12-07-2023
+677,F,1.8,94.6,8.2,Bachelors,None,0,No,"42,8",74.6,C,06/12/2024
+237,Male,1.1,  65.9% ,5.0,Highschool,NaN,NO,False,sin dato, 51.5 ,F,24-12-2024
+827,Male,4.4,98.5,6.7,bachelors,1,No,Yes,74.2,79.4,C,"August 12, 2024"
+914,Hombre,"6,5",83.2%,"7,3",N/A,Yes,NO,No,"94,7", 91.9 ,A,02/13/2023
+57, Male,5.9,82.3,4.6,HIGH SCHOOL,Y,No,Y,51.8, 77.2 ,C,20240906
+131, Male,3.8,None,6.3,Maestría,True,Sí,TRUE,80.1,84.7,B,06/10/2023
+461,MALE,2.1,83.8,6.2,Bachelors,yes,No,True,89.5,80.5,B,20240229
+650,Female,4.3,83.0,6.8,Doctorate,Yes,1,Yes,73.8,99.5,D,03/15/2024
+808,Male,"1,5",69.6,8.7,Sin educación,False,YES,yes,69.5,71.8,C,05 de August de 2024
+836,Female,2.7,98.7%,6.5,None,Yes,Yes,si,91.8,82.8, b,20230405
+490,Female,5.3,70.3,5.3,Sin educación,Yes,No,Yes,35.1,64.0,D,26 de January de 2024
+362,Male,1.2,75.8%,6.8,PhD,si,Yes,No,39.3,49.6, f,20230227
+393,FEMALE,5.7,73.0,7.0,Masters,1,TRUE,No,-,82.2,B,08/10/2023
+433,Female,3.1,69.7,5.0,High School,1,N,N,66.8, 71.6 ,C,14/08/24
+874,Female,4.7,92.2,8.9,N/A,No,Yes,Yes,54.8,85.6,B,19 de July de 2023
+510,Female,5.2,72.1,5.1,Universitario,FALSE,0,Yes,,72.8,C,20231114
+331,F,5.8,87.9%,7.6,Bachelors,1,No,N,51.7,93.0, a,09/30/2024
+765,Femenino,"1,5",69.3,8.6,High School,Yes,N,No,56.6,60.5,D,15 de March de 2024
+799,Male,2.7,65.2,8.9,High School,yes,No,No,37.4,,F,NA
+939,Male,4.8,88.0,8.2,PhD,Yes,No,Yes, ,84.4, b,NaN
+256,Female,"5,2",98.2%,7.8,None,Yes,Sí,No,"54,5",84.6,B,2023-12-21
+349,Male,2.9,75.6,4.9,Masters,0,Yes,No,73.4,58.0,F,16-02-2023
+352,Male,1.1,71.6,"4,4",Masters,Yes,Yes,0,77.6,62.4,D,21/12/2024
+278,Female,1.9,93.7,6.5,Bachelors,Yes,No,No,84.7,71.4,C,2024-05-13
+465,female,1.2,69.7,4.3,Doctorate,Yes,Yes,No,68.1,60.2,D,28 de February de 2023
+S-0321,Male,1.9,65.8%,"8,7",Pregrado,Yes,No,si,93.9,86.8,B,20230403
+797,Male,"2,8",67.4%,6.0,MSc,Yes,FALSE,Yes,74.5,65.2,D,26/08/2023
+656,Female,"6,7",68.7%,6.6,Ninguno,True,NO,No,82.9,87.9,B,20230712
+44,Male,4.6,69.3,6.9,PhD,Yes,No,No,84.5,73.9, c,"January 09, 2023"
+374,Female ,2.5,76.6,"7,5",Bachelors,Yes,Yes,No,"88,6",72.9,C,31/02/2023
+200,Female,2.4,  84.9% ,"5,4",Doctorado,si,Y,False,72.4,68.6, d,29 de March de 2024
+549,Female ,4.0,  93.0% ,7.0,PhD,si,No,No,48.7,64.4,D,2024-04-23
+930,Hombre,3.7,84.8,4.5,BACHELORS,Y,No,TRUE,"93,4",90.1,A,"May 06, 2023"
+758,Female,4.5,  74.0 ,8.9,bachelors,Y,N,si,73.2,76.7,C,20230429
+446, Male,4.1,73.8,6.3,Universitario,Yes,Yes,Yes,46.6, 59.5 ,F,10/06/2024
+118,Mujer,1.8,84.0,7.5,PhD,no,No,yes,72.5,75.7,C,21/03/2024
+622,Male,"6,3",96.9,6.7,none,yes,Yes,No,60.7,91.0,A,12/02/23
+709,Male,1.4,86.9,5.6,Highschool,Yes,Yes,False,82.6,null,D,"March 14, 2024"
+935,Male,4.1,92.7,5.2,High School,No,N,Yes,36.5,64.2,D,08/03/24
+554,Male,1.2,65.2%,8.3,PhD,Yes,Yes,FALSE,48.4,52.6,F,?
+296,Female,2.0,94.4,-,None,True,No,FALSE,83.3,72.6,C,29 de June de 2023
+874,FEMALE,4.7,92.2,8.9,N/A,No,Yes,Yes,54.8,85.6,B,19 de July de 2023
+675,M,1.0,  68.4 ,8.0,,Yes,Yes,TRUE,78.8,59.8,F,26/06/23
+466,Female,3.9,N/A,8.4,Highschool,Yes,No,Yes,83.4,66.3, d,20230316
+S-0032,Female ,1.7,73.3%,5.2,None,YES,No,Yes,"57,4",58.0,F,10/31/2023
+315,Female,"1,9",  80.8 ,"6,3",masters,Yes,no,No,74.0,64.7,D,14/05/24
+712,Male,1.8, ,7.5,Bachelors,TRUE,No,No,"82,0",71.8,C,01/21/2024
+30,Male,"1,4",97.2,4.8,High School,Yes,No,Sí,36.3,51.3,F,23/04/2023
+441,Male,6.7,  70.1% ,6.6,None,Yes,No,Yes,38.3,N/A,C,"February 25, 2023"
+S-0079,Male,5.6,92.4%,6.2,Bachelors,YES,No,0,"83,9",87.1, b,2024-12-27
+239, Male,1.1,99.8,7.9,PhD,Yes,Yes,YES,81.2,71.0,C,24/04/24
+S-0947,Female ,6.6,90.9%,"5,2",Sin educación,Yes,Yes,Yes,50.4,87.5,B,11/23/2024
+653,Male,6.7,82.2,"4,2",Masters,Yes,Yes,No,40.1,80.0,B,20230426
+214,Femenino,2.5,81.7,"5,8",Bachelors,True,No,Yes,77.7,71.1, c,03/02/2023
+743,male,2.7,null,7.6,High School,Yes,No,No,93.8,86.0,B,20/06/23
+95,Male,1.7,72.0,"8,3",Doctorate,No,Yes,No,79.0,70.1,C,06/04/2023
+246,Male,"1,2",100.0, ,None,FALSE,Yes,NO,40.3, 74.0 ,C,19/12/2023
+288,female,"1,6",80.8,"6,0",HIGH SCHOOL,Yes,No,No,42.5,49.1,F,2024-10-13
+S-0632,Male,4.0,94.9%,7.7,None,Yes,Yes,No,86.2,82.7,B,20230401
+695,Male,3.4,94.3,4.4,Masters,si,Sí,Yes,62.7,75.6,C,20230128
+496,Female,1.6,88.0,"9,0",Ninguno,TRUE,Yes,1,73.9,77.5,C,"October 23, 2024"
+605,Female,3.4,65.2,"6,9",Bachelors,True,No,No,"66,8", 71.1 ,C,08/05/23
+236,Femenino,2.1,74.6%,4.2,None,TRUE,Yes,Yes,58.1,43.9,F,2023-05-21
+38,F,1.1,  90.4% ,4.4,Masters,FALSE,No,No,"83,1", 74.5 ,C,11/04/23
+444,Female,3.4,76.9,4.9,None,Yes,Yes,No,"49,5",58.8,F,18-09-2023
+S-0611,Female,4.6,95.6,5.8,N/A,Y,True,NO,"70,5",76.9,C,"October 20, 2023"
+476,Male,1.5,96.8,5.1,Ph.D.,,No,Yes,N/A, ,F,2024-03-17
+595,Female,"5,8",87.6%,4.4,High School,yes,no,No,92.1,84.8,B,19-10-2024
+780,Female,6.3,65.0,5.1,Masters,Yes,Yes,True,"72,6",72.4,C,01-04-2023
+S-0035,Female ,2.2,69.9,6.4,Masters,Yes,No,YES,57.0,58.2,F,19/06/2023
+603,Male,3.4,88.0,6.1,Bachillerato,1,Yes,NO,"47,3",69.0,D,"March 09, 2023"
+69,M,"5,3",91.2,5.7,High School,Y,Yes,No,"64,4",85.5,B,"January 30, 2023"
+594,Female,6.4,91.4,7.3,High School,Sí,No,no,70.7,87.7, b,20241022
+731,Male,6.1,83.0,5.3,PhD,1,Y,N,95.0,82.2,B,"November 14, 2023"
+562,Female,1.5,75.6,4.7,None,No,Yes,No,NA,56.9,F,10/01/24
+835,Male,2.0,92.3,7.9,None,Yes,No,Yes,"40,2",59.9,F,2023-05-06
+S-0427,Female ,4.5,98.6,6.5,Master,si,No,Yes,52.0,80.7,B,20240529
+785,male,3.5,  73.0 ,9.0,Master,Yes,si,No,85.3,86.4,B,28/11/24
+S-0501,Female,"3,9",95.7,N/A,Universitario,YES,Yes,No,52.9,68.2,D,08-08-2023
+694,Masculino,6.5,87.8,4.6,PhD,Yes,No,No,43.3,76.4,C,31/02/2023
+722,Female,"0,8",85.6,6.9,PhD,Yes,Yes,Yes,"80,1",69.1,D,19/04/2023
+943,Male,6.4,84.5,4.0,None,Yes,0,Yes,NaN,79.1,C,20240721
+242,Male,1.5,77.3,6.8,Bachelors,Y,Yes,Yes,"93,2",70.0,C,20240824
+890,FEMALE,1.8,74.2,8.7,Masters,Yes,Yes,No,58.2,67.7,D,28-06-2023
+625,MALE,2.5,79.7,null,none,TRUE,Yes,Yes,"75,1",67.7,D,"February 21, 2023"
+636,Femenino,6.4,75.5%,5.4,HIGH SCHOOL,No,Yes,No, ,84.2,B,"May 12, 2024"
+564,Male,5.2,71.1%,"6,9",High School,si,1,no,59.8,76.7,C,20230207
+87,Masculino,5.5,94.9,5.3, ,0,No,No,"94,1",98.8, a,28-11-2023
+474, Male,5.8,92.8,7.8,Bachelors,,Yes,FALSE,"86,7",92.2,A,2024-13-40
+532,Male,0.6,74.6%,"8,8",Universitario,Yes,Yes,Yes,63.8,71.0,C,2023-05-13
+718,Mujer,4.4,99.7,6.8,Bachelors,YES,1,No,60.4,90.0,A,03 de February de 2023
+859,Femenino,3.5,93.6,8.6,Bachelors,Yes,No,No,73.7,84.6,B,01-03-2024
+243,Male,5.9,70.0%,6.6,PhD,Yes,Yes,No,50.8,73.0, c,20/08/24
+637,F,4.8,97.0,"5,9",Postgrado,Y,Yes,No,88.8,91.5,A,04/12/2024
+365,M,1.1,71.7,7.2,High School,Yes,1,Yes,61.0,NA, d,"November 04, 2023"
+915,Male,"1,6",70.4,4.4,PhD,Sí,Yes,Yes,43.3,,F,02/08/2023
+556,Mujer,4.7,89.6,6.0,Postgrado,Yes,No,si,78.6,78.1,C,NA
+395,Male,"3,9",75.2,8.0,HS,Yes,N,No, ,88.1,B,06/11/24
+866,Female,1.9,  89.0 ,7.9,Bachelors,Yes,Yes,TRUE,43.0,63.6,D,20/11/2024
+412,Male,"3,4",90.7,8.3,Masters,Yes,No,N,86.1,92.1,A,25-12-2024
+108,Female,"1,6",84.4,5.0,PhD,,No,Yes,90.0,75.1,C,sin dato
+115,Male,4.2,90.2,6.5,Universitario, ,Yes,0,55.5,71.4,C,20231103
+817,Female,5.9,71.4,4.5,PhD,1,No,No,90.5,91.2,A,"July 25, 2024"
+295,Male,7.0,  79.7 ,?,PhD,Yes,Sí,False,58.7,76.7,C,11/27/2023
+S-0696,Female,0.7,66.2,7.6,Bachelors,Yes,No,NO,38.6,47.1,F,24 de April de 2024
+86,male,"4,5",73.5,6.8,None,1,N,Yes,86.2,93.2,A,20240912
+660,Male,0.9,88.4,-,Secundaria,Yes,N,No,"62,5",57.1,F,11 de September de 2023
+648,Female,3.6,71.9,"5,9",Universitario,Yes,No,No,62.7,68.9,D,17-07-2023
+849,Femenino,1.9,83.5,4.2,PhD,-,TRUE,No,81.6,68.6,D,10 de July de 2024
+166,Male,3.6,67.1,8.1,Doctorate,Yes,No,N,"73,3",88.6, b,24/07/24
+494,Male,4.1,  65.7 ,8.2,sin dato,No,False,No,66.7, 67.7 ,D,21/04/2024
+820,Male,"2,2",65.5, ,HS,Yes,No,N,58.4,51.7,F,None
+309,Female,"4,7",NaN,null,high school,Yes,Yes,Yes,73.3,85.9,B,"March 27, 2023"
+56,Female,"2,8",82.9,7.7,masters,No,Yes,no,66.2,67.2,D,11/03/2024
+924,Female,5.0,84.9,8.0,High School,True,Yes,No,39.8,67.9, d,20-05-2023
+888,MALE,2.3,65.9,7.9,PHD,yes,si,0,85.4,56.0, f,fecha desconocida
+305,M,1.1,94.6,4.9,bachelors,Yes,No,No,47.4,55.8,F,21 de September de 2023
+391,Mujer,"1,6",84.0,"7,8",Masters,yes,No,1,57.9,64.4,D,25/09/2024
+94,female,5.7,83.2,6.0,N/A,Yes,No,Yes,76.0,86.7,B,20241011
+439,MALE,6.6,90.0,4.3,PhD,Yes,Yes,0,41.4,77.2,C,12/23/2024
+176,Female,6.2,96.1,"5,6",PhD,Sí,No,No,91.3,84.4,B,15 de July de 2023
+796,Male,2.8,65.2,"4,6",Maestría,No,NO,Yes,50.5,51.2,F,20241104
+455,Male,4.3,86.8,7.4,high school,No,Yes,No,68.6,86.9,B,"August 04, 2023"
+72,M,"0,8",73.2,7.1,phd,NO,Yes,No,75.6,NULL,D,01/04/2023
+3,Female,48,91.5,5.8,PhD,No,Sí,No,46.7, 74.7 ,C,2024-10-13
+71,Male,2.9,66.7,4.5,None,Yes,No,FALSE,86.9,61.4,D,04/06/2024
+680,F,"1,3",75.1,null,Bachelors,Yes,Sí,Sí,49.8, 62.0 ,D,20230712
+884, Male,3.8,94.7,4.4,-,TRUE,Yes,Yes,66.5,81.7,C,10/04/2024
+640,female,2.8,86.6,5.8,Universitario,?,No,No,"49,6", 65.9 ,D,08/07/2024
+588,Female,4.3,  99.7 ,5.2,masters,si,No,No,71.8,75.8,C,"March 09, 2023"
+536,Female,"3,2",92.5,8.5,None,Yes,Yes,No,79.4,87.5,B,"August 07, 2023"
+742,Male,6.3,84.5,6.4,phd,Yes,FALSE,No,84.1,97.2, a,12/02/2023
+325,Female,0.5,70.6,7.4,PhD,yes,Yes,No,"70,3",77.7,C,sin dato
+591,FEMALE,"0,8",  70.1 ,"4,7",PhD,Yes,Yes,No,55.6,48.6,F,03-11-2024
+255,Male,6.8,89.8,7.1,High School,Yes,no,Yes, ,90.3,A,2023-08-07
+734,M,1.3,79.4%,"8,3",phd,Yes,yes,No,51.4,60.2,D,20230714
+8,Male,4.6,84.4,"6,8",Master,Yes,NO,No,47.9,71.0,C,23/01/23
+435,Male,3.9,84.1,7.3,High School,Yes,Yes,False,"55,8",71.6,C,09-06-2023
+107,M,3.7,83.5,6.7,Bachelors,Yes,Yes,Yes,92.1,90.2,A,07/04/2023
+248,male,"0,9",66.4,7.3,Masters,Yes,No,Yes,92.0,57.0,F,"April 23, 2024"
+509,Female,6.9,88.5,7.8,PhD,Yes,Yes,FALSE,88.0,95.7,A,28-10-2024
+851,Male,3.8,99.7,4.9,Masters,No,No,No,66.7,74.2,C,20231021
+156,Female,3.1,80.6,4.3,Bachelors,No,Yes,Yes,52.2,54.2, f,2023-08-15
+714,Female,3.0,82.7,None,bachelors,No,Y,0,89.7,?,A,24/02/2024
+522,male,3.4,77.0,5.9,Ph.D.,Yes,No,Yes,"60,7",65.8,D,05/08/2023
+266,Male,1.0,85.7%,7.8,Postgrado,Y,No,No,94.5,73.5,C,2024-13-40
+789,Female,4.3,88.8%,6.7, ,Yes,No,Yes,"76,4",69.6,D,10/16/2024
+440,Male,1.3,89.3,5.4,High School,Y,YES,No,44.5,47.8,F,20230307
+600,female,4.1,90.5,None,None,Yes,No,No,51.1,72.8,C,15/06/23
+787,Female,5.5,88.7,5.3,PhD,Yes,Yes,Yes,35.6,76.3,C,02/09/23
+28,Female,6.1,86.1,6.1,Postgrado,TRUE,No,No,87.0,82.8,B,07/11/2023
+212, Male,1.5,86.2,6.2,PhD,Yes,Yes,No,88.6,72.7,C,20230222
+S-0186,Female,6.1,75.7,7.1,None,yes,False,No,91.3, 81.9 ,B,04/04/2023
+573,Masculino,6.9,97.9%,4.6,High School,Yes,No,No,57.0,92.9,A,"April 18, 2024"
+568,Male,6.5,86.1,7.8,Sin educación,Yes,Yes,no,53.4,83.3,B,01/05/2024
+452,Female,1.7,78.8,7.2,PhD,Yes,NO,yes,59.4,60.4,D,08-05-2023
+464,Male,6.9,87.9,?,,True,No,No,"64,1",89.8,B,04/03/2023
+478,Male,2.8,65.4,4.6,PhD,Yes,Yes,No,72.6,65.4,D,"September 09, 2023"
+82,Female,"3,0",NaN,7.5,None,Yes,No,Y,,66.2,D,09 de August de 2023
+764,Female,6.7,?,5.3,PhD,Yes,Yes,No,54.3,76.2, c,04/03/2024
+6,Masculino,"3,0",75.1,7.4,Ph.D.,Yes,No,Y,sin dato,79.6,C,26 de May de 2023
+89,FEMALE,0.6,70.8,7.6,Highschool,Yes,Y,Yes,NULL,74.6,C,20240623
+312,Female,4.4,69.2,5.2,None,Yes,No,Y,44.9,62.2,D,20240617
+S-0896, Male,6.9,82.1,4.0,bachelors,Yes,False,No,47.6, 67.9 ,D,null
+93,male,3.1,  88.7 ,"7,6",N/A,Yes,True,N,60.2,73.7,C,07/07/2024
+16,MALE,6.7,81.9%,7.9,none,Yes,Yes,No,91.3,92.4,A,22/12/2023
+316,female,0.8,  92.5 ,6.2,Bachillerato,Yes,no,TRUE,70.3,70.1, c,29/06/23
+145,Female,1.9,84.7,"7,8",None,1,No,No,70.8,73.7,C,N/A
+761,Male,1.9,68.9,5.1,High School,False,Yes,Y,66.7,52.8,F,04/03/2023
+489,Female,2.3,81.4,7.0,N/A,N,Yes,No,44.8,72.9, c,"October 02, 2023"
+161,female,1.8,84.9%,8.6,None,Yes,No,Yes,83.0,89.0,B,01-04-2024
+199,Female,2.6,89.0,8.3,Doctorate,True,FALSE,1,48.0,62.7,D,12/07/24
+S-0865,FEMALE,5.3,73.5,8.4,Masters,sin dato,Yes,Yes,83.3,78.9,C,17 de July de 2023
+311,male,6.0,85.3,7.1,Ph.D.,Yes,No,No,94.9,100.0,A,11/05/24
+618,Female,4.8,70.5,-,High School,False,Yes,Yes,65.1,64.0,D,04/19/2023
+317,Female,5.5,78.2,"5,9",Sin educación, ,Yes,Yes,"80,5",79.6,C,17-08-2024
+755,Mujer,6.3,92.0,6.6,Bachillerato,No,N,False,"45,1",NA,C,06/11/2023
+699,Male,1.8,82.5,6.6,PhD,Yes,yes,YES,76.6,79.3,C,2024-06-11
+204,Female,6.8,80.8%,4.9,Bachelors,Yes,Yes,yes,60.9,80.1,B,"March 11, 2023"
+60,Female,0.6,72.3,6.6,Masters,Yes,No,No,94.3,61.2,D,02/05/2023
+289,Female,1.1,  79.2 ,8.7,Ph.D.,No,Yes,No,"62,4",63.7, d,28/10/2023
+S-0540,Hombre,"5,5",  88.2 ,4.6,High School,YES,Yes,0,73.1,84.6,B,06/23/2023
+616,Female,"4,9",80.9,5.4,Masters,Yes,Yes,YES,74.7,79.0,C,2023-09-13
+279,Female,"6,6",NA,"6,7",N/A,Sí,No,No,42.2,70.8,C,20231204
+99,Male,3.1,69.6,4.8,HIGH SCHOOL,1,si,No,49.6,sin dato,F,"September 05, 2023"
+320,Female,2.3,79.0,6.6,Bachillerato,Yes,1,Yes,68.0,71.6,C,29-04-2023
+267,Male,1.3,84.4,7.0,Ninguno,Yes,FALSE,No,83.3,44.6,F,03/07/24
+234,FEMALE,1.3,93.2,8.7,Masters,Yes,Yes,No,94.6,90.0,A,2024-06-02
+368,Male,"6,6",97.8,6.7,None,Yes,YES,si,79.2,100.0,A,02/08/2023
+153,Female,3.1,None,8.9,null,yes,No,No,sin dato,75.9,C,04/20/2024
+506,Male,5.5,90.3,4.1,Masters,Yes,No,Yes,51.5,70.1,C,23 de December de 2024
+757,Female,3.7,66.2,6.9,PhD,True,FALSE,No,72.2,84.1,B,11/01/23
+913,Female,1.6,98.2,7.3,Master,si,No,No,71.5, 73.0 ,C,02 de June de 2023
+567,MALE,"1,6",75.1,N/A,Bachelors,Yes,Yes,FALSE,80.2,63.7,D,06 de May de 2023
+43,male,6.6,92.3%,6.4,Bachelors,Yes,No,No,92.1,100.0,A,20241221
+832,Female,4.8,65.8,6.5,Bachelor,N/A,No,No,67.0,59.1,F,18/05/2023
+766,Female,2.6,  81.7 ,"8,1",Masters,Yes,No,No,57.2,60.1,D,20240813
+S-0716,FEMALE,2.3,88.4%,7.7,Bachelors,Sí,Yes,No,77.8,71.7,C,06/12/2024
+892,Male,1.0,N/A,"4,9",Bachelors,TRUE,No,no,90.9,77.2,C,"September 05, 2024"
+78,Male,"5,3",85.7,"7,3",Universitario,Yes,No,TRUE,44.3,89.7,B,26/06/2023
+50,Male,2.3,N/A,8.9,none,Yes,No,NO,37.5,62.9,D,2023-02-09
+649,Female,1.9,68.5, ,PhD,No,NO,Sí,"50,1",56.2,F,
+233,M,4.2,72.5%,8.5,PhD,Yes,No,No,42.4,86.0,B,"January 29, 2023"
+524,Male,"1,5",80.6,6.7,Bachelors,Yes,No,Yes,55.2,57.0,F,20240323
+555,Female,2.8,86.5%,5.1,Universitario,Sí,Yes,Yes,37.6,60.2,D,07/13/2024
+877,Female,4.8,98.4,4.9,Doctorate,Yes,No,No,56.7,68.0,D,"August 28, 2024"
+519,female,4.8,NULL,4.6,Secundaria,Yes,No,No,91.6,83.0,B,26-02-2023
+402,Male,"2,6",98.7,?,N/A,Yes,No,No,75.1,79.0, c,26 de November de 2023
+208,Masculino,1.8,83.5,8.2,Ph.D.,Yes,No,False,94.1,77.0, c,20231118
+190,FEMALE,"6,9",68.3%,6.1,BACHELORS,No,Yes,FALSE,58.0,71.0,C,27-07-2023
+698,Female,6.5,96.8,NA,Masters,Yes,Yes,0,73.7,93.2,A,04/08/2024
+421,Femenino,5.0,72.8,5.6,High School,Yes,N,No,74.2,76.2,C,2023-04-23
+S-0599,Male,"3,2",  75.9% ,5.6,Bachelors,Yes,Yes,No,47.1,61.8, d,"January 30, 2023"
+800,Male,3.8,92.5%,7.3,NA,Yes,No,Sí,76.5,73.8, c,18-08-2024
+37,Male,5.7,83.6,7.2,Masters,True,Yes,Yes,76.7,86.7,B,"June 20, 2024"
+491,MALE,"1,7",86.5,5.1,High School,Y,Yes,Yes,43.3,49.0,F,20231004
+271,Hombre,5.0,98.5,6.9,High School,yes,Yes,No,94.9,98.4,A,20231116
+825,Female,"3,3",68.1,5.8,N/A,Yes,TRUE,No,"84,1",79.7,C,20241030
+159,Male,1.1,67.7,7.9,High School,Yes,yes,N,37.1,53.4,F,2024-11-10
+639,Male,4.5,null,"6,5",None,Yes,Yes,True,"89,7",55.8,F,20230208
+111,Female,"6,5",80.3,7.2,High School,Yes,NO,Yes,38.7,82.8,B,20241226
+197,Masculino,1.4,94.0%,6.9,null,NaN,yes,No,73.3,68.0,D,05/04/2024
+487,Male,6.4,75.6%,4.8,PhD,yes,Yes,TRUE,80.6,88.0,B,02/29/2024
+18,male,1.2,88.5,5.4,Pregrado,True,No,No,,49.9,F,14 de June de 2024
+269,Male,2.0,83.5,4.3,none,NO,No,si,80.9,76.3,C,20230401
+25,Male,6.5,78.9,5.5,None,Yes,No,False,52.2,74.1, c,20240428
+381,Femenino,6.2,97.4,8.1,None,Yes,Yes,False,49.9,93.5,A,12/02/24
+931,Female,"4,2",88.4,N/A,Bachelors,yes,si,Yes,67.4,73.2, c,"May 27, 2024"
+909,Male,6.0,69.0%,8.6,Masters,NO,Yes,No,47.8,85.5, b,"January 14, 2024"
+182,Female,5.0,99.4,6.1,Masters,si,1,TRUE,78.8,86.8,B,"November 05, 2024"
+265,Hombre,6.0,73.3,4.8,Masters,Yes,Yes,No,94.2,92.9,A,02/04/2023
+815,Male,4.0,  76.9% ,6.4,High School,Yes,Yes,yes,44.5, 74.9 ,C,04/05/2023
+216,female,0.8,72.8,6.3,High School,Yes,Yes,FALSE,90.5,72.5,C,20230509
+457,Female,5.5,74.4,6.9,Bachelors,No,No,No,92.1,93.2,A,21/08/2023
+887,Male,6.1,66.9,5.7,None,Sí,Yes,Yes,NULL,80.2,B,16/12/23
+570,Female,3.6,95.6%,"6,5",HIGH SCHOOL,Yes,Yes,Yes,85.6,75.9,C,30-01-2023
+310,Male,5.0,89.0%,"6,7",High School,-,Yes,No,39.5,65.0,D,"October 09, 2023"
+399,Female,2.4,93.1%,5.6,MSc,Yes,1,Yes,"94,9",80.6,B,-
+S-0578,Male,0.6,66.8,8.6,Ninguno,Yes,No,No,49.7,66.2,D,23-02-2023
+16,male,6.7,81.9%,7.9,none,Yes,Yes,No,91.3,92.4,A,22/12/2023
+633,male,1.1,67.2,7.8,Doctorate,Yes,Yes,No,85.4,71.0,C,20231030
+378,Male,0.9,94.2%,6.6,MSc,NULL,Yes,No,66.0,64.0,D,02/10/24
+581,M,3.1,79.2,7.6,phd,Y,FALSE,Yes,61.3,75.2,C,15 de May de 2023
+S-0164,Female,"1,7",68.8,6.5,PhD,1,YES,No,94.7,63.5,D,20240106
+726,male,3.9,74.1,8.2,PhD,Sí,Yes,N,51.8,83.1,B,13 de February de 2024
+925,Male,5.0,94.0,4.5,High School,Yes,Yes,Y,69.0,82.0,B,19-06-2024
+608,Male,1.9,80.8,6.9,Ninguno,no,N,Yes,56.0,50.5,F,20230119
+S-0545,Female,4.9,N/A,4.6,Ninguno,Yes,Yes,No,54.4,70.5,C,2023-10-10
+893,Female,6.9,84.2%,7.5,-,Yes,Yes,No,77.2,87.5,B,20240702
+644,female,5.4,84.8,6.5,sin dato,Yes,No,No,38.8,72.2,C,2024-05-29
+415,Female,6.8,73.9,?,None,Yes,No,Yes,"46,3", 82.6 ,B,19 de November de 2023
+S-0559,Femenino,4.5,71.9,"8,5",Bachelors, ,False,FALSE,49.4, 70.5 ,C,20241007
