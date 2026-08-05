@@ -12,13 +12,13 @@ Repositorio con los entregables del curso de **Ingeniería de Datos**. Reúne la
 
 ```
 Ingenieria de Datos 20262/
-└── corte 1/
+└── Primer Corte/ ETL
     ├── 29_07 Tarea 1
     ├── 30_07 Tarea 2
     ├── 03_08 Tarea 3
     └── 03_08 ETL base Excel_Colab/
-        ├── cat_breeds
-        ├── (próximamente)
+        ├── student_performance_original
+        ├── student_performance_limpio_excel
         └── (próximamente)
 ```
 
@@ -27,8 +27,8 @@ Ingenieria de Datos 20262/
 - **29_07 Tarea 1** — Qué es un dato y fundamentos de la metodología Kanban.
 - **30_07 Tarea 2** — Los 8 pasos de la transformación de datos y el manejo de los valores nulos.
 - **03_08 Tarea 3** — Identificación de una necesidad de un cliente real orientada a construir una base de datos.
-- **03_08 ETL base Excel_Colab** — Ejercicio de ETL sobre la base `cat_breeds` (limpieza de datos) con Excel y Google Colab.
-  - `cat_breeds` — base para limpiar.
-  - *(próximamente)* — archivo pendiente.
+- **03_08 ETL base Excel_Colab** — Ejercicio de ETL sobre la base `student_performance_original` (limpieza de datos) con Excel y Google Colab.
+  - `student_performance_original` — base para limpiar.
+  - `student_performance_limpio_excel` — base limpia con Excel/PowerQuery.
   - *(próximamente)* — archivo pendiente.
 
