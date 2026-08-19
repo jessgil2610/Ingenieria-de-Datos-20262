@@ -16,17 +16,19 @@ Ingenieria-de-Datos-20262/
     ├── ETL/
     │   ├── 29_07 Tarea 1.docx
     │   ├── 30_07 Tarea 2.docx
-    │   ├── 03_08 Tarea 3.docx
     │   └── 03_08 ETL base Excel_Colab/
     │       ├── student_performance_original.csv
     │       ├── student_performance_limpio.xlsx
     │       └── ETL_student_performance_colab.ipynb
-    └── EDA/
-        ├── EDA_rendimiento_estudiantil.xlsx
-        ├── EDA_rendimiento_estudiantil.ipynb
-        ├── Ejercicio tienda original.xlsx
-        ├── Ejercicio_tienda_ETL_EDA.xlsx
-        └── Ejercicio_tienda_ETL_EDA.ipynb
+    ├── EDA/
+    │   ├── EDA_rendimiento_estudiantil.xlsx
+    │   ├── EDA_rendimiento_estudiantil.ipynb
+    │   ├── Ejercicio tienda original.xlsx
+    │   ├── Ejercicio_tienda_ETL_EDA.xlsx
+    │   └── Ejercicio_tienda_ETL_EDA.ipynb
+    └── Proyecto/
+        ├── 03_08 Necesidad.docx
+        └── 19_08 Requerimientos Funcionales.docx
 ```
 
 ---
@@ -37,7 +39,6 @@ Ingenieria-de-Datos-20262/
 
 - **29_07 Tarea 1** — Qué es un dato y fundamentos de la metodología Kanban.
 - **30_07 Tarea 2** — Los 8 pasos de la transformación de datos y el manejo de los valores nulos.
-- **03_08 Tarea 3** — Identificación de una necesidad de un cliente real orientada a construir una base de datos.
 - **03_08 ETL base Excel_Colab** — Ejercicio de ETL sobre la base `student_performance` (limpieza de datos) con Excel/Power Query y Google Colab.
   - `student_performance_original.csv` — base cruda para limpiar.
   - `student_performance_limpio.xlsx` — base limpia con Excel/Power Query.
@@ -53,4 +54,10 @@ Ingenieria-de-Datos-20262/
   - `Ejercicio_tienda_ETL_EDA.xlsx` — registros completados, limpieza (ETL) y análisis (EDA) en Excel.
   - `Ejercicio_tienda_ETL_EDA.ipynb` — el mismo ejercicio en Python.
 
+### Proyecto
+
+- **03_08 Necesidad** — Identificación de una necesidad de un cliente real orientada a construir una base de datos.
+- **19_08 Requerimientos Funcionales** — Requerimientos funcionales del proyecto.
+
 ---
+
