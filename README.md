@@ -26,9 +26,26 @@ Ingenieria-de-Datos-20262/
     │   ├── Ejercicio tienda original.xlsx
     │   ├── Ejercicio_tienda_ETL_EDA.xlsx
     │   └── Ejercicio_tienda_ETL_EDA.ipynb
-    └── Proyecto/
-        ├── 03_08 Necesidad.docx
-        └── 19_08 Requerimientos Funcionales.docx
+    ├── Diseño BD/
+    │   ├── D.Clases_EjercicioClase.png
+    │   └── TallerClase/
+    │       ├── Taller DiseñoBD.docx
+    │       ├── MER.drawio.png
+    │       ├── MR.png
+    │       ├── DiagramaClases.drawio.png
+    │       ├── Ejercicio1-MER.png
+    │       ├── Ejercicio2-MR.png
+    │       └── Ejercicio3-MR.png
+    ├── Proyecto/
+    │   ├── 03_08 Necesidad.docx
+    │   ├── 19_08 Requerimientos Funcionales.docx
+    │   ├── 19_08 Historias de usuario.docx
+    │   └── Kanban Trello.url
+    └── Parcial Práctico/
+        ├── ActividadClase- Ingeniería de datos.pdf
+        ├── ModeloConceptual.jpeg
+        ├── DigramaClases.png
+        └── Punto 6- TablaComparativa.pdf
 ```
 
 ---
@@ -54,10 +71,26 @@ Ingenieria-de-Datos-20262/
   - `Ejercicio_tienda_ETL_EDA.xlsx` — registros completados, limpieza (ETL) y análisis (EDA) en Excel.
   - `Ejercicio_tienda_ETL_EDA.ipynb` — el mismo ejercicio en Python.
 
+### Diseño BD
+
+- **TallerClase** — Taller de diseño de bases de datos: modelo entidad-relación (MER), modelo relacional (MR) y diagrama de clases.
+  - `Taller DiseñoBD.docx` — enunciado y desarrollo del taller.
+  - `MER.drawio.png`, `MR.png`, `DiagramaClases.drawio.png` — diagramas del taller.
+  - `Ejercicio1-MER.png`, `Ejercicio2-MR.png`, `Ejercicio3-MR.png` — ejercicios de modelado.
+- `D.Clases_EjercicioClase.png` — diagrama de clases del ejercicio en clase.
+
 ### Proyecto
 
 - **03_08 Necesidad** — Identificación de una necesidad de un cliente real orientada a construir una base de datos.
-- **19_08 Requerimientos Funcionales** — Requerimientos funcionales del proyecto.
+- **19_08 Requerimientos Funcionales** — Requerimientos funcionales del proyecto (base de datos y tablero).
+- **19_08 Historias de usuario** — Historias de usuario del proyecto.
+- **Kanban Trello** — Enlace al tablero Kanban del proyecto en Trello.
+
+### Parcial Práctico
+
+- **ActividadClase- Ingeniería de datos** — Enunciado del parcial práctico.
+- **ModeloConceptual** — Modelo conceptual de la base de datos.
+- **DigramaClases** — Diagrama de clases.
+- **Punto 6- TablaComparativa** — Tabla comparativa (punto 6 del parcial).
 
 ---
-
