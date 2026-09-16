@@ -60,7 +60,6 @@ En la tabla vamos a cambiar anioPublicacion de date por varchar
 En la tabla miembro vamos a eliminar el campo documentoMiembro
 Enla tabla miembro vamos a cambier el nombre de la tabla por Socio*/
 
-
 alter table prestamo
 add descripcion varchar(100);
 
