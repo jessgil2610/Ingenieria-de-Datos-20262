@@ -12,40 +12,54 @@ Repositorio con los entregables del curso de **Ingeniería de Datos**. Reúne la
 
 ```
 Ingenieria-de-Datos-20262/
-└── Primer Corte/
-    ├── ETL/
-    │   ├── 29_07 Tarea 1.docx
-    │   ├── 30_07 Tarea 2.docx
-    │   └── 03_08 ETL base Excel_Colab/
-    │       ├── student_performance_original.csv
-    │       ├── student_performance_limpio.xlsx
-    │       └── ETL_student_performance_colab.ipynb
-    ├── EDA/
-    │   ├── EDA_rendimiento_estudiantil.xlsx
-    │   ├── EDA_rendimiento_estudiantil.ipynb
-    │   ├── Ejercicio tienda original.xlsx
-    │   ├── Ejercicio_tienda_ETL_EDA.xlsx
-    │   └── Ejercicio_tienda_ETL_EDA.ipynb
-    ├── Diseño BD/
-    │   ├── D.Clases_EjercicioClase.png
-    │   └── TallerClase/
-    │       ├── Taller DiseñoBD.docx
-    │       ├── MER.drawio.png
-    │       ├── MR.png
-    │       ├── DiagramaClases.drawio.png
-    │       ├── Ejercicio1-MER.png
-    │       ├── Ejercicio2-MR.png
-    │       └── Ejercicio3-MR.png
-    ├── Proyecto/
-    │   ├── 03_08 Necesidad.docx
-    │   ├── 19_08 Requerimientos Funcionales.docx
-    │   ├── 19_08 Historias de usuario.docx
-    │   └── Kanban Trello.url
-    └── Parcial Práctico/
-        ├── ActividadClase- Ingeniería de datos.pdf
-        ├── ModeloConceptual.jpeg
-        ├── DigramaClases.png
-        └── Punto 6- TablaComparativa.pdf
+├── Primer Corte/
+│   ├── ETL/
+│   │   ├── Dato y kanban.docx
+│   │   ├── Transformación BD.docx
+│   │   └── 03_08 ETL base Excel_Colab/
+│   │       ├── student_performance_original.csv
+│   │       ├── student_performance_limpio.xlsx
+│   │       └── ETL_student_performance_colab.ipynb
+│   ├── EDA/
+│   │   ├── EDA_rendimiento_estudiantil.xlsx
+│   │   ├── EDA_rendimiento_estudiantil.ipynb
+│   │   ├── Ejercicio tienda original.xlsx
+│   │   ├── Ejercicio_tienda_ETL_EDA.xlsx
+│   │   └── Ejercicio_tienda_ETL_EDA.ipynb
+│   ├── Diseño BD/
+│   │   ├── D.Clases_EjercicioClase.png
+│   │   └── TallerClase/
+│   │       ├── Taller DiseñoBD.docx
+│   │       ├── MER.drawio.png
+│   │       ├── MR.png
+│   │       ├── DiagramaClases.drawio.png
+│   │       ├── Ejercicio1-MER.png
+│   │       ├── Ejercicio2-MR.png
+│   │       └── Ejercicio3-MR.png
+│   ├── Proyecto/
+│   │   ├── 03_08 Necesidad.docx
+│   │   ├── 19_08 Requerimientos Funcionales.docx
+│   │   ├── 19_08 Historias de usuario.docx
+│   │   └── Kanban Trello.url
+│   └── Parcial Práctico/
+│       ├── Parte 1/
+│       │   ├── ActividadClase- Ingeniería de datos.pdf
+│       │   ├── ModeloConceptual.jpeg
+│       │   ├── DigramaClases.png
+│       │   └── Punto 6- TablaComparativa.pdf
+│       └── Parte 2/
+│           ├── M2_viajes_agosto_modifica.xlsx
+│           ├── Momento4Grupo1.pdf
+│           └── SustentacionpracticaG1.pdf
+└── Segundo Corte/
+    ├── Definiciones/
+    │   ├── Entornos de trabajo.docx
+    │   └── Insercion de datos postgres y SQL.docx
+    └── SQL/
+        ├── EjercicioMascotas.sql
+        ├── EjercicioPostgres.sql
+        ├── EjerciciosDDLBiblioteca.sql
+        └── ScriptPostgres.sql.txt
 ```
 
 ---
@@ -54,8 +68,8 @@ Ingenieria-de-Datos-20262/
 
 ### ETL
 
-- **29_07 Tarea 1** — Qué es un dato y fundamentos de la metodología Kanban.
-- **30_07 Tarea 2** — Los 8 pasos de la transformación de datos y el manejo de los valores nulos.
+- **Dato y kanban** — Qué es un dato y fundamentos de la metodología Kanban.
+- **Transformación BD** — Los 8 pasos de la transformación de datos y el manejo de los valores nulos.
 - **03_08 ETL base Excel_Colab** — Ejercicio de ETL sobre la base `student_performance` (limpieza de datos) con Excel/Power Query y Google Colab.
   - `student_performance_original.csv` — base cruda para limpiar.
   - `student_performance_limpio.xlsx` — base limpia con Excel/Power Query.
@@ -88,9 +102,29 @@ Ingenieria-de-Datos-20262/
 
 ### Parcial Práctico
 
-- **ActividadClase- Ingeniería de datos** — Enunciado del parcial práctico.
-- **ModeloConceptual** — Modelo conceptual de la base de datos.
-- **DigramaClases** — Diagrama de clases.
-- **Punto 6- TablaComparativa** — Tabla comparativa (punto 6 del parcial).
+- **Parte 1**
+  - **ActividadClase- Ingeniería de datos** — Enunciado del parcial práctico.
+  - **ModeloConceptual** — Modelo conceptual de la base de datos.
+  - **DigramaClases** — Diagrama de clases.
+  - **Punto 6- TablaComparativa** — Tabla comparativa (punto 6 del parcial).
+- **Parte 2**
+  - **M2_viajes_agosto_modifica** — Base de datos de viajes usada en el segundo momento del parcial.
+  - **Momento4Grupo1** — Documento del cuarto momento del parcial práctico grupal.
+  - **SustentacionpracticaG1** — Sustentación del ejercicio práctico grupal.
+
+---
+
+## Corte 2
+
+### Definiciones
+
+- **Entornos de trabajo** — Descripción comparativa de herramientas de bases de datos: MySQL Workbench, XAMPP, Adobe Dreamweaver y PostgreSQL (motor vs. entorno gráfico, para qué sirve cada una).
+- **Insercion de datos postgres y SQL** — Cómo insertar datos desde un archivo de texto plano en una tabla ya creada, usando `COPY` en PostgreSQL y sentencias equivalentes en SQL, según el formato y delimitador del archivo.
+
+### SQL
+
+- **EjercicioMascotas** — Script DDL para una base de datos de veterinaria (clientes, teléfonos y llaves foráneas).
+- **EjercicioPostgres** / **ScriptPostgres** — Script de creación de la base `tienda_tecno` en PostgreSQL, con tablas de clientes y productos.
+- **EjerciciosDDLBiblioteca** — Ejercicios de sentencias DDL para una base de datos de biblioteca (libros y autores).
 
 ---
