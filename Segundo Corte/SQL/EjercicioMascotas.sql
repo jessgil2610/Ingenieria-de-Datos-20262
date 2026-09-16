@@ -165,6 +165,74 @@ select nombreProducto AS 'Producto', precioProducto AS 'Precio',
 precioProducto * 0.9 AS 'PrecioConDescuento'
 from producto;
 
+-- Crear índice
+create index idxNombreMAscota on mascota(nombreMascota);
+
+select * from mascota;
+select * from telefonoCliente;
+
+-- Consultas
+-- Sentencia Select
+-- general : select * from nombreTabla
+
+select * from mascota;
+select nombreMascota,tipoMascota,generoMascota from mascota;
+
+
+-- Consulta con alias select (campos) as 'nombre alias' from nombreTabla
+select nombreMascota as 'Nombre Mascota' ,tipoMascota as 'Tipo Mascota',generoMascota as 'Genero mascota' from mascota;
+
+-- Consulta con ordenamientos select (campos) from tabla order by campo a ordenar ASC/DESC
+select *  from mascota order by nombreMascota ASC;
+
+select *  from mascota order by nombreMascota DESC;
+
+-- Consulta con clausula where (con condiciones)
+-- select campo from tabla where condicion (< > = >= <= diferente(<>))
+select * from producto
+select * from producto where precioProducto>20000
+select * from producto where precioProducto<20000
+select * from producto where precioProducto=18000
+select * from mascota where tipoMascota='perro'
+select * from mascota where tipoMascota<>'perro'
+
+-- comparadores lógicos anf (y) or (o) negación (not)
+select * from mascota where tipoMascota='gato' and nombreMascota='Luna'
+select * from mascota where tipoMascota='gato' or nombreMascota='Luna'
+select * from mascota where not nombreMascota='Luna'
+select * from mascota where tipoMascota='gato' and (nombreMascota='Luna' or nombreMascota='Michi')
+select * from mascota ma where ma.tipoMascota='gato' and (nombreMascota='Luna' or nombreMascota='Michi')
+
+-- consulta de un índice
+show index from mascota
+describe mascota
+
+select distinct nombreMascota from information_schema.STATISTICS s  where s.TABLE_SCHEMA =mascota and s.TABLE_NAME ='Nombres';
+
+
+explain select * from mascota where 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
