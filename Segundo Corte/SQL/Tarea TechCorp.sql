@@ -98,3 +98,35 @@ limit 1;
 -- Verificación del salario máximo con función calculada
 select max(salarioEmpleado) as SalarioMaximo
 from empleados;
+
+
+-- Actualización o modificación
+-- Cambiar datos que ya estan registrados dentro de una tablac
+-- update nombreTabla set nombreColumna=valor, nombreColumna2=valor,..., where condicion
+select * from empleados;
+update empleados set salarioEmpleado=3500 where idEmpleado=1;
+select * from empleados;
+
+-- Upsert
+-- Crear nuevo registro si no existe o si ya existe modifica y actualiza
+insert into empleados (idEmpleado, nombreEmpleado, edadEmpleado, departamentoEmpleado, salarioEmpleado, fechaContratacion)
+values (3, 'Andrés Gómez', 42, 'Finanzas', 6300, '2017-02-20')
+on duplicate key update
+  edadEmpleado = values(edadEmpleado),
+  salarioEmpleado = values(salarioEmpleado);
+
+select * from empleados;
+
+-- Delete
+-- elimina todos los registros que tenga la tabla
+-- delete from nombreTabla where condicion
+delete from empleados where idEmpleado=3;
+
+select * from empleados;
+
+
+
+
+
+
+

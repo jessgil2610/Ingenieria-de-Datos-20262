@@ -209,8 +209,24 @@ describe mascota
 
 select distinct nombreMascota from information_schema.STATISTICS s  where s.TABLE_SCHEMA =mascota and s.TABLE_NAME ='Nombres';
 
+-- Consultas multitabla, subconsultas y funciones
 
-explain select * from mascota where 
+/* 
+ * Trabajas como desarrollador en TecnoAndes, una tienda de tecnología. 
+ * El sistema de ventas guarda la información en cinco tablas: 
+ * clientes, vendedores, productos, pedidos y detalle_pedido. 
+ * El miercoles a las 8:00 el gerente te escribe por el chat:
+ 
+1.       “¿Qué clientes han comprado?” Tabla clientes y pedido (FK de clientes)
+2.       “¿Qué productos compró cada cliente?” detallePedido
+3.       “¿Qué vendedor vendió más?” 
+4.       “¿Cuáles productos cuestan más que el promedio?”
+5.       “¿Cuánto hemos vendido en total?”
+6.       “¿Qué clientes se registraron y nunca compraron? Quiero llamarlos.” clientes y pedido
+Necesita todo antes de la reunión de las 10:00.
+ */
+
+
 
 
 
