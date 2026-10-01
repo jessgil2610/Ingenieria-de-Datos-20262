@@ -87,16 +87,16 @@ INSERT INTO pedidos (cliente_id, vendedor_id, fecha) VALUES
   
 
 INSERT INTO detalle_pedido (pedido_id, producto_id, cantidad, precio_unitario) VALUES
-  (25, 1, 1, 2500000.00),
-  (25, 2, 2,   60000.00),
-  (26, 3, 2,  700000.00),
-  (27, 4, 1,  250000.00),
-  (27, 5, 1,  180000.00),
-  (28, 2, 3,   60000.00),
-  (28, 3, 1,  700000.00),
-  (29, 1, 1, 2500000.00),
-  (29, 5, 2,  180000.00),
-  (30, 4, 2,  250000.00);
+  (1, 1, 1, 2500000.00),
+  (2, 2, 2,   60000.00),
+  (3, 3, 2,  700000.00),
+  (4, 4, 1,  250000.00),
+  (5, 5, 1,  180000.00),
+  (6, 2, 3,   60000.00),
+  (7, 3, 1,  700000.00),
+  (8, 1, 1, 2500000.00),
+  (9, 5, 2,  180000.00),
+  (10, 4, 2,  250000.00);
   
   /*consulta multitabla
   
@@ -306,3 +306,194 @@ JOIN estudiantes  e ON e.id = ins.estudiante_id
 JOIN cursos       c ON c.id = ins.curso_id
 JOIN instructores i ON i.id = c.instructor_id
 ORDER BY ins.fecha_inscripcion;
+
+
+-- Subconsultas
+-- Select dentro de otra consulta (otro select)
+-- La consulta interna responde una pregunta y la pregunta le sirve a la consulta externa
+/*
+ 	-- Producto que tiene un precio mayor al precio promedio
+	select nombre, precio
+	from productos
+	where precio > (select avg(precio) as promedio from productos)
+	order by precio desc;
+	
+	-- Producto más caro
+	select nombre, precio
+	from productos
+	where precio = (select max(precio) from productos)
+	order by precio desc;
+	
+	-- Subquery returns more than 1 row
+	* Se usa IN devuelve una lista de valores
+	
+	-- Clientes que tienen al menos 1 pedido
+	
+	select nombre, apellido
+	from clientes
+	where if in (select cliente_id from pedidos);
+	
+	-- Productos que nunca se han vendido
+	
+	select nombre
+	from producto
+	where id not in (select producto_id from detalle_pedido);
+	
+	
+	select nombre
+	from vendedores
+	where id not in (select vendedor_id from pedidos)
+	
+	* Exist
+	* no exist
+	
+	-- Vendedor que no tiene pedidos
+	
+	select v.nombre
+	from vendedores v
+	where not exist
+	(select 1
+	from pedidios p 
+	where p.vendedor_id=v.id);
+*/
+
+ 	-- curso que tiene un precio mayor al promedio
+select titulo, precio
+from cursos
+where precio > (select avg(precio) as promedio from cursos)
+order by precio desc;
+
+-- Curso que nadie ha tomado
+-- con not in
+select titulo
+from cursos
+where id not in (select curso_id from inscripciones);
+
+-- Con not exists
+
+select c.titulo 
+from cursos c 
+where not exists (
+    select 1 
+    from inscripciones i 
+    where i.curso_id = c.id
+);
+
+/*
+-- Usando from - Es más rapido una subconsulta que una consulta multitabla (tiempos de ejecución)
+-- Consulta de tabla derivada
+-- La tabla temporal debe llevar un alias o no se genera
+
+-- ej. Cuanto vale en promedio un pedido y cual es el mayor
+
+select round(avg(t.total_pedido), 2) as promedio_por_pedido,
+max(t.total_pedido) as pedido_mayor
+from (select pedido_id, SUM(cantidad*precio_unitario) as total_pedido
+from detalle_pedidio
+group by pedido_id) as t;
+
+select * from pedidos;
+select * from detalle_pedido; 
+
+select c.nombre ,(select count(*)
+	from pedidos p 
+	where p.cliente_id=c.id) as cantidad_pedidos
+from clientes c
+order by c.id;
+
+ */
+
+-- Hacer el 4 y el 7 de eduplus
+
+USE eduplus;
+
+/* Punto 4 - Función de agregación
+   Para cada curso: inscritos, ingresos y nota promedio (1 decimal)
+   LEFT JOIN para incluir también los cursos sin inscritos (ingresos en 0) */
+SELECT c.titulo,
+       COUNT(ins.id)                 AS inscritos,
+       COALESCE(SUM(ins.valor_pagado), 0) AS ingresos,
+       ROUND(AVG(ins.nota_final), 1) AS nota_promedio
+FROM cursos c
+LEFT JOIN inscripciones ins ON ins.curso_id = c.id
+GROUP BY c.id, c.titulo
+ORDER BY ingresos DESC;
+
+/* Punto 7 - JOIN + funciones + subconsulta
+   Estudiantes cuyo gasto total supera el promedio de gasto por estudiante
+   (promedio calculado solo entre quienes se han inscrito) */
+SELECT UPPER(CONCAT(e.nombre, ' ', e.apellido)) AS estudiante,
+       COUNT(ins.id)        AS cursos_tomados,
+       SUM(ins.valor_pagado) AS total_pagado
+FROM estudiantes e
+JOIN inscripciones ins ON ins.estudiante_id = e.id
+GROUP BY e.id, e.nombre, e.apellido
+HAVING SUM(ins.valor_pagado) > (
+    SELECT AVG(total_est.total)
+    FROM (
+        SELECT SUM(valor_pagado) AS total
+        FROM inscripciones
+        GROUP BY estudiante_id
+    ) AS total_est
+);
+
+--- ============================================================
+
+USE eduplus;
+
+/* ===================== VISTA ===================== */
+
+-- Crear v_ingresos_por_curso con inscritos, ingresos y nota promedio por curso, incluyendo los cursos sin inscritos
+CREATE OR REPLACE VIEW v_ingresos_por_curso AS
+SELECT c.id AS curso_id,
+       c.titulo,
+       COUNT(ins.id)                       AS inscritos,
+       COALESCE(SUM(ins.valor_pagado), 0)  AS ingresos,
+       ROUND(AVG(ins.nota_final), 1)       AS nota_promedio
+FROM cursos c
+LEFT JOIN inscripciones ins ON ins.curso_id = c.id
+GROUP BY c.id, c.titulo;
+
+
+SELECT * FROM v_ingresos_por_curso ORDER BY ingresos DESC;
+
+/* ============== PROCEDIMIENTO ALMACENADO ============== */
+-- Crear sp_inscribir_estudiante que registre una inscripción nueva, valide que el estudiante y el curso existan, y devuelva el id de la inscripción creada.
+
+DELIMITER //
+CREATE PROCEDURE sp_inscribir_estudiante(
+    IN  p_estudiante_id   INT,
+    IN  p_curso_id        INT,
+    IN  p_valor_pagado    DECIMAL(10,2),
+    OUT p_inscripcion_id  INT
+)
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM estudiantes WHERE id = p_estudiante_id) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El estudiante no existe';
+    END IF;
+
+    IF NOT EXISTS (SELECT 1 FROM cursos WHERE id = p_curso_id) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El curso no existe';
+    END IF;
+
+    INSERT INTO inscripciones (estudiante_id, curso_id, fecha_inscripcion, valor_pagado, nota_final)
+    VALUES (p_estudiante_id, p_curso_id, CURDATE(), p_valor_pagado, NULL);
+
+    SET p_inscripcion_id = LAST_INSERT_ID();
+END //
+DELIMITER ;
+
+
+CALL sp_inscribir_estudiante(5, 1, 200000, @id);
+SELECT @id AS nueva_inscripcion;
+
+
+
+
+
+
+
+
+
+
+
