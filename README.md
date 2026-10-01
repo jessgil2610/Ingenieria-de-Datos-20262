@@ -54,12 +54,22 @@ Ingenieria-de-Datos-20262/
 └── Segundo Corte/
     ├── Definiciones/
     │   ├── Entornos de trabajo.docx
-    │   └── Insercion de datos postgres y SQL.docx
-    └── SQL/
-        ├── EjercicioMascotas.sql
-        ├── EjercicioPostgres.sql
-        ├── EjerciciosDDLBiblioteca.sql
-        └── ScriptPostgres.sql.txt
+    │   ├── Insercion de datos postgres y SQL.docx
+    │   └── Funciones SQL.docx
+    ├── SQL/
+    │   ├── EjercicioMascotas.sql
+    │   ├── EjercicioPostgres.sql
+    │   ├── EjerciciosDDLBiblioteca.sql
+    │   ├── ScriptPostgres.sql.txt
+    │   ├── Ejercicio Eduplus - Clase.sql
+    │   ├── Tarea TechCorp.sql
+    │   └── Procedimientos Almacenados - Actividad Clase.docx
+    └── Laboratorio TrazaCafe/
+        ├── Laboratorio TrazaCafe.docx
+        ├── Diccionario datos.xlsx
+        ├── Modelo MR.png
+        ├── trazacafe_mysql.sql
+        └── trazacafe_postgres.sql
 ```
 
 ---
@@ -118,13 +128,25 @@ Ingenieria-de-Datos-20262/
 
 ### Definiciones
 
-- **Entornos de trabajo** — Descripción comparativa de herramientas de bases de datos: MySQL Workbench, XAMPP, Adobe Dreamweaver y PostgreSQL (motor vs. entorno gráfico, para qué sirve cada una).
+- **Entornos de trabajo** — Descripción comparativa de herramientas de bases de datos: MySQL Workbench, XAMPP, Adobe Dreamweaver y PostgreSQL.
 - **Insercion de datos postgres y SQL** — Cómo insertar datos desde un archivo de texto plano en una tabla ya creada, usando `COPY` en PostgreSQL y sentencias equivalentes en SQL, según el formato y delimitador del archivo.
+- **Funciones SQL** — Referencia de funciones numéricas, de agregación y de cadena en MySQL
 
 ### SQL
 
 - **EjercicioMascotas** — Script DDL para una base de datos de veterinaria (clientes, teléfonos y llaves foráneas).
 - **EjercicioPostgres** / **ScriptPostgres** — Script de creación de la base `tienda_tecno` en PostgreSQL, con tablas de clientes y productos.
 - **EjerciciosDDLBiblioteca** — Ejercicios de sentencias DDL para una base de datos de biblioteca (libros y autores).
+- **Ejercicio Eduplus - Clase** — Ejercicio en MySQL sobre consultas multitabla, subconsultas y funciones de agregación, vistas y procedimiento almacenado.
+- **Tarea TechCorp** — Base de datos `TechCorp` con 15 empleados simulados.
+- **Procedimientos Almacenados - Actividad Clase** — Ejercicio de Clase de Procedimientos Almacenados
 
+### Laboratorio TrazaCafe
+
+Laboratorio de DDL y DML en MySQL y PostgreSQL sobre la trazabilidad del café, desde la finca hasta el pedido del cliente.
+
+- **Laboratorio TrazaCafe** — Documento del laboratorio con el Reto 1: entidades (finca, lote, catación, tostión, cliente, pedido y detalle de pedido), claves, tipos de datos y reflexión sobre cómo el diseño conserva el historial cuando un caficultor se va.
+- **Diccionario datos** — Diccionario de datos del modelo (columna, tipo, obligatoriedad y regla de negocio).
+- **Modelo MR** — Diagrama del modelo relacional.
+- **trazacafe_mysql** / **trazacafe_postgres** — Scripts del mismo laboratorio en cada motor. 
 ---
