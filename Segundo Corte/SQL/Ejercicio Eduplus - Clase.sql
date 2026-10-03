@@ -460,7 +460,6 @@ SELECT * FROM v_ingresos_por_curso ORDER BY ingresos DESC;
 /* ============== PROCEDIMIENTO ALMACENADO ============== */
 -- Crear sp_inscribir_estudiante que registre una inscripción nueva, valide que el estudiante y el curso existan, y devuelva el id de la inscripción creada.
 
-DELIMITER //
 CREATE PROCEDURE sp_inscribir_estudiante(
     IN  p_estudiante_id   INT,
     IN  p_curso_id        INT,
@@ -471,23 +470,65 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM estudiantes WHERE id = p_estudiante_id) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El estudiante no existe';
     END IF;
-
-    IF NOT EXISTS (SELECT 1 FROM cursos WHERE id = p_curso_id) THEN
+ 	IF NOT EXISTS (SELECT 1 FROM cursos WHERE id = p_curso_id) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El curso no existe';
     END IF;
-
     INSERT INTO inscripciones (estudiante_id, curso_id, fecha_inscripcion, valor_pagado, nota_final)
     VALUES (p_estudiante_id, p_curso_id, CURDATE(), p_valor_pagado, NULL);
 
     SET p_inscripcion_id = LAST_INSERT_ID();
-END //
-DELIMITER ;
+END ;
 
 
 CALL sp_inscribir_estudiante(5, 1, 200000, @id);
 SELECT @id AS nueva_inscripcion;
 
 
+-- ======================= TRIGGERS ============================
+USE eduplus;
+
+CREATE TABLE IF NOT EXISTS auditoria (
+  id              INT AUTO_INCREMENT PRIMARY KEY,
+  tabla           VARCHAR(50)   NOT NULL,
+  operacion       VARCHAR(20)   NOT NULL,
+  registro_id     INT           NOT NULL,
+  valor_anterior  DECIMAL(12,2) NULL,
+  valor_nuevo     DECIMAL(12,2) NULL,
+  usuario         VARCHAR(100)  NOT NULL,
+  fecha           TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Cambio de precio
+drop trigger if exists trg_cursos_auditar_precio;
+
+
+create trigger trg_cursos_auditar_precio
+after update on cursos
+for each row
+begin
+	if old.precio<>new.precio then
+		insert into auditoria (tabla, operacion, registro_id, valor_anterior, valor_nuevo, usuario)
+		values('cursos', 'UPDATE', new.id, old.precio, new.precio, current_user());
+	end if;
+end 
+
+select * from cursos;
+update cursos set precio=400000 where id=1;
+		
+select * from auditoria;
+
+
+
+-- Normalizar correo
+CREATE TRIGGER tg_instructores_before_insert
+BEFORE INSERT ON instructores
+FOR EACH ROW
+BEGIN
+    SET NEW.email = LOWER(NEW.email);
+END 
+
+INSERT INTO instructores (nombre, email) VALUES ('Nueva Instructora', 'NUEVA@EDUPLUS.CO');
+SELECT * FROM instructores WHERE nombre = 'Nueva Instructora';
 
 
 
