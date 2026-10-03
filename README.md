@@ -64,12 +64,15 @@ Ingenieria-de-Datos-20262/
     │   ├── Ejercicio Eduplus - Clase.sql
     │   ├── Tarea TechCorp.sql
     │   └── Procedimientos Almacenados - Actividad Clase.docx
-    └── Laboratorio TrazaCafe/
-        ├── Laboratorio TrazaCafe.docx
-        ├── Diccionario datos.xlsx
-        ├── Modelo MR.png
-        ├── trazacafe_mysql.sql
-        └── trazacafe_postgres.sql
+    ├── Laboratorio TrazaCafe/
+    │   ├── Laboratorio TrazaCafe.docx
+    │   ├── Diccionario datos.xlsx
+    │   ├── Modelo MR.png
+    │   ├── trazacafe_mysql.sql
+    │   └── trazacafe_postgres.sql
+    └── Laboratorio BibliotecaDB (Triggers)/
+        ├── Ejercicio Trigger - Resultados.docx
+        └── LaboratorioBiblioteca_db.sql
 ```
 
 ---
@@ -137,7 +140,7 @@ Ingenieria-de-Datos-20262/
 - **EjercicioMascotas** — Script DDL para una base de datos de veterinaria (clientes, teléfonos y llaves foráneas).
 - **EjercicioPostgres** / **ScriptPostgres** — Script de creación de la base `tienda_tecno` en PostgreSQL, con tablas de clientes y productos.
 - **EjerciciosDDLBiblioteca** — Ejercicios de sentencias DDL para una base de datos de biblioteca (libros y autores).
-- **Ejercicio Eduplus - Clase** — Ejercicio en MySQL sobre consultas multitabla, subconsultas y funciones de agregación, vistas y procedimiento almacenado.
+- **Ejercicio Eduplus - Clase** — Ejercicio en MySQL sobre consultas multitabla, subconsultas y funciones de agregación, vistas, procedimiento almacenado y triggers (auditoría de cambios de precio de los cursos y normalización del correo de los instructores).
 - **Tarea TechCorp** — Base de datos `TechCorp` con 15 empleados simulados.
 - **Procedimientos Almacenados - Actividad Clase** — Ejercicio de Clase de Procedimientos Almacenados
 
@@ -149,4 +152,11 @@ Laboratorio de DDL y DML en MySQL y PostgreSQL sobre la trazabilidad del café, 
 - **Diccionario datos** — Diccionario de datos del modelo (columna, tipo, obligatoriedad y regla de negocio).
 - **Modelo MR** — Diagrama del modelo relacional.
 - **trazacafe_mysql** / **trazacafe_postgres** — Scripts del mismo laboratorio en cada motor. 
+
+### Laboratorio BibliotecaDB (Triggers)
+
+Laboratorio sobre vistas, procedimientos almacenados y triggers para una biblioteca (socios, libros, préstamos e historial de préstamos).
+
+- **Ejercicio Trigger - Resultados** — Documento con los requerimientos del ejercicio, la solución de cada uno y las capturas de la salida del código.
+- **LaboratorioBiblioteca_db** — Script en MySQL con la base `biblioteca_db` y datos de prueba. Incluye la vista `v_prestamos_vencidos`, el procedimiento `sp_prestar_libro`, el trigger `trg_prestamos_devolucion` (devuelve el ejemplar al inventario y registra la devolución en el historial) y el reto opcional con un trigger que valida la fecha de devolución.
 ---
