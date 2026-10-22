@@ -1,0 +1,885 @@
+-- =====================================================================
+-- simulacro parcial practico 2 - bases de datos
+-- Realizado por: Jessica Gil
+-- proyecto condor - dronandes express s.a.s.
+-- Nota. Uso DBeaver para ejecutar los scripts por lo que lo que 
+-- tiene que ver con procedimientos alamcenados o trigger los uso sin delimiter
+-- =====================================================================
+
+
+-- =====================================================================
+-- r2. creacion de la base de datos
+-- =====================================================================
+drop database if exists dronandes;
+create database dronandes;
+use dronandes;
+
+-- si se crea una tabla con fk antes que la tabla referenciada, da error.
+
+-- ---------------------------------------------------------------------
+-- tabla 1: bases (no depende de nadie)
+-- ---------------------------------------------------------------------
+create table bases (
+    id_base int auto_increment primary key,
+    -- unique: no pueden existir dos bases con el mismo nombre
+    nombre varchar(60) not null unique,
+    municipio varchar(60) not null,
+    departamento varchar(40) not null,
+    capacidad_drones int not null,
+    fecha_apertura date not null,
+    -- check: regla que cada fila debe cumplir. el nombre empieza por chk_
+    constraint chk_bases_capacidad 
+    	check (capacidad_drones > 0)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 2: tipos_carga (no depende de nadie)
+-- ---------------------------------------------------------------------
+create table tipos_carga (
+    id_tipo int auto_increment primary key,
+    nombre varchar(40) not null unique,
+    -- decimal(10,2): 10 digitos en total, 2 de ellos decimales
+    tarifa_kg decimal(10,2) not null,
+    -- boolean en mysql es un tinyint(1): false = 0, true = 1
+    requiere_frio boolean not null default false,
+    constraint chk_tipos_carga_tarifa 
+    	check (tarifa_kg > 0)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 3: drones (depende de bases)
+-- ---------------------------------------------------------------------
+create table drones (
+    id_dron int auto_increment primary key,
+    codigo_serie varchar(12) not null unique,
+    modelo varchar(40) not null,
+    carga_max_kg decimal(5,2) not null,
+    autonomia_km decimal(5,1) not null,
+    -- default: valor que se guarda si el insert no trae este campo
+    estado varchar(15) not null default 'ACTIVO',
+    horas_vuelo decimal(7,1) not null default 0,
+    fecha_adquisicion date not null,
+    id_base int not null,
+    constraint chk_drones_autonomia check (autonomia_km > 0),
+    constraint chk_drones_estado 
+    	check (estado in ('ACTIVO', 'MANTENIMIENTO', 'RETIRADO')),
+    constraint chk_drones_horas 
+    	check (horas_vuelo >= 0),
+    constraint fk_drones_bases 
+    	foreign key (id_base) 
+    	references bases (id_base)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 4: pilotos (depende de bases y de si misma)
+-- ---------------------------------------------------------------------
+create table pilotos (
+    id_piloto int auto_increment primary key,
+    documento varchar(15) not null unique,
+    nombres varchar(50) not null,
+    apellidos varchar(50) not null,
+    email varchar(80) not null unique,
+    licencia char(1) not null,
+    fecha_ingreso date not null,
+    -- id_supervisor acepta null: los jefes de operacion no tienen supervisor.
+    id_supervisor int null,
+    id_base int not null,
+    constraint chk_pilotos_licencia 
+    	check (licencia in ('A', 'B', 'C')),
+    constraint fk_pilotos_bases 
+    	foreign key (id_base) 
+    	references bases (id_base)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 5: clientes (no depende de nadie)
+-- ---------------------------------------------------------------------
+create table clientes (
+    id_cliente int auto_increment primary key,
+    tipo varchar(12) not null,
+    nombre varchar(80) not null,
+    nit_documento varchar(15) not null unique,
+    email varchar(80) null unique,
+    telefono varchar(15) null,
+    municipio varchar(60) not null,
+    fecha_registro date not null default (current_date),
+    constraint chk_clientes_tipo 
+    	check (tipo in ('HOSPITAL', 'FARMACIA', 'COMERCIO', 'ONG', 'PERSONA'))
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 6: entregas (depende de clientes, drones y pilotos)
+-- ---------------------------------------------------------------------
+create table entregas (
+    id_entrega int auto_increment primary key,
+    codigo varchar(10) not null unique,
+    id_cliente int not null,
+    id_dron int not null,
+    id_piloto int not null,
+    fecha_programada datetime not null,
+    fecha_entrega datetime null,
+    municipio_destino varchar(60) not null,
+    distancia_km decimal(5,1) not null,
+    prioridad varchar(8) not null default 'NORMAL',
+    estado varchar(12) not null default 'PROGRAMADA',
+    calificacion smallint null,
+    constraint chk_entregas_distancia 
+    	check (distancia_km > 0),
+    constraint chk_entregas_prioridad 
+    	check (prioridad in ('NORMAL', 'URGENTE', 'VITAL')),
+    constraint chk_entregas_estado 
+    	check (estado in ('PROGRAMADA', 'EN_VUELO', 'ENTREGADA', 'CANCELADA', 'FALLIDA')),
+    -- la fecha real de entrega solo puede existir si el estado es ENTREGADA
+    constraint chk_entregas_fecha_entrega 
+    	check (fecha_entrega is null or estado = 'ENTREGADA'),
+    -- la calificacion es opcional (null) pero si viene debe estar entre 1 y 5
+    constraint chk_entregas_calificacion 
+    	check (calificacion between 1 and 5),
+    constraint fk_entregas_clientes 
+    	foreign key (id_cliente) 
+    	references clientes (id_cliente),
+    constraint fk_entregas_drones 
+    	foreign key (id_dron) 
+    	references drones (id_dron),
+    constraint fk_entregas_pilotos 
+    	foreign key (id_piloto) 
+    	references pilotos (id_piloto)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 7: carga_entrega (tabla intermedia de la relacion n:m)
+-- una entrega lleva varios tipos de carga y un tipo de carga aparece en
+-- muchas entregas. se resuelve con esta tabla, cuya clave primaria es
+-- COMPUESTA: (id_entrega, id_tipo). se escoge asi porque un mismo tipo
+-- de carga no se repite dentro de una entrega (rn-08), entonces la pareja
+-- identifica cada fila sin necesidad de un id adicional.
+-- ---------------------------------------------------------------------
+create table carga_entrega (
+    id_entrega int not null,
+    id_tipo int not null,
+    peso_kg decimal(6,2) not null,
+    unidades int not null default 1,
+    -- clave primaria compuesta: se declara al final, con las dos columnas
+    primary key (id_entrega, id_tipo),
+    constraint chk_carga_entrega_peso 
+    	check (peso_kg > 0),
+    constraint chk_carga_entrega_unidades 
+    	check (unidades > 0),
+    constraint fk_carga_entrega_entregas 
+    	foreign key (id_entrega) 
+    	references entregas (id_entrega),
+    constraint fk_carga_entrega_tipos 
+    	foreign key (id_tipo) 
+    	references tipos_carga (id_tipo)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 8: mantenimientos (depende de drones)
+-- ---------------------------------------------------------------------
+create table mantenimientos (
+    id_mantenimiento int auto_increment primary key,
+    id_dron int not null,
+    fecha date not null,
+    tipo varchar(12) not null,
+    descripcion varchar(200) null,
+    costo decimal(10,2) not null,
+    constraint chk_mantenimientos_tipo 
+    	check (tipo in ('PREVENTIVO', 'CORRECTIVO')),
+    constraint chk_mantenimientos_costo 
+    	check (costo >= 0),
+    constraint fk_mantenimientos_drones 
+    	foreign key (id_dron) 
+    	references drones (id_dron)
+);
+
+-- ---------------------------------------------------------------------
+-- tabla 9: historial_entregas (depende de entregas)
+-- ---------------------------------------------------------------------
+create table historial_entregas (
+    id_historial int auto_increment primary key,
+    id_entrega int not null,
+    estado_anterior varchar(12) not null,
+    estado_nuevo varchar(12) not null,
+    -- current_timestamp: fecha y hora en que se inserta la fila
+    fecha_cambio datetime not null default current_timestamp,
+    constraint fk_historial_entregas_entregas 
+    	foreign key (id_entrega) 
+    	references entregas (id_entrega)
+);
+
+-- evidencia_01 (mysql): tablas creadas y estructura de entregas
+show tables;
+describe entregas;
+
+-- Inserción de datos iniciales
+
+insert into bases (id_base, nombre, municipio, departamento, capacidad_drones, fecha_apertura) values
+(1, 'Base Cóndor',    'Rionegro', 'Antioquia', 6, '2024-02-15'),
+(2, 'Base Colibrí',   'Guatapé',  'Antioquia', 4, '2024-08-01'),
+(3, 'Base Frailejón', 'Tunja',    'Boyacá',    5, '2025-01-20'),
+(4, 'Base Guadua',    'Salento',  'Quindío',   3, '2026-07-01');
+
+insert into tipos_carga (id_tipo, nombre, tarifa_kg, requiere_frio) values
+(1, 'Vacunas',                12000, true),
+(2, 'Muestras de laboratorio', 10000, true),
+(3, 'Medicamentos',            8000, false),
+(4, 'Documentos',              5000, false),
+(5, 'Repuestos',               4500, false),
+(6, 'Alimentos',               3500, false);
+
+insert into drones (id_dron, codigo_serie, modelo, carga_max_kg, autonomia_km, estado, horas_vuelo, fecha_adquisicion, id_base) values
+(1, 'DA-CX4-01', 'Cóndor X4',    8.00, 45.0, 'ACTIVO',        312.5, '2024-02-20', 1),
+(2, 'DA-CX4-02', 'Cóndor X4',    8.00, 45.0, 'ACTIVO',        468.0, '2024-03-10', 1),
+(3, 'DA-CX6-01', 'Cóndor X6',   15.00, 60.0, 'ACTIVO',        205.0, '2025-01-15', 1),
+(4, 'DA-COL-01', 'Colibrí Mini', 2.50, 25.0, 'ACTIVO',        520.5, '2024-08-05', 2),
+(5, 'DA-COL-02', 'Colibrí Mini', 2.50, 25.0, 'MANTENIMIENTO', 610.0, '2024-08-05', 2),
+(6, 'DA-ALB-01', 'Albatros H8', 25.00, 90.0, 'ACTIVO',         98.0, '2025-02-01', 3),
+(7, 'DA-CX6-02', 'Cóndor X6',   15.00, 60.0, 'ACTIVO',        150.5, '2025-03-12', 3),
+(8, 'DA-ALB-02', 'Albatros H8', 25.00, 90.0, 'RETIRADO',      890.0, '2024-05-01', 3);
+
+-- Los supervisores (id_supervisor NULL) se insertan primero.
+insert into pilotos (id_piloto, documento, nombres, apellidos, email, licencia, fecha_ingreso, id_supervisor, id_base) values
+(1, '1036600111', 'Laura',   'Restrepo Gil', 'laura.restrepo@dronandes.co',  'C', '2024-02-01', NULL, 1),
+(2, '1049600222', 'Camilo',  'Duarte Rojas', 'camilo.duarte@dronandes.co',   'C', '2025-01-10', NULL, 3),
+(3, '1036600333', 'Mateo',   'Zapata Vélez', 'mateo.zapata@dronandes.co',    'B', '2024-04-15', 1,    1),
+(4, '1036600444', 'Sara',    'Montoya Ruiz', 'sara.montoya@dronandes.co',    'B', '2024-08-10', 1,    2),
+(5, '1036600555', 'Julián',  'Patiño Cruz',  'julian.patino@dronandes.co',   'A', '2025-06-01', 1,    2),
+(6, '1049600666', 'Daniela', 'Suárez León',  'daniela.suarez@dronandes.co',  'B', '2025-02-01', 2,    3),
+(7, '1049600777', 'Tomás',   'Becerra Niño', 'tomas.becerra@dronandes.co',   'A', '2026-06-15', 2,    3);
+
+insert into clientes (id_cliente, tipo, nombre, nit_documento, email, telefono, municipio, fecha_registro) values
+(1,  'HOSPITAL', 'Hospital San Juan de Dios de Rionegro', '890980000-1', 'compras@hsjdrionegro.org', '6045310000', 'Rionegro',     '2024-03-01'),
+(2,  'FARMACIA', 'Droguería La Esperanza',                '71234567',    'esperanza.drogueria@gmail.com', '3104567890', 'Guatapé',  '2024-09-12'),
+(3,  'HOSPITAL', 'E.S.E. Hospital San Rafael de Tunja',   '891800231-6', 'Logistica@HSRTunja.gov.co', '6087405050', 'Tunja',       '2025-01-25'),
+(4,  'ONG',      'Fundación Alas para el Campo',          '900456789-2', 'contacto@alasparaelcampo.org', NULL,      'Marinilla',   '2024-11-03'),
+(5,  'COMERCIO', 'Repuestos Agrícolas El Arriero',        '900123456-7', NULL,                       '31245678',   'El Peñol',    '2025-04-18'),
+(6,  'PERSONA',  'Mariana Gómez Arango',                  '1040123456',  'mariana.gomez@hotmail.com', '3157778899', 'Guarne',     '2025-07-07'),
+(7,  'FARMACIA', 'Farmacia Botica del Páramo',            '900777888-1', 'boticaparamo@gmail.com',   '3209998877', 'Ventaquemada', '2025-02-14'),
+(8,  'COMERCIO', 'Café de Altura Las Nubes',              '901222333-4', 'ventas@cafelasnubes.co',   '3001112233', 'Salento',      '2026-07-20'),
+(9,  'PERSONA',  'Jorge Iván Ríos',                       '79888777',    NULL,                       NULL,         'Rionegro',     '2026-08-30'),
+(10, 'ONG',      'Corporación Montaña Viva',              '900999111-0', 'info@montanaviva.org',     '310555444',  'Sáchica',      '2025-09-01');
+
+insert into entregas (id_entrega, codigo, id_cliente, id_dron, id_piloto, fecha_programada, fecha_entrega, municipio_destino, distancia_km, prioridad, estado, calificacion) values
+(1,  'ENT-0001', 1,  1, 3, '2026-08-03 08:00:00', '2026-08-03 08:42:00', 'San Vicente',          18.5, 'VITAL',   'ENTREGADA', 5),
+(2,  'ENT-0002', 1,  3, 1, '2026-08-05 09:30:00', '2026-08-05 10:20:00', 'Concepción',           32.0, 'VITAL',   'ENTREGADA', 4),
+(3,  'ENT-0003', 2,  4, 4, '2026-08-07 14:00:00', '2026-08-07 14:25:00', 'San Rafael',           12.0, 'NORMAL',  'ENTREGADA', 5),
+(4,  'ENT-0004', 4,  2, 3, '2026-08-10 07:45:00', '2026-08-10 08:30:00', 'El Carmen de Viboral', 22.4, 'URGENTE', 'ENTREGADA', 3),
+(5,  'ENT-0005', 5,  3, 1, '2026-08-12 11:00:00', NULL,                  'El Peñol',             15.0, 'NORMAL',  'CANCELADA', NULL),
+(6,  'ENT-0006', 3,  6, 2, '2026-08-14 06:30:00', '2026-08-14 07:40:00', 'Ramiriquí',            48.0, 'VITAL',   'ENTREGADA', 5),
+(7,  'ENT-0007', 10, 7, 6, '2026-08-18 10:00:00', '2026-08-18 10:35:00', 'Samacá',               20.5, 'NORMAL',  'ENTREGADA', 4),
+(8,  'ENT-0008', 3,  8, 6, '2026-08-20 08:15:00', NULL,                  'Chíquiza',             35.0, 'URGENTE', 'FALLIDA',   NULL),
+(9,  'ENT-0009', 6,  4, 5, '2026-08-22 16:00:00', '2026-08-22 16:20:00', 'Guarne',                9.5, 'NORMAL',  'ENTREGADA', 2),
+(10, 'ENT-0010', 1,  1, 1, '2026-08-25 07:00:00', '2026-08-25 07:50:00', 'Sonsón',               41.0, 'VITAL',   'ENTREGADA', 5),
+(11, 'ENT-0011', 10, 6, 2, '2026-08-27 09:00:00', '2026-08-27 10:05:00', 'Sáchica',              52.5, 'URGENTE', 'ENTREGADA', NULL),
+(12, 'ENT-0012', 2,  5, 4, '2026-08-29 13:00:00', NULL,                  'Alejandría',           14.0, 'NORMAL',  'CANCELADA', NULL),
+(13, 'ENT-0013', 4,  2, 1, '2026-09-01 08:00:00', '2026-09-01 08:55:00', 'Granada',              38.0, 'URGENTE', 'ENTREGADA', 4),
+(14, 'ENT-0014', 1,  3, 1, '2026-09-03 10:30:00', '2026-09-03 11:15:00', 'Abejorral',            44.0, 'VITAL',   'ENTREGADA', 5),
+(15, 'ENT-0015', 7,  7, 6, '2026-09-08 15:00:00', '2026-09-08 15:30:00', 'Turmequé',             17.0, 'NORMAL',  'ENTREGADA', 3),
+(16, 'ENT-0016', 3,  6, 2, '2026-09-15 06:00:00', '2026-09-15 07:10:00', 'Miraflores',           58.0, 'VITAL',   'ENTREGADA', 4),
+(17, 'ENT-0017', 6,  2, 3, '2026-09-21 17:00:00', NULL,                  'Guarne',               10.0, 'NORMAL',  'CANCELADA', NULL),
+(18, 'ENT-0018', 10, 7, 6, '2026-09-30 17:40:00', NULL,                  'Villa de Leyva',       26.0, 'NORMAL',  'EN_VUELO',  NULL),
+(19, 'ENT-0019', 1,  1, 1, '2026-10-01 07:30:00', NULL,                  'Nariño',               47.0, 'VITAL',   'PROGRAMADA', NULL),
+(20, 'ENT-0020', 3,  6, 6, '2026-10-02 06:00:00', NULL,                  'Pesca',                39.0, 'VITAL',   'PROGRAMADA', NULL);
+
+insert into carga_entrega (id_entrega, id_tipo, peso_kg, unidades) values
+(1, 1, 3.00, 60),  (1, 3, 2.00, 15),
+(2, 2, 1.50, 30),  (2, 3, 4.00, 40),
+(3, 3, 1.80, 12),
+(4, 3, 3.50, 25),  (4, 4, 0.50, 3),
+(5, 5, 6.00, 4),
+(6, 1, 5.00, 100), (6, 2, 2.00, 40),
+(7, 3, 6.00, 50),
+(8, 1, 8.00, 160), (8, 3, 4.00, 30),
+(9, 4, 0.80, 5),
+(10, 1, 4.00, 80), (10, 2, 1.00, 20), (10, 3, 2.50, 20),
+(11, 3, 7.00, 60), (11, 4, 1.00, 6),
+(13, 3, 5.00, 40), (13, 5, 2.00, 2),
+(14, 1, 6.00, 120), (14, 2, 3.00, 60),
+(15, 3, 3.00, 25), (15, 4, 0.30, 2),
+(16, 1, 10.00, 200), (16, 3, 8.00, 70),
+(18, 3, 4.00, 35),
+(19, 1, 3.50, 70),
+(20, 2, 2.50, 50), (20, 1, 6.00, 120);
+
+insert into mantenimientos (id_mantenimiento, id_dron, fecha, tipo, descripcion, costo) values
+(1, 2, '2026-03-15', 'PREVENTIVO', 'Cambio de hélices',                        350000),
+(2, 4, '2026-04-02', 'PREVENTIVO', 'Calibración de GPS',                        180000),
+(3, 5, '2026-09-25', 'CORRECTIVO', 'Falla en motor 3',                         1250000),
+(4, 8, '2026-08-21', 'CORRECTIVO', 'Impacto en aterrizaje, evaluación de daños', 2800000),
+(5, 1, '2026-06-10', 'PREVENTIVO', 'Revisión general de 300 horas',             420000),
+(6, 6, '2026-07-05', 'PREVENTIVO', NULL,                                         260000),
+(7, 5, '2026-05-14', 'PREVENTIVO', 'Cambio de baterías',                        950000),
+(8, 2, '2026-09-12', 'CORRECTIVO', 'Sensor de altitud defectuoso',              610000);
+
+
+
+-- =====================================================================
+-- r3. ajustes estructurales solicitados por calidad (alter table)
+-- los datos ya estan cargados, por eso se usa alter table y no se
+-- vuelve a crear la tabla.
+-- =====================================================================
+
+-- r3.a) ampliar clientes.nombre de 80 a 120 caracteres
+-- en mysql, modify column REEMPLAZA toda la definicion de la columna.
+-- por eso hay que repetir not null; si se omite, la columna pasaria a
+-- aceptar nulos y se perderia la restriccion.
+alter table clientes modify column nombre varchar(120) not null;
+
+-- r3.b) la aeronautica civil solo certifica cargas entre 0,5 y 25 kg
+-- add constraint agrega una restriccion nueva a una tabla que ya existe.
+-- between es inclusivo: acepta 0.5 y 25. mysql revisa las filas que ya
+-- estan en la tabla y rechaza la restriccion si alguna no la cumple.
+alter table drones add constraint chk_drones_carga check (carga_max_kg between 0.5 and 25);
+
+-- r3.c) fk de autorreferencia: el supervisor de un piloto es otro piloto
+-- la tabla se referencia a si misma: id_supervisor -> id_piloto.
+-- no se pudo declarar en el create table porque los datos se insertaron
+-- despues y la tabla debia existir completa antes de apuntar a si misma.
+alter table pilotos add constraint fk_pilotos_supervisor foreign key (id_supervisor) references pilotos (id_piloto);
+
+
+-- =====================================================================
+-- r4. operaciones de datos (dml)
+-- =====================================================================
+
+-- r4.a) tres clientes nuevos con una sola sentencia insert
+-- no se escribe id_cliente: auto_increment lo genera (11, 12 y 13).
+-- "sin correo" se guarda como null, no como texto.
+-- se omite id_cliente de la lista de columnas y se escriben los demas
+-- campos en el mismo orden en que aparecen los valores.
+insert into clientes (tipo, nombre, nit_documento, email, telefono, municipio, fecha_registro) values
+('FARMACIA', 'Droguería Santa Ana',        '900314159-2', 'santaana@gmail.com',           '3112223344', 'Marinilla', '2026-09-28'),
+('PERSONA',  'Esteban Mejía Toro',         '1036987654',  null,                           '3015556677', 'Rionegro',  '2026-09-29'),
+('COMERCIO', 'Tienda Naturista Frailejón', '901555666-3', 'tienda.frailejon@outlook.com', '3209871234', 'Tunja',     '2026-09-30');
+
+-- r4.b) regla rn-07: todo dron activo con mas de 500 horas de vuelo
+-- debe pasar a mantenimiento. una sola sentencia update con where.
+-- sin where se actualizarian TODOS los drones.
+update drones set estado = 'MANTENIMIENTO' where estado = 'ACTIVO' and horas_vuelo > 500;
+-- filas afectadas: 1 (el dron DA-COL-01 con 520.5 horas)
+
+-- r4.c) eliminar entregas CANCELADA que no tienen ninguna carga registrada
+-- la subconsulta devuelve los id_entrega que SI tienen carga;
+-- not in deja solo las entregas que no estan en esa lista.
+delete from entregas
+where estado = 'CANCELADA'
+and id_entrega not in (select id_entrega from carga_entrega);
+-- filas eliminadas: 2 (ENT-0012 y ENT-0017). ENT-0005 se queda porque si tiene carga.
+
+-- r4.d) total de clientes, total de entregas y drones en mantenimiento
+-- en una sola salida. cada subconsulta devuelve un solo valor y se
+-- pone como una columna. no hay from porque las subconsultas ya traen sus tablas.
+-- evidencia_03 (motor principal): mensajes de filas afectadas de r4.b y r4.c y el resultado de r4.d
+select
+    (select count(*) from clientes) as total_clientes,
+    (select count(*) from entregas) as total_entregas,
+    (select count(*) from drones where estado = 'MANTENIMIENTO') as drones_mantenimiento;
+
+
+-- =====================================================================
+-- r5. tablero de control operativo (consultas basicas)
+-- =====================================================================
+
+-- r5.a) entregas ENTREGADA de media distancia con prioridad alta
+-- between es inclusivo (incluye 20 y 45). in (...) equivale a varios or.
+select codigo, municipio_destino, distancia_km, prioridad
+from entregas
+where estado = 'ENTREGADA'
+and distancia_km between 20 and 45
+and prioridad in ('VITAL', 'URGENTE')
+order by distancia_km desc;
+
+
+-- r5.b.1) entregas cerradas sin entrega efectiva
+-- estado fuera de PROGRAMADA, EN_VUELO y ENTREGADA (queda CANCELADA o
+-- FALLIDA) y sin fecha de entrega. para preguntar por null se usa
+-- is null; "= null" nunca es verdadero.
+select codigo, estado, fecha_programada
+from entregas
+where estado not in ('PROGRAMADA', 'EN_VUELO', 'ENTREGADA')
+and fecha_entrega is null
+order by codigo;
+
+
+-- r5.b.2) entregas que si tienen fecha de entrega pero no calificacion
+select codigo, fecha_entrega
+from entregas
+where fecha_entrega is not null
+and calificacion is null
+order by codigo;
+
+
+-- r5.c) drones para campana de carga pesada
+-- != es "distinto de". los parentesis agrupan las condiciones del or:
+-- sin ellos, and se evalua antes que or y el resultado cambia.
+select codigo_serie, modelo, carga_max_kg, horas_vuelo, autonomia_km, estado
+from drones
+where estado != 'RETIRADO'
+and ((carga_max_kg >= 8 and horas_vuelo < 400) or autonomia_km > 80)
+order by codigo_serie asc;
+
+
+-- r5.d) pilotos con licencia distinta de A que ingresaron hasta el 1 de feb de 2025
+-- not niega la condicion que sigue. <= incluye la fecha limite.
+select nombres, apellidos, licencia, fecha_ingreso
+from pilotos
+where not licencia = 'A'
+and fecha_ingreso <= '2025-02-01'
+order by fecha_ingreso asc;
+
+
+-- =====================================================================
+-- r6. directorio comercial y calidad de datos
+-- =====================================================================
+
+-- r6.a) clientes con telefono invalido (rn-13: exactamente 10 digitos)
+-- length cuenta los caracteres del texto. <> es "distinto de".
+-- si el telefono es null, length devuelve null y la comparacion no da
+-- verdadero; por eso se agrega "telefono is null".
+-- coalesce devuelve el primer valor que no sea null: aqui reemplaza el
+-- null por el texto 'SIN TELÉFONO'.
+select upper(nombre) as cliente,
+       municipio,
+       coalesce(telefono, 'SIN TELÉFONO') as telefono,
+       length(telefono) as digitos
+from clientes
+where telefono is null
+or length(telefono) <> 10
+order by nombre asc;
+
+
+-- r6.b) clientes con correo corporativo (no termina en dominio gratuito)
+-- % en like es "cualquier cantidad de caracteres". '%@gmail.com' es
+-- cualquier texto que termine en @gmail.com.
+-- concat une textos; en mysql, si algun valor es null, el resultado es
+-- null (aqui no pasa porque ya se filtro email is not null).
+select nombre,
+       lower(email) as correo,
+       concat(nombre, ' <', lower(email), '>') as contacto
+from clientes
+where email is not null
+and email not like '%@gmail.com'
+and email not like '%@hotmail.com'
+and email not like '%@outlook.com'
+order by nombre;
+
+-- r6.c) drones de la familia Condor con serie DA-CX?-NN
+-- _ en like es "exactamente un caracter". 'DA-CX_-__' acepta un
+-- caracter despues de CX y dos al final.
+-- pct_vida_util = horas de vuelo / 1000 (rn-12) * 100, con 1 decimal.
+select codigo_serie,
+       upper(modelo) as modelo,
+       horas_vuelo,
+       round(horas_vuelo / 1000 * 100, 1) as pct_vida_util
+from drones
+where codigo_serie like 'DA-CX_-__'
+order by horas_vuelo desc;
+
+
+
+-- =====================================================================
+-- r7. indicadores de gestion (group by, having, funciones de agregacion)
+-- =====================================================================
+
+-- r7.a) por tipo de carga, solo entregas ENTREGADA
+-- se unen tres tablas: tipos_carga -> carga_entrega -> entregas.
+-- el where filtra ANTES de agrupar. group by crea un grupo por tipo de
+-- carga y las funciones count, sum, avg, min y max trabajan por grupo.
+-- como un tipo de carga no se repite dentro de una entrega, count(*)
+-- cuenta entregas distintas.
+select tc.nombre as tipo_carga,
+       count(*) as num_entregas,
+       sum(ce.peso_kg) as kg_totales,
+       round(avg(ce.peso_kg), 2) as kg_promedio,
+       min(ce.peso_kg) as kg_minimo,
+       max(ce.peso_kg) as kg_maximo
+from tipos_carga tc
+inner join carga_entrega ce on ce.id_tipo = tc.id_tipo
+inner join entregas e on e.id_entrega = ce.id_entrega
+where e.estado = 'ENTREGADA'
+group by tc.nombre
+order by kg_totales desc;
+
+
+-- r7.b) clientes estrella: al menos 2 entregas ENTREGADA y promedio >= 4
+-- evidencia_04 (motor principal): resultados de r7.b y r8.b
+-- having filtra DESPUES de agrupar (where no puede usar count ni avg).
+-- count(*) cuenta todas las entregas realizadas; avg(calificacion)
+-- ignora los null, asi las entregas sin calificacion cuentan como
+-- realizadas pero no entran en el promedio.
+-- mysql permite alias en having, pero se repite la expresion para que
+-- el codigo sea igual en postgresql.
+select c.nombre as cliente,
+       count(*) as entregas_realizadas,
+       round(avg(e.calificacion), 2) as calificacion_promedio
+from clientes c
+inner join entregas e on e.id_cliente = c.id_cliente
+where e.estado = 'ENTREGADA'
+group by c.nombre
+having count(*) >= 2 and avg(e.calificacion) >= 4
+order by calificacion_promedio desc, cliente asc;
+
+
+
+-- =====================================================================
+-- r8. consultas multitabla (joins)
+-- =====================================================================
+
+-- r8.a) hoja de vuelo de entregas vitales (solo inner join)
+-- inner join deja solo las filas que tienen pareja en la otra tabla.
+-- cada tabla lleva un alias (e, c, p, d, b) para escribir menos.
+-- la base se obtiene a traves del dron: entregas -> drones -> bases.
+-- timestampdiff(minute, a, b) da los minutos completos entre a y b.
+select e.codigo,
+       c.nombre as cliente,
+       concat(p.nombres, ' ', p.apellidos) as piloto,
+       d.codigo_serie as dron,
+       b.nombre as base,
+       timestampdiff(minute, e.fecha_programada, e.fecha_entrega) as minutos_vuelo
+from entregas e
+inner join clientes c on c.id_cliente = e.id_cliente
+inner join pilotos p on p.id_piloto = e.id_piloto
+inner join drones d on d.id_dron = e.id_dron
+inner join bases b on b.id_base = d.id_base
+where e.prioridad = 'VITAL'
+and e.estado = 'ENTREGADA'
+order by e.fecha_programada asc;
+
+
+-- r8.b) productividad de pilotos (todos los pilotos, incluso con 0)
+-- evidencia_04 (motor principal): resultados de r7.b y r8.b
+-- left join conserva todos los pilotos aunque no tengan entregas.
+-- la condicion estado = 'ENTREGADA' va en el ON y no en el where: si
+-- estuviera en el where, eliminaria los pilotos sin entregas y el left
+-- join se volveria un inner join.
+-- count(e.id_entrega) cuenta solo valores no nulos: da 0 si no hay pareja.
+select concat(p.nombres, ' ', p.apellidos) as piloto,
+       p.licencia,
+       count(e.id_entrega) as entregas_realizadas
+from pilotos p
+left join entregas e on e.id_piloto = p.id_piloto and e.estado = 'ENTREGADA'
+group by p.id_piloto, p.nombres, p.apellidos, p.licencia
+order by entregas_realizadas desc, piloto asc;
+
+
+-- r8.c) organigrama: cada piloto con su supervisor (autojoin)
+-- la tabla pilotos se une consigo misma: p es el piloto y s es su
+-- supervisor. left join para no perder a los jefes, que tienen
+-- id_supervisor null. coalesce reemplaza el null por el texto pedido.
+select concat(p.nombres, ' ', p.apellidos) as piloto,
+       p.licencia,
+       coalesce(concat(s.nombres, ' ', s.apellidos), 'DIRECCIÓN DE OPERACIONES') as supervisor
+from pilotos p
+left join pilotos s on s.id_piloto = p.id_supervisor
+order by supervisor asc, piloto asc;
+
+
+-- r8.d) auditoria de rn-05: entregas PROGRAMADA cuya distancia supera la autonomia
+-- se comparan dos columnas de tablas distintas en el where.
+-- exceso_km es una columna calculada: distancia menos autonomia.
+select e.codigo,
+       c.nombre as cliente,
+       d.codigo_serie as dron,
+       e.distancia_km,
+       d.autonomia_km,
+       e.distancia_km - d.autonomia_km as exceso_km
+from entregas e
+inner join clientes c on c.id_cliente = e.id_cliente
+inner join drones d on d.id_dron = e.id_dron
+where e.estado = 'PROGRAMADA'
+and e.distancia_km > d.autonomia_km;
+
+-- +----------+---------------------------------------+-----------+--------------+--------------+-----------+
+
+
+-- =====================================================================
+-- r9. subconsultas
+-- =====================================================================
+
+-- r9.a) entregas ENTREGADA con distancia mayor al promedio
+-- la subconsulta entre parentesis se ejecuta primero y devuelve un solo
+-- numero (el promedio); luego la consulta externa lo compara.
+select codigo, municipio_destino, distancia_km
+from entregas
+where estado = 'ENTREGADA'
+and distancia_km > (select avg(distancia_km) from entregas where estado = 'ENTREGADA')
+order by distancia_km desc;
+
+
+-- r9.b) clientes que nunca han tenido una entrega (not in)
+-- la subconsulta devuelve la lista de clientes que si tienen entregas.
+-- not in deja los que no estan en esa lista.
+select nombre, tipo, municipio, fecha_registro
+from clientes
+where id_cliente not in (select id_cliente from entregas)
+order by fecha_registro, nombre;
+
+
+-- r9.c) drones con horas de vuelo superiores al promedio de su misma base
+-- subconsulta CORRELACIONADA: usa d.id_base de la consulta externa, asi
+-- que se vuelve a ejecutar para cada dron. d2 es el alias de la tabla
+-- dentro de la subconsulta, para no confundirla con d de afuera.
+-- evidencia_05 (motor principal): resultados de r9.c y r9.d
+select d.codigo_serie,
+       b.nombre as base,
+       d.horas_vuelo
+from drones d
+inner join bases b on b.id_base = d.id_base
+where d.horas_vuelo > (select avg(d2.horas_vuelo) from drones d2 where d2.id_base = d.id_base)
+order by base;
+
+
+-- r9.d) drones no retirados sin ningun mantenimiento (not exists)
+-- evidencia_05 (motor principal): resultados de r9.c y r9.d
+-- not exists es verdadero cuando la subconsulta NO devuelve filas.
+-- select 1 solo comprueba que exista una fila; el valor no importa.
+select d.codigo_serie, d.modelo, d.estado
+from drones d
+where d.estado != 'RETIRADO'
+and not exists (select 1 from mantenimientos m where m.id_dron = d.id_dron)
+order by d.codigo_serie;
+
+
+
+-- =====================================================================
+-- r10. vista e indices
+-- =====================================================================
+
+-- r10.a) vista vw_tablero_entregas
+-- una vista es una consulta guardada con nombre; no guarda datos, se
+-- vuelve a ejecutar cada vez que se consulta.
+-- left join con carga_entrega: asi las entregas sin carga tambien
+-- aparecen (tipos_carga = 0 y peso_total_kg = 0).
+-- count(ce.id_tipo) cuenta los tipos de carga; coalesce(sum(...), 0)
+-- cambia el null (entrega sin carga) por 0.
+create view vw_tablero_entregas as
+select e.codigo,
+       e.fecha_programada,
+       c.nombre as cliente,
+       c.tipo as tipo_cliente,
+       e.municipio_destino,
+       d.codigo_serie as dron,
+       concat(p.nombres, ' ', p.apellidos) as piloto,
+       e.prioridad,
+       e.estado,
+       count(ce.id_tipo) as tipos_carga,
+       coalesce(sum(ce.peso_kg), 0) as peso_total_kg
+from entregas e
+inner join clientes c on c.id_cliente = e.id_cliente
+inner join drones d on d.id_dron = e.id_dron
+inner join pilotos p on p.id_piloto = e.id_piloto
+left join carga_entrega ce on ce.id_entrega = e.id_entrega
+group by e.id_entrega, e.codigo, e.fecha_programada, c.nombre, c.tipo,
+         e.municipio_destino, d.codigo_serie, p.nombres, p.apellidos,
+         e.prioridad, e.estado;
+
+-- prueba de la vista: entregas PROGRAMADA o EN_VUELO por fecha programada
+-- evidencia_06 (motor principal): consulta de la vista y primera prueba de la funcion (r11)
+select *
+from vw_tablero_entregas
+where estado in ('PROGRAMADA', 'EN_VUELO')
+order by fecha_programada;
+
+-- r10.b) dos indices para las busquedas mas frecuentes
+-- un indice acelera las busquedas por esas columnas (como el indice de
+-- un libro). no se crean sobre las pk ni sobre columnas unique porque
+-- mysql ya les crea un indice automaticamente.
+
+-- idx_entregas_estado_fecha: la busqueda es "entregas de un estado dentro
+-- de un rango de fechas". primero va estado (se compara con =) y luego
+-- fecha_programada (se compara con un rango), que es el orden que
+-- aprovecha el indice.
+create index idx_entregas_estado_fecha on entregas (estado, fecha_programada);
+
+-- idx_clientes_tipo_municipio: la busqueda es "clientes de un tipo en un
+-- municipio". las dos columnas se comparan con =, y el indice compuesto
+-- evita recorrer toda la tabla.
+create index idx_clientes_tipo_municipio on clientes (tipo, municipio);
+
+-- demostracion de que los indices existen
+show index from entregas;
+show index from clientes;
+
+
+-- =====================================================================
+-- r11. funcion almacenada fn_valor_entrega
+-- =====================================================================
+-- rn-10: valor = suma(peso_kg * tarifa_kg) + distancia_km * 1200.
+-- si la prioridad es URGENTE hay recargo del 20 % (se multiplica por 1.2).
+-- si la entrega no tiene carga, el valor es solo la distancia (con el
+-- recargo si aplica). si la entrega no existe, devuelve null.
+-- reads sql data: la funcion lee tablas pero no las modifica; mysql
+-- exige declarar una caracteristica cuando el registro binario esta activo.
+create function fn_valor_entrega(p_id_entrega int)
+returns decimal(12,2)
+reads sql data
+begin
+    -- variables locales: se declaran al inicio del bloque begin
+    declare v_distancia decimal(5,1);
+    declare v_prioridad varchar(8);
+    declare v_carga decimal(14,2);
+    declare v_valor decimal(14,2);
+
+    -- select ... into guarda el resultado en variables.
+    -- si la entrega no existe, las variables quedan en null
+    select distancia_km, prioridad
+    into v_distancia, v_prioridad
+    from entregas
+    where id_entrega = p_id_entrega;
+
+    -- entrega inexistente: se devuelve null y la funcion termina
+    if v_distancia is null then
+        return null;
+    end if;
+
+    -- suma de peso * tarifa de todos los tipos de carga de la entrega;
+    -- coalesce cambia el null (entrega sin carga) por 0
+    select coalesce(sum(ce.peso_kg * tc.tarifa_kg), 0)
+    into v_carga
+    from carga_entrega ce
+    inner join tipos_carga tc on tc.id_tipo = ce.id_tipo
+    where ce.id_entrega = p_id_entrega;
+
+    -- valor base: carga + distancia * 1200 pesos por km
+    set v_valor = v_carga + v_distancia * 1200;
+
+    -- recargo del 20 % solo para URGENTE (vital y normal no tienen recargo)
+    if v_prioridad = 'URGENTE' then
+        set v_valor = v_valor * 1.2;
+    end if;
+
+    return round(v_valor, 2);
+end;
+
+-- r11.b) pruebas de la funcion
+-- (1) entregas ENTREGADA con prioridad URGENTE y su valor, de mayor a menor
+select codigo, prioridad, fn_valor_entrega(id_entrega) as valor_cop
+from entregas
+where estado = 'ENTREGADA'
+and prioridad = 'URGENTE'
+order by valor_cop desc;
+
+
+-- (2) entrega que no existe: debe devolver null
+select fn_valor_entrega(999) as valor;
+
+
+
+-- =====================================================================
+-- r12. trigger de auditoria trg_entregas_estado
+-- =====================================================================
+-- before update: se ejecuta antes de guardar el cambio, por eso puede
+-- modificar la fila nueva (new) antes de que se guarde.
+-- old = valores de la fila antes del update; new = valores nuevos.
+-- si el estado no cambia no se hace nada.
+create trigger trg_entregas_estado
+before update on entregas
+for each row
+begin
+    if new.estado <> old.estado then
+        -- (1) si pasa a ENTREGADA y no trae fecha de entrega, se pone la actual
+        if new.estado = 'ENTREGADA' and new.fecha_entrega is null then
+            set new.fecha_entrega = now();
+        end if;
+        -- (2) se guarda el cambio en el historial
+        insert into historial_entregas (id_entrega, estado_anterior, estado_nuevo)
+        values (old.id_entrega, old.estado, new.estado);
+    end if;
+end;
+
+-- demostracion: exactamente estas tres sentencias
+-- la 1 y la 2 cambian el estado (deben quedar en el historial);
+-- la 3 solo cambia la calificacion (no debe quedar nada)
+update entregas set estado = 'ENTREGADA', calificacion = 5 where codigo = 'ENT-0018';
+update entregas set estado = 'CANCELADA' where codigo = 'ENT-0019';
+update entregas set calificacion = 4 where codigo = 'ENT-0011';
+
+-- contenido del historial con el codigo de la entrega
+-- evidencia_07 (otro motor): las tres sentencias update y el contenido de historial_entregas
+select h.id_historial, e.codigo, h.estado_anterior, h.estado_nuevo, h.fecha_cambio
+from historial_entregas h
+inner join entregas e on e.id_entrega = h.id_entrega
+order by h.id_historial;
+
+-- las tres entregas involucradas
+select codigo, estado, fecha_entrega, calificacion
+from entregas
+where codigo in ('ENT-0018', 'ENT-0019', 'ENT-0011')
+order by codigo;
+
+
+-- =====================================================================
+-- r13. procedimiento almacenado sp_programar_entrega
+-- =====================================================================
+-- validaciones en este orden: (1) dron y piloto existen, (2) dron ACTIVO,
+-- (3) distancia <= autonomia, (4) licencia permite la distancia.
+-- si una falla se lanza un error con signal sqlstate '45000' (error
+-- definido por el usuario) y el procedimiento se detiene ahi.
+-- si todo es valido se inserta la entrega; estado y prioridad por defecto
+-- los pone el default de la tabla (estado = PROGRAMADA).
+create procedure sp_programar_entrega(
+    in p_codigo varchar(10),
+    in p_id_cliente int,
+    in p_id_dron int,
+    in p_id_piloto int,
+    in p_fecha_programada datetime,
+    in p_municipio_destino varchar(60),
+    in p_distancia_km decimal(5,1),
+    in p_prioridad varchar(8)
+)
+begin
+    declare v_existe int default 0;
+    declare v_estado_dron varchar(15);
+    declare v_autonomia decimal(5,1);
+    declare v_licencia char(1);
+
+    -- (1a) el dron existe
+    select count(*) into v_existe from drones where id_dron = p_id_dron;
+    if v_existe = 0 then
+        signal sqlstate '45000' set message_text = 'El dron no existe';
+    end if;
+
+    -- (1b) el piloto existe
+    select count(*) into v_existe from pilotos where id_piloto = p_id_piloto;
+    if v_existe = 0 then
+        signal sqlstate '45000' set message_text = 'El piloto no existe';
+    end if;
+
+    -- se leen los datos del dron y del piloto para las demas validaciones
+    select estado, autonomia_km into v_estado_dron, v_autonomia from drones where id_dron = p_id_dron;
+    select licencia into v_licencia from pilotos where id_piloto = p_id_piloto;
+
+    -- (2) rn-06: solo un dron ACTIVO puede recibir entregas nuevas
+    if v_estado_dron <> 'ACTIVO' then
+        signal sqlstate '45000' set message_text = 'El dron no esta ACTIVO, no puede recibir entregas nuevas';
+    end if;
+
+    -- (3) rn-05: la distancia no puede superar la autonomia del dron
+    if p_distancia_km > v_autonomia then
+        signal sqlstate '45000' set message_text = 'La distancia supera la autonomia del dron';
+    end if;
+
+    -- (4) rn-03: licencia A hasta 20 km, B hasta 40 km, C sin limite
+    if (v_licencia = 'A' and p_distancia_km > 20) or (v_licencia = 'B' and p_distancia_km > 40) then
+        signal sqlstate '45000' set message_text = 'La licencia del piloto no permite esa distancia';
+    end if;
+
+    -- todo es valido: se inserta la entrega
+    insert into entregas (codigo, id_cliente, id_dron, id_piloto, fecha_programada, municipio_destino, distancia_km, prioridad)
+    values (p_codigo, p_id_cliente, p_id_dron, p_id_piloto, p_fecha_programada, p_municipio_destino, p_distancia_km, p_prioridad);
+
+    -- mensaje con el identificador generado (last_insert_id)
+    select concat('Entrega programada con id ', last_insert_id()) as mensaje;
+end;
+
+-- pruebas: exactamente estas tres llamadas
+-- la 1 es valida; la 2 falla (dron DA-COL-01 en MANTENIMIENTO desde r4.b);
+-- la 3 falla (piloto con licencia A no puede volar 28 km).
+-- si el cliente se detiene en el primer error, ejecutar cada call por separado.
+call sp_programar_entrega('ENT-0021', 11, 3, 3, '2026-10-03 10:00:00', 'Marinilla', 16.0, 'URGENTE');
+call sp_programar_entrega('ENT-0022', 6, 4, 4, '2026-10-03 11:00:00', 'Guarne', 9.0, 'NORMAL');
+call sp_programar_entrega('ENT-0023', 2, 7, 7, '2026-10-04 08:00:00', 'Arcabuco', 28.0, 'NORMAL');
+
+-- consulta de la vista de r10 para la entrega ENT-0021
+-- evidencia_08 (otro motor): llamada valida, al menos un error y la vista para ENT-0021
+select * from vw_tablero_entregas where codigo = 'ENT-0021';
