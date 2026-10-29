@@ -1,0 +1,49 @@
+db.restaurantes.countDocuments()
+10
+db.clientes.countDocuments()
+9
+db.pedidos.countDocuments()
+20
+db.restaurantes.countDocuments({ciudad:"Bogotá"})
+5
+db.restaurantes.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+// Renombrar coleccion
+db.restaurantes.renameCollection("restaurante")
+{ ok: 1 }
+db._getCollectionNames()
+[ 'productos', 'clientes', 'restaurante', 'pedidos' ]
+show collections
+clientes
+pedidos
+productos
+restaurante
+db.getCollectionNames()
+[ 'productos', 'clientes', 'restaurante', 'pedidos' ]
+db.restaurante.drop()
+true
+db.getCollectionNames()
+[ 'productos', 'clientes', 'pedidos' ]
+// db.dropDatabase - Eliminar base de datos
+// db.dropDatabase() - Eliminar base de datos
+// Comandos de ayuda
+db.help()
+db.restaurante.help()
+// Buscar - asi muestra todo lo que tiene la coleccion
+db.restaurante.find()
+db.clientes.find()
+// Consulta específica
+db.restaurante.find({nombre: 'Mar y Coco'})
+db.productos.find({precio: {$lt:10000}}, {nombre:1, precio:1, _id:0})
+// consultas por cada coleccion
+db.clientes.find({ preferencias: { $in: ["mexicana", "colombiana"] } }, { nombre: 1 })
+db.clientes.find({puntos: { $gte: 100, $lte: 500 }}, {id_:1, nombre:1, puntos:1})
+db.pedidos.find({ metodo_pago: { $ne: "tarjeta" }, total: { $gt: 60000 } })
+db.pedidos.find({ estado: { $not: { $in: ["entregado", "cancelado"] } } })
+db.productos.find({},{nombre:1, precio:1, _id:0}).sort({precio:1,_id:1}).skip(5).limit(5)
+db.productos.find({ tipo: { $ne: "plato" }, volumen_ml: { $exists: true, $type: "number" } },{ nombre: 1, precio: 1, volumen_ml: 1, _id: 0 }).sort({ precio: -1, nombre: 1 }).limit(2)
+db.clientes.find({ direcciones: { $size: 1, $elemMatch: { barrio: "Chicó" } } },{ nombre: 1, direcciones: 1, _id: 0 }).sort({ nombre: 1 }).limit(1)
+db.productos.find({ $nor: [{ tipo: "bebida" }, { tipo: "acompañamiento" }], stock: { $lte: 15 } },{ nombre: 1, stock: 1, _id: 0 }).sort({ stock: 1 }).limit(3)
+db.restaurantes.find({ $and: [{ calificacion: { $gte: 4.5 } }, { domicilio: { $eq: true } }] }, { nombre: 1, calificacion: 1, _id: 0 }).sort({ calificacion: -1, nombre: 1 }).limit(3)
+db.restaurantes.find({ ciudad: { $nin: ["Bogotá", "Medellín"] }, nombre: { $regex: "coco", $options: "i" } },{ nombre: 1, ciudad: 1, barrio: 1, _id: 0 }).sort({ nombre: 1 }).limit(5)
+
