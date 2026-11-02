@@ -51,31 +51,53 @@ Ingenieria-de-Datos-20262/
 │           ├── M2_viajes_agosto_modifica.xlsx
 │           ├── Momento4Grupo1.pdf
 │           └── SustentacionpracticaG1.pdf
-└── Segundo Corte/
-    ├── Definiciones/
-    │   ├── Entornos de trabajo.docx
-    │   ├── Insercion de datos postgres y SQL.docx
-    │   └── Funciones SQL.docx
-    ├── SQL/
-    │   ├── EjercicioMascotas.sql
-    │   ├── EjercicioPostgres.sql
-    │   ├── EjerciciosDDLBiblioteca.sql
-    │   ├── ScriptPostgres.sql.txt
-    │   ├── Ejercicio Eduplus - Clase.sql
-    │   ├── Tarea TechCorp.sql
-    │   └── Procedimientos Almacenados - Actividad Clase.docx
-    ├── Laboratorio TrazaCafe/
-    │   ├── Laboratorio TrazaCafe.docx
-    │   ├── Diccionario datos.xlsx
-    │   ├── Modelo MR.png
-    │   ├── trazacafe_mysql.sql
-    │   └── trazacafe_postgres.sql
-    └── Laboratorio BibliotecaDB (Triggers)/
-        ├── Ejercicio Trigger - Resultados.docx
-        └── LaboratorioBiblioteca_db.sql
+├── Segundo Corte/
+│   ├── Definiciones/
+│   │   ├── Entornos de trabajo.docx
+│   │   ├── Insercion de datos postgres y SQL.docx
+│   │   └── Funciones SQL.docx
+│   ├── SQL/
+│   │   ├── EjercicioMascotas.sql
+│   │   ├── EjercicioPostgres.sql
+│   │   ├── EjerciciosDDLBiblioteca.sql
+│   │   ├── ScriptPostgres.sql.txt
+│   │   ├── Ejercicio Eduplus - Clase.sql
+│   │   ├── Tarea TechCorp.sql
+│   │   └── Procedimientos Almacenados - Actividad Clase.docx
+│   ├── Laboratorio TrazaCafe/
+│   │   ├── Laboratorio TrazaCafe.docx
+│   │   ├── Diccionario datos.xlsx
+│   │   ├── Modelo MR.png
+│   │   ├── trazacafe_mysql.sql
+│   │   └── trazacafe_postgres.sql
+│   ├── Laboratorio BibliotecaDB (Triggers)/
+│   │   ├── Ejercicio Trigger - Resultados.docx
+│   │   └── LaboratorioBiblioteca_db.sql
+│   ├── Simulacro_parcial_practico/
+│   │   ├── README.md
+│   │   ├── Modelo Relacional/
+│   │   │   └── modelo_relacional.drawio.png
+│   │   ├── MySQL/
+│   │   │   ├── simulacro_parcial_practico2_mysql.sql
+│   │   │   └── guia_estudio_sql.sql
+│   │   └── Postgresql/
+│   │       └── simulacro_parcial_practico2_postgresql.sql
+│   ├── Segundo Parcial Práctico/
+│   │   ├── README.md
+│   │   ├── Segundo Parcial Práctico.docx
+│   │   ├── Modelo Relacional/
+│   │   │   └── Modelo Relacional.png
+│   │   └── MySQL/
+│   │       └── mysql.sql
+│   └── Sustentacion Proyecto/
+│       └── Caso de prueba- RQF 24.sql
+└── Tercer Corte/
+    └── MongoDB/
+        ├── Quiz1_28_10_2026.txt
+        ├── Tarea_29_10_2026.txt
+        ├── clase_29_10_2026.txt
+        └── lab1_gil.js
 ```
-
----
 
 ## Corte 1
 
@@ -159,4 +181,36 @@ Laboratorio sobre vistas, procedimientos almacenados y triggers para una bibliot
 
 - **Ejercicio Trigger - Resultados** — Documento con los requerimientos del ejercicio, la solución de cada uno y las capturas de la salida del código.
 - **LaboratorioBiblioteca_db** — Script en MySQL con la base `biblioteca_db` y datos de prueba. Incluye la vista `v_prestamos_vencidos`, el procedimiento `sp_prestar_libro`, el trigger `trg_prestamos_devolucion` (devuelve el ejemplar al inventario y registra la devolución en el historial) y el reto opcional con un trigger que valida la fecha de devolución.
+
+### Simulacro Parcial Práctico
+ 
+Simulacro del segundo parcial práctico sobre la base de datos de **DronAndes Express** (Proyecto Cóndor), resuelto en MySQL y en PostgreSQL.
+ 
+- **Modelo Relacional** — `modelo_relacional.drawio.png`, diagrama del modelo relacional.
+- **MySQL**
+  - `simulacro_parcial_practico2_mysql.sql` — Solución completa: creación de la base (bases, tipos de carga, drones, pilotos, clientes, entregas, cargas, mantenimientos e historial), `ALTER TABLE`, DML, consultas básicas, agrupaciones, joins, subconsultas, vista, índices, función almacenada, trigger y procedimiento.
+  - `guia_estudio_sql.sql` — Guía de estudio de SQL en MySQL organizada por temas, desde DDL y DML hasta transacciones y diferencias con PostgreSQL.
+- **Postgresql** — `simulacro_parcial_practico2_postgresql.sql`, la misma solución adaptada a PostgreSQL.
+### Segundo Parcial Práctico
+ 
+Parcial práctico sobre la base de datos de **CicloVerde** (sistema de bicicletas compartidas), en MySQL 8.0.
+ 
+- **Segundo Parcial Práctico** — Documento de entrega con el enlace al repositorio, el script y los pantallazos de su ejecución.
+- **Modelo Relacional** — Diagrama del modelo relacional (modelo físico).
+- **MySQL** — `mysql.sql`, script con las tablas (estaciones, bicicletas, usuarios, accesorios, viajes, viaje_accesorio e historial de bicicletas), ajustes con `ALTER TABLE`, DML, consultas.
+### Sustentación Proyecto
+ 
+- **Caso de prueba- RQF 24** — Caso de prueba del requerimiento RQF 24.
+---
+ 
+## Corte 3
+ 
+### MongoDB
+ 
+Trabajo con la base de datos `saborya` (restaurantes, clientes, productos y pedidos de domicilios) en MongoDB.
+ 
+- **Quiz1_28_10_2026** — Quiz 1: creación de la base y las colecciones, inserción de documentos y conteos.
+- **Tarea_29_10_2026** — Tarea: carga de la base `saborya` con sus colecciones y datos de prueba.
+- **clase_29_10_2026** — Notas de clase: conteos, renombrar y eliminar colecciones, ayuda de comandos y consultas con `find` (operadores de comparación y lógicos, proyección, `sort`, `skip` y `limit`).
+- **lab1_gil** — Laboratorio 1 en MongoDB (mongoshell)
 ---
