@@ -29,45 +29,6 @@ db.productos.countDocuments({ restaurante_id: "R11" })
 
 // B1.  Comprueba con $type que la fecha de todos los pedidos está guardada como tipo Date
 // que ningún precio de producto está guardado como texto.
-db.pedidos.find({ fecha: { $type: "date" } })
-db.productos.find({ precio: { $type: "number" } })
-
-// B2.
-// Laboratorio 1 - Jessica Gil - MongoDB
-
-// A1. Comprobación
-show dbs
-use saborya
-db
-show collections
-
-// A2. Conteo de documentos
-db.restaurante.countDocuments()
-// Resultado: 10 restaurantes
-db.clientes.countDocuments()
-// Resultado: 9 clientes
-db.productos.countDocuments()
-// Resultado: 24 productos
-db.pedidos.countDocuments()
-// Resultado: 20 pedidos
-
-// A3. Insertar restaurante
-db.restaurante.insertOne({ _id: "R11", nombre: "Café Arriero", categoria: "Cafetería", ciudad: "Medellín", barrio: "Laureles", calificacion: 4.5, domicilio: true, ubicacion: { type: "Point", coordinates: [-75.5925, 6.2442] }, etiquetas: ["café", "postres"] })
-
-// A4. Insertar dos productos del R11
-db.productos.insertMany([
-  { _id: "P25", restaurante_id: "R11", nombre: "Tinto campesino", tipo: "bebida", precio: 3500, stock: 100, disponible: true, descripcion: "Tinto campesino con canela y panela", volumen_ml: 200 },
-  { _id: "P26", restaurante_id: "R11", nombre: "Torta de zanahoria", tipo: "postre", precio: 9000, stock: 20, disponible: true, descripcion: "Torta de zanahoria grande" }
-])
-
-// A5. Restaurantes de Medellín y productos del R11
-db.restaurante.find({ ciudad: "Medellín" })
-// Resultado: 4 restaurantes
-db.productos.countDocuments({ restaurante_id: "R11" })
-// Resultado: 2 productos
-
-
-// B1. Tipos de datos
 db.pedidos.countDocuments({ fecha: { $not: { $type: "date" } } })
 // Resultado: 0 pedidos con una fecha que no sea Date
 db.productos.countDocuments({ precio: { $type: "string" } })
