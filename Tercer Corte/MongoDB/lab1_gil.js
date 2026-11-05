@@ -104,7 +104,6 @@ db.restaurante.find({ _id: "R02" }, { nombre: 1, resumen_resenas: 1 })
 db.resenas.distinct("restaurante_id")
 // Resultado: [ 'R02', 'R04', 'R10' ] (3 restaurantes)
 
-
 // C1. Platos disponibles con stock menor a 20
 db.productos.find({ tipo: "plato", disponible: true, stock: { $lt: 20 } }, { nombre: 1, stock: 1, _id: 0 }).sort({ stock: 1 })
 // Resultado: 6 documentos
@@ -144,3 +143,70 @@ db.productos.find({}, { nombre: 1, precio: 1 }).sort({ precio: -1, _id: 1 }).ski
 // C8. Restaurantes que tienen el campo horario o el campo menu_vegano
 db.restaurante.find({ $or: [{ horario: { $exists: true } }, { menu_vegano: { $exists: true } }] }, { nombre: 1, horario: 1, menu_vegano: 1, _id: 0 })
 // Resultado: 2 restaurantes Sushi Nikko y Verde Vivo
+
+// D1. Subir 1.000 pesos a los platos del R07
+db.productos.updateMany({ restaurante_id: "R07", tipo: "plato" }, { $inc: { precio: 1000 } })
+// Resultado: matchedCount 1, modifiedCount 1, upsertedCount 0
+// Se modificó un solo producto porque el filtro pide restaurante_id R07 y tipo "plato". El R07 tiene dos
+// productos, pero solo la Bandeja paisa es un plato (pasó de 34.000 a 35.000); la Arepa con hogao es
+// un acompañamiento y no cumple el filtro.
+ 
+// D2. Pasar PD018 a en_camino solo si está pendiente
+db.pedidos.updateOne({ _id: "PD018", estado: "pendiente" }, { $set: { estado: "en_camino" } })
+// Primera ejecución: matchedCount 1, modifiedCount 1, upsertedCount 0
+db.pedidos.updateOne({ _id: "PD018", estado: "pendiente" }, { $set: { estado: "en_camino" } })
+// Segunda ejecución: matchedCount 0, modifiedCount 0, upsertedCount 0
+// La primera vez el pedido estaba pendiente, cumplió el filtro y se actualizó. La segunda vez ya estaba en_camino,
+// ningún documento cumple el filtro y no se cambia nada (el comando no da error, simplemente no hace nada).
+// La condición estado: "pendiente" evita modificar pedidos que ya van en otro estado.
+ 
+// D3. Agregar "japonesa" a las preferencias de Valentina Ríos sin repetirla
+db.clientes.updateOne({ _id: "C03" }, { $addToSet: { preferencias: "japonesa" } })
+// Primera ejecución: matchedCount 1, modifiedCount 1, upsertedCount 0
+db.clientes.updateOne({ _id: "C03" }, { $addToSet: { preferencias: "japonesa" } })
+// Segunda ejecución: matchedCount 1, modifiedCount 0, upsertedCount 0
+// En las dos ejecuciones se encontró a la cliente (matchedCount 1). Solo en la primera cambió el arreglo,
+// porque $addToSet agrega el valor únicamente si no existe. En la segunda "japonesa" ya estaba,
+// por eso modifiedCount es 0 y no queda repetida. Con $push se habría duplicado.
+ 
+// D4. Registrar a Natalia Suárez sin duplicarla (se busca por email)
+// El código C09 ya pertenece a Jessica Gil, y usarlo daría error de clave duplicada (E11000),
+// así que a Natalia se le asigna C10.
+db.clientes.updateOne(
+  { email: "natalia.suarez@example.com" },
+  { $setOnInsert: { _id: "C10", nombre: "Natalia Suárez", ciudad: "Medellín", puntos: 0, direcciones: [] } },
+  { upsert: true }
+)
+// Resultado: matchedCount 0, modifiedCount 0, upsertedCount 1 (upsertedId: "C10")
+// No existía ningún cliente con ese email, así que el upsert creó el documento. El email queda guardado
+// porque viene del filtro. Si el comando se ejecuta de nuevo: matchedCount 1, modifiedCount 0, upsertedCount 0,
+// porque $setOnInsert solo aplica al crear el documento y no se duplica.
+ 
+// D5. Eliminar el campo volumen_ml del Té verde
+db.productos.updateOne({ _id: "P06" }, { $unset: { volumen_ml: "" } })
+// Resultado: matchedCount 1, modifiedCount 1, upsertedCount 0
+ 
+// D6. Eliminar las reseñas con calificación menor a 3
+db.resenas.countDocuments({ calificacion: { $lt: 3 } })
+// Resultado antes de borrar: 1 reseña (la de Valentina Ríos, calificación 2)
+db.resenas.deleteMany({ calificacion: { $lt: 3 } })
+// Resultado: deletedCount 1
+ 
+// D7. Eliminar los pedidos cancelados de Medellín
+db.pedidos.countDocuments({ estado: "cancelado", "restaurante.ciudad": "Medellín" })
+// Resultado antes de borrar: 1 pedido (PD020)
+db.pedidos.deleteMany({ estado: "cancelado", "restaurante.ciudad": "Medellín" })
+// Resultado: deletedCount 1
+ 
+// D8. Verificación final
+db.restaurante.countDocuments()
+// Resultado: 11 restaurantes
+db.clientes.countDocuments()
+// Resultado: 10 clientes
+db.productos.countDocuments()
+// Resultado: 26 productos
+db.pedidos.countDocuments()
+// Resultado: 19 pedidos
+db.resenas.countDocuments()
+// Resultado: 3 reseñas
+ 
