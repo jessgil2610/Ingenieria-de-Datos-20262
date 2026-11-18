@@ -1,0 +1,13 @@
+{
+  "name": "SaborYa",
+  "dataColors": ["#0D6B5F", "#E07A1F", "#3A6EA5", "#B23A48", "#7A9E3B", "#6B5B95", "#C9A227", "#2E8B8B"],
+  "background": "#FFFFFF",
+  "foreground": "#1A2420",
+  "tableAccent": "#0D6B5F",
+  "good": "#23704A",
+  "neutral": "#C9A227",
+  "bad": "#B23A48",
+  "maximum": "#0D6B5F",
+  "center": "#8CC5B9",
+  "minimum": "#E2F0EC"
+}

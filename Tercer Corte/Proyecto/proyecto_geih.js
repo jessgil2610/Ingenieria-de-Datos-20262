@@ -1,19 +1,25 @@
 // =====================================================================
-// Proyecto GEIH - Implementación en MongoDB 
+// Proyecto GEIH - Implementación en MongoDB (script para mongosh)
 // =====================================================================
 
 // 1. Creación y uso de la base de datos
-use proyecto_geih
+// En MongoDB no existe "create database": la base se crea sola cuando
+// se crea la primera colección dentro de ella.
+use("proyecto_geih");
 db.dropDatabase();
 
 // 2. Creación de las colecciones según el modelo de BD
+// Nota: MongoDB no tiene llaves foráneas ni auto_increment. Las relaciones
+// se guardan por valor (idPeriodo, idSexo, etc.) y los id se asignan en el script.
+// Las restricciones check se pasan a validadores $jsonSchema. Los índices
+// se crean al final del script (sección 4).
 
 // 2.1 Colección Persona
 db.createCollection("persona", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["idPersona", "idPeriodo", "idSexo", "edad", "pet", "clase", "area", "factorExpansion"],
+      required: ["idPersona", "idPeriodo", "idSexo", "edad", "clase", "area", "factorExpansion"],   // pet se calcula después de cargar el CSV
       properties: {
         idPersona:       { bsonType: "string", maxLength: 12 },
         idPeriodo:       { bsonType: "number" },
@@ -22,12 +28,11 @@ db.createCollection("persona", {
         pet:             { bsonType: "number", enum: [0, 1] },   // población en edad de trabajar (edad >= 15)
         clase:           { bsonType: "number", enum: [1, 2] },
         area:            { bsonType: "number" },
-        factorExpansion: { bsonType: "number", exclusiveMinimum: 0 }
+        factorExpansion: { bsonType: "number", minimum: 0, exclusiveMinimum: true }   // mayor que 0
       }
     }
   }
 });
-db.persona.createIndex({ idPersona: 1 }, { unique: true });
 
 // 2.2 Colección Ocupado
 db.createCollection("ocupado", {
@@ -45,7 +50,6 @@ db.createCollection("ocupado", {
     }
   }
 });
-db.ocupado.createIndex({ idPersona: 1 }, { unique: true });
 
 // 2.3 Colección Desocupado
 db.createCollection("desocupado", {
@@ -59,7 +63,6 @@ db.createCollection("desocupado", {
     }
   }
 });
-db.desocupado.createIndex({ idPersona: 1 }, { unique: true });
 
 // 2.4 Colección Usuario
 db.createCollection("usuario", {
@@ -77,8 +80,6 @@ db.createCollection("usuario", {
     }
   }
 });
-db.usuario.createIndex({ idUsuario: 1 }, { unique: true });
-db.usuario.createIndex({ correoUsuario: 1 }, { unique: true });
 
 // 2.5 Colección Periodo
 db.createCollection("periodo", {
@@ -94,8 +95,6 @@ db.createCollection("periodo", {
     }
   }
 });
-db.periodo.createIndex({ idPeriodo: 1 }, { unique: true });
-db.periodo.createIndex({ anio: 1, mes: 1 }, { unique: true });
 
 // 2.6 Colección Sexo
 db.createCollection("sexo", {
@@ -110,8 +109,6 @@ db.createCollection("sexo", {
     }
   }
 });
-db.sexo.createIndex({ idSexo: 1 }, { unique: true });
-db.sexo.createIndex({ nombreSexo: 1 }, { unique: true });
 
 // 2.7 Colección RangoEdad
 db.createCollection("rangoEdad", {
@@ -134,8 +131,6 @@ db.createCollection("rangoEdad", {
     }
   }
 });
-db.rangoEdad.createIndex({ idRangoEdad: 1 }, { unique: true });
-db.rangoEdad.createIndex({ nombreRangoEdad: 1 }, { unique: true });
 
 // 2.8 Colección Territorio
 db.createCollection("territorio", {
@@ -151,7 +146,6 @@ db.createCollection("territorio", {
     }
   }
 });
-db.territorio.createIndex({ idTerritorio: 1 }, { unique: true });
 
 // 2.9 Colección RamaActividad
 db.createCollection("ramaActividad", {
@@ -166,7 +160,6 @@ db.createCollection("ramaActividad", {
     }
   }
 });
-db.ramaActividad.createIndex({ idRamaActividad: 1 }, { unique: true });
 
 // 2.10 Colección TipoIndicador
 db.createCollection("tipoIndicador", {
@@ -189,7 +182,6 @@ db.createCollection("tipoIndicador", {
     }
   }
 });
-db.tipoIndicador.createIndex({ idTipoIndicador: 1 }, { unique: true });
 
 // 2.11 Colección Indicador
 db.createCollection("indicador", {
@@ -209,7 +201,6 @@ db.createCollection("indicador", {
     }
   }
 });
-db.indicador.createIndex({ idIndicador: 1 }, { unique: true });
 
 // 2.12 Colección AuditoriaIndicador
 db.createCollection("auditoriaIndicador", {
@@ -230,7 +221,6 @@ db.createCollection("auditoriaIndicador", {
     }
   }
 });
-db.auditoriaIndicador.createIndex({ idAuditoria: 1 }, { unique: true });
 
 
 // 3. Inserciones en las colecciones
@@ -408,26 +398,232 @@ db.tipoIndicador.insertMany(tiposIndicador);
 
 
 // 3.8 Colecciones Persona, Ocupado y Desocupado
-// Nota: los datos de la GEIH ya filtrados (persona_AAAAMM.csv, ocupado_AAAAMM.csv
-// y desocupado_AAAAMM.csv) se cargan directamente en MongoDB desde los CSV,
-// periodo por periodo. Aquí solo se deja una inserción de ejemplo por colección
-// para mostrar la estructura de los documentos.
+// Nota: en la base real los datos de la GEIH ya filtrados (persona_AAAAMM.csv,
+// ocupado_AAAAMM.csv y desocupado_AAAAMM.csv) se cargan directamente en MongoDB
+// desde los CSV. Para el taller se usan datos inventados: 25 personas por periodo
+// (enero y febrero de 2026), con sus ocupados y desocupados.
+// idPersona = directorio (7) + secuencia_p (2) + orden (2)
 
+// 3.8.1 Persona
 db.persona.insertMany([
-  { idPersona: "84739170102", idPeriodo: 202601, idSexo: 2, edad: 34, pet: 1,
-    clase: 1, area: 11, factorExpansion: 245.3812 },
-  { idPersona: "84739170103", idPeriodo: 202601, idSexo: 1, edad: 22, pet: 1,
-    clase: 1, area: 11, factorExpansion: 245.3812 }
+  { idPersona: "84739110101", idPeriodo: 202601, idSexo: 1, edad: 67, pet: 1, clase: 2, area: 41, factorExpansion: 151.7024 },
+  { idPersona: "84739110102", idPeriodo: 202601, idSexo: 1, edad: 42, pet: 1, clase: 2, area: 41, factorExpansion: 151.7024 },
+  { idPersona: "84739110103", idPeriodo: 202601, idSexo: 1, edad: 15, pet: 1, clase: 2, area: 41, factorExpansion: 151.7024 },
+  { idPersona: "84739110104", idPeriodo: 202601, idSexo: 1, edad: 12, pet: 0, clase: 2, area: 41, factorExpansion: 151.7024 },
+  { idPersona: "84739120101", idPeriodo: 202601, idSexo: 1, edad: 63, pet: 1, clase: 1, area: 5, factorExpansion: 151.1924 },
+  { idPersona: "84739120102", idPeriodo: 202601, idSexo: 2, edad: 71, pet: 1, clase: 1, area: 5, factorExpansion: 151.1924 },
+  { idPersona: "84739120103", idPeriodo: 202601, idSexo: 1, edad: 56, pet: 1, clase: 1, area: 5, factorExpansion: 151.1924 },
+  { idPersona: "84739130101", idPeriodo: 202601, idSexo: 1, edad: 71, pet: 1, clase: 1, area: 11, factorExpansion: 324.7258 },
+  { idPersona: "84739130102", idPeriodo: 202601, idSexo: 1, edad: 71, pet: 1, clase: 1, area: 11, factorExpansion: 324.7258 },
+  { idPersona: "84739130103", idPeriodo: 202601, idSexo: 1, edad: 53, pet: 1, clase: 1, area: 11, factorExpansion: 324.7258 },
+  { idPersona: "84739140101", idPeriodo: 202601, idSexo: 2, edad: 51, pet: 1, clase: 2, area: 73, factorExpansion: 244.9787 },
+  { idPersona: "84739140102", idPeriodo: 202601, idSexo: 2, edad: 43, pet: 1, clase: 2, area: 73, factorExpansion: 244.9787 },
+  { idPersona: "84739140103", idPeriodo: 202601, idSexo: 1, edad: 9, pet: 0, clase: 2, area: 73, factorExpansion: 244.9787 },
+  { idPersona: "84739140104", idPeriodo: 202601, idSexo: 1, edad: 21, pet: 1, clase: 2, area: 73, factorExpansion: 244.9787 },
+  { idPersona: "84739150101", idPeriodo: 202601, idSexo: 2, edad: 21, pet: 1, clase: 1, area: 76, factorExpansion: 201.2551 },
+  { idPersona: "84739150102", idPeriodo: 202601, idSexo: 2, edad: 58, pet: 1, clase: 1, area: 76, factorExpansion: 201.2551 },
+  { idPersona: "84739150103", idPeriodo: 202601, idSexo: 2, edad: 17, pet: 1, clase: 1, area: 76, factorExpansion: 201.2551 },
+  { idPersona: "84739150104", idPeriodo: 202601, idSexo: 1, edad: 36, pet: 1, clase: 1, area: 76, factorExpansion: 201.2551 },
+  { idPersona: "84739160101", idPeriodo: 202601, idSexo: 1, edad: 54, pet: 1, clase: 1, area: 11, factorExpansion: 320.6692 },
+  { idPersona: "84739160102", idPeriodo: 202601, idSexo: 1, edad: 65, pet: 1, clase: 1, area: 11, factorExpansion: 320.6692 },
+  { idPersona: "84739160103", idPeriodo: 202601, idSexo: 1, edad: 13, pet: 0, clase: 1, area: 11, factorExpansion: 320.6692 },
+  { idPersona: "84739170101", idPeriodo: 202601, idSexo: 1, edad: 48, pet: 1, clase: 1, area: 11, factorExpansion: 483.9179 },
+  { idPersona: "84739170102", idPeriodo: 202601, idSexo: 2, edad: 52, pet: 1, clase: 1, area: 11, factorExpansion: 483.9179 },
+  { idPersona: "84739170103", idPeriodo: 202601, idSexo: 2, edad: 41, pet: 1, clase: 1, area: 11, factorExpansion: 483.9179 },
+  { idPersona: "84739170104", idPeriodo: 202601, idSexo: 2, edad: 6, pet: 0, clase: 1, area: 11, factorExpansion: 483.9179 },
+  { idPersona: "84812510101", idPeriodo: 202602, idSexo: 2, edad: 24, pet: 1, clase: 1, area: 11, factorExpansion: 278.3804 },
+  { idPersona: "84812510102", idPeriodo: 202602, idSexo: 2, edad: 25, pet: 1, clase: 1, area: 11, factorExpansion: 278.3804 },
+  { idPersona: "84812520101", idPeriodo: 202602, idSexo: 2, edad: 33, pet: 1, clase: 1, area: 17, factorExpansion: 189.268 },
+  { idPersona: "84812520102", idPeriodo: 202602, idSexo: 1, edad: 48, pet: 1, clase: 1, area: 17, factorExpansion: 189.268 },
+  { idPersona: "84812520103", idPeriodo: 202602, idSexo: 2, edad: 16, pet: 1, clase: 1, area: 17, factorExpansion: 189.268 },
+  { idPersona: "84812530101", idPeriodo: 202602, idSexo: 2, edad: 28, pet: 1, clase: 1, area: 11, factorExpansion: 219.9179 },
+  { idPersona: "84812530102", idPeriodo: 202602, idSexo: 1, edad: 43, pet: 1, clase: 1, area: 11, factorExpansion: 219.9179 },
+  { idPersona: "84812530103", idPeriodo: 202602, idSexo: 2, edad: 10, pet: 0, clase: 1, area: 11, factorExpansion: 219.9179 },
+  { idPersona: "84812540101", idPeriodo: 202602, idSexo: 2, edad: 28, pet: 1, clase: 1, area: 11, factorExpansion: 507.4388 },
+  { idPersona: "84812540102", idPeriodo: 202602, idSexo: 2, edad: 58, pet: 1, clase: 1, area: 11, factorExpansion: 507.4388 },
+  { idPersona: "84812550101", idPeriodo: 202602, idSexo: 1, edad: 24, pet: 1, clase: 1, area: 76, factorExpansion: 305.098 },
+  { idPersona: "84812550102", idPeriodo: 202602, idSexo: 1, edad: 44, pet: 1, clase: 1, area: 76, factorExpansion: 305.098 },
+  { idPersona: "84812550103", idPeriodo: 202602, idSexo: 2, edad: 15, pet: 1, clase: 1, area: 76, factorExpansion: 305.098 },
+  { idPersona: "84812550104", idPeriodo: 202602, idSexo: 2, edad: 61, pet: 1, clase: 1, area: 76, factorExpansion: 305.098 },
+  { idPersona: "84812560101", idPeriodo: 202602, idSexo: 2, edad: 46, pet: 1, clase: 2, area: 5, factorExpansion: 273.2294 },
+  { idPersona: "84812560102", idPeriodo: 202602, idSexo: 2, edad: 48, pet: 1, clase: 2, area: 5, factorExpansion: 273.2294 },
+  { idPersona: "84812560103", idPeriodo: 202602, idSexo: 1, edad: 12, pet: 0, clase: 2, area: 5, factorExpansion: 273.2294 },
+  { idPersona: "84812570101", idPeriodo: 202602, idSexo: 2, edad: 26, pet: 1, clase: 2, area: 73, factorExpansion: 465.6404 },
+  { idPersona: "84812570102", idPeriodo: 202602, idSexo: 1, edad: 63, pet: 1, clase: 2, area: 73, factorExpansion: 465.6404 },
+  { idPersona: "84812570103", idPeriodo: 202602, idSexo: 1, edad: 58, pet: 1, clase: 2, area: 73, factorExpansion: 465.6404 },
+  { idPersona: "84812580101", idPeriodo: 202602, idSexo: 1, edad: 67, pet: 1, clase: 1, area: 11, factorExpansion: 147.8016 },
+  { idPersona: "84812580102", idPeriodo: 202602, idSexo: 1, edad: 69, pet: 1, clase: 1, area: 11, factorExpansion: 147.8016 },
+  { idPersona: "84812580103", idPeriodo: 202602, idSexo: 2, edad: 51, pet: 1, clase: 1, area: 11, factorExpansion: 147.8016 },
+  { idPersona: "84812590101", idPeriodo: 202602, idSexo: 2, edad: 70, pet: 1, clase: 2, area: 5, factorExpansion: 231.1919 },
+  { idPersona: "84812590102", idPeriodo: 202602, idSexo: 2, edad: 50, pet: 1, clase: 2, area: 5, factorExpansion: 231.1919 }
 ]);
 
-db.ocupado.insertOne({
-  idPersona: "84739170102", idRama: 5, horasTrabajo: 48, ingreso: 1750905, cotizaPension: 1
-});
+// 3.8.2 Ocupado (ingreso o idRama en null cuando la persona no informa)
+db.ocupado.insertMany([
+  { idPersona: "84739120101", idRama: 8, horasTrabajo: 48, ingreso: 964669, cotizaPension: 0 },
+  { idPersona: "84739120103", idRama: 3, horasTrabajo: 48, ingreso: 2116066, cotizaPension: 1 },
+  { idPersona: "84739130102", idRama: 12, horasTrabajo: 48, ingreso: 947775, cotizaPension: 0 },
+  { idPersona: "84739130103", idRama: 12, horasTrabajo: 53, ingreso: 1790556, cotizaPension: 0 },
+  { idPersona: "84739140101", idRama: 5, horasTrabajo: 40, ingreso: null, cotizaPension: 1 },
+  { idPersona: "84739140102", idRama: 1, horasTrabajo: 48, ingreso: 1771120, cotizaPension: 0 },
+  { idPersona: "84739140104", idRama: 1, horasTrabajo: 27, ingreso: 787048, cotizaPension: 0 },
+  { idPersona: "84739150101", idRama: 13, horasTrabajo: 48, ingreso: 2108738, cotizaPension: 1 },
+  { idPersona: "84739150102", idRama: 12, horasTrabajo: 40, ingreso: 559062, cotizaPension: 0 },
+  { idPersona: "84739150104", idRama: 11, horasTrabajo: 48, ingreso: 5387974, cotizaPension: 1 },
+  { idPersona: "84739160101", idRama: 1, horasTrabajo: 55, ingreso: 3450088, cotizaPension: 1 },
+  { idPersona: "84739170101", idRama: 8, horasTrabajo: 48, ingreso: 2074020, cotizaPension: 1 },
+  { idPersona: "84812510102", idRama: 1, horasTrabajo: 48, ingreso: 5551755, cotizaPension: 1 },
+  { idPersona: "84812530101", idRama: 5, horasTrabajo: 27, ingreso: 1801077, cotizaPension: 0 },
+  { idPersona: "84812530102", idRama: 11, horasTrabajo: 40, ingreso: null, cotizaPension: 1 },
+  { idPersona: "84812550102", idRama: 5, horasTrabajo: 48, ingreso: 2587742, cotizaPension: 1 },
+  { idPersona: "84812550103", idRama: 5, horasTrabajo: 48, ingreso: 827110, cotizaPension: 0 },
+  { idPersona: "84812560102", idRama: null, horasTrabajo: 48, ingreso: 1403519, cotizaPension: 0 },
+  { idPersona: "84812570102", idRama: 6, horasTrabajo: 48, ingreso: 5032474, cotizaPension: 1 },
+  { idPersona: "84812580103", idRama: 7, horasTrabajo: 40, ingreso: 1402526, cotizaPension: 0 }
+]);
 
-db.desocupado.insertOne({
-  idPersona: "84739170103"
-});
+// 3.8.3 Desocupado
+db.desocupado.insertMany([
+  { idPersona: "84739110102" },
+  { idPersona: "84739170102" },
+  { idPersona: "84812520102" },
+  { idPersona: "84812560101" }
+]);
+
+// Cálculo de pet (población en edad de trabajar) para los datos que se
+// importen desde los CSV, que no traen esta columna. Reemplaza la columna
+// generada del SQL: 1 si la edad es 15 o más, 0 si no.
+db.persona.updateMany(
+  { pet: { $exists: false } },
+  [ { $set: { pet: { $cond: [ { $gte: ["$edad", 15] }, 1, 0 ] } } } ]
+);
 
 // 3.9 Colección Indicador
-// Igual que en SQL, se llena después, cuando se calculen los indicadores
-// a partir de persona, ocupado y desocupado.
+// Datos de taller: los 7 indicadores de enero de 2026 para nacional, hombres,
+// mujeres, urbano y resto (idTipoIndicador según el orden de la sección 3.7).
+// Los valores salen de los datos inventados de persona, ocupado y desocupado;
+// el cv es inventado.
+db.indicador.insertMany([
+  { idIndicador: 1, idTipoIndicador: 1, idUsuario: 3, valorIndicador: 3730.7452, cvIndicador: 4.3158, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 2, idTipoIndicador: 2, idUsuario: 2, valorIndicador: 2354.3597, cvIndicador: 3.0121, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 3, idTipoIndicador: 3, idUsuario: 2, valorIndicador: 1376.3855, cvIndicador: 2.7251, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 4, idTipoIndicador: 4, idUsuario: 2, valorIndicador: 2844.1067, cvIndicador: 5.4074, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 5, idTipoIndicador: 5, idUsuario: 4, valorIndicador: 886.6385, cvIndicador: 5.7181, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 6, idTipoIndicador: 14, idUsuario: 4, valorIndicador: 67.6361, cvIndicador: 3.2914, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 7, idTipoIndicador: 15, idUsuario: 3, valorIndicador: 71.276, cvIndicador: 1.5826, fechaCalculoIndicador: new Date("2026-03-04") },
+  { idIndicador: 8, idTipoIndicador: 16, idUsuario: 4, valorIndicador: 62.2025, cvIndicador: 2.4328, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 9, idTipoIndicador: 17, idUsuario: 3, valorIndicador: 65.7465, cvIndicador: 8.7427, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 10, idTipoIndicador: 18, idUsuario: 4, valorIndicador: 74.5047, cvIndicador: 7.674, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 11, idTipoIndicador: 27, idUsuario: 2, valorIndicador: 56.1127, cvIndicador: 3.925, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 12, idTipoIndicador: 28, idUsuario: 4, valorIndicador: 66.6833, cvIndicador: 2.8602, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 13, idTipoIndicador: 29, idUsuario: 2, valorIndicador: 40.3329, cvIndicador: 3.5922, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 14, idTipoIndicador: 30, idUsuario: 3, valorIndicador: 54.5599, cvIndicador: 3.5395, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 15, idTipoIndicador: 31, idUsuario: 2, valorIndicador: 61.7571, cvIndicador: 2.9536, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 16, idTipoIndicador: 40, idUsuario: 2, valorIndicador: 17.0374, cvIndicador: 1.466, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 17, idTipoIndicador: 41, idUsuario: 4, valorIndicador: 6.4435, cvIndicador: 1.1027, fechaCalculoIndicador: new Date("2026-03-04") },
+  { idIndicador: 18, idTipoIndicador: 42, idUsuario: 4, valorIndicador: 35.1586, cvIndicador: 2.7245, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 19, idTipoIndicador: 43, idUsuario: 2, valorIndicador: 17.0148, cvIndicador: 3.2813, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 20, idTipoIndicador: 44, idUsuario: 3, valorIndicador: 17.1098, cvIndicador: 8.9334, fechaCalculoIndicador: new Date("2026-03-04") },
+  { idIndicador: 21, idTipoIndicador: 53, idUsuario: 4, valorIndicador: 2004439.3084, cvIndicador: 4.032, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 22, idTipoIndicador: 54, idUsuario: 3, valorIndicador: 2152922.312, cvIndicador: 1.7527, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 23, idTipoIndicador: 55, idUsuario: 3, valorIndicador: 1499323.0477, cvIndicador: 0.868, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 24, idTipoIndicador: 56, idUsuario: 2, valorIndicador: 2155017.6015, cvIndicador: 2.9717, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 25, idTipoIndicador: 57, idUsuario: 3, valorIndicador: 1279084.0, cvIndicador: 12.0607, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 26, idTipoIndicador: 66, idUsuario: 4, valorIndicador: 46.4343, cvIndicador: 2.6664, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 27, idTipoIndicador: 67, idUsuario: 4, valorIndicador: 47.4206, cvIndicador: 4.1173, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 28, idTipoIndicador: 68, idUsuario: 2, valorIndicador: 44.0, cvIndicador: 2.2819, fechaCalculoIndicador: new Date("2026-03-02") },
+  { idIndicador: 29, idTipoIndicador: 69, idUsuario: 3, valorIndicador: 48.9568, cvIndicador: 2.7736, fechaCalculoIndicador: new Date("2026-03-05") },
+  { idIndicador: 30, idTipoIndicador: 70, idUsuario: 2, valorIndicador: 38.3333, cvIndicador: 10.9879, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 31, idTipoIndicador: 79, idUsuario: 3, valorIndicador: 48.2002, cvIndicador: 0.8631, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 32, idTipoIndicador: 80, idUsuario: 4, valorIndicador: 47.471, cvIndicador: 1.0482, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 33, idTipoIndicador: 81, idUsuario: 3, valorIndicador: 50.0, cvIndicador: 1.91, fechaCalculoIndicador: new Date("2026-03-03") },
+  { idIndicador: 34, idTipoIndicador: 82, idUsuario: 4, valorIndicador: 42.45, cvIndicador: 6.7712, fechaCalculoIndicador: new Date("2026-03-06") },
+  { idIndicador: 35, idTipoIndicador: 83, idUsuario: 2, valorIndicador: 66.6667, cvIndicador: 7.1886, fechaCalculoIndicador: new Date("2026-03-03") }
+]);
+
+
+// 4. Índices
+// Se crean sobre los campos que más se usan para consultar y calcular
+// los indicadores. Los únicos reemplazan las llaves primarias del SQL.
+
+// 4.1 Persona por periodo: todos los cálculos filtran por mes
+db.persona.createIndex({ idPeriodo: 1 });
+
+// 4.2 Persona por idPersona: cruce con ocupado y desocupado
+db.persona.createIndex({ idPersona: 1 }, { unique: true });
+
+// 4.3 Ocupado por idPersona: cruce con persona
+db.ocupado.createIndex({ idPersona: 1 }, { unique: true });
+
+// 4.4 TipoIndicador por nombre y periodo: buscar un indicador en un mes
+db.tipoIndicador.createIndex({ nombreIndicador: 1, idPeriodo: 1 });
+
+// 4.5 Indicador por tipo y fecha de cálculo: traer el último cálculo
+db.indicador.createIndex({ idTipoIndicador: 1, fechaCalculoIndicador: -1 });
+
+// Verificación de los índices creados
+db.persona.getIndexes();
+db.ocupado.getIndexes();
+db.tipoIndicador.getIndexes();
+db.indicador.getIndexes();
+
+
+// 5. Historial
+// Cada colección de historial guarda la versión anterior de un documento
+// antes de modificarlo. Como mongosh no tiene triggers, la copia se inserta
+// justo antes de cada updateOne.
+
+// 5.1 Historial de Indicador (cambios en el valor o el cv)
+db.createCollection("indicador_historico");
+db.indicador_historico.createIndex({ idIndicador: 1, fechaHistorico: -1 });
+
+// Ejemplo: se recalcula la tasa de ocupación nacional (idIndicador 11)
+const indicadorAnterior = db.indicador.findOne({ idIndicador: 11 });
+db.indicador_historico.insertOne({
+  idIndicador: indicadorAnterior.idIndicador,
+  valorAnterior: indicadorAnterior.valorIndicador,
+  cvAnterior: indicadorAnterior.cvIndicador,
+  accion: "UPDATE",
+  fechaHistorico: new Date()
+});
+db.indicador.updateOne(
+  { idIndicador: 11 },
+  { $set: { valorIndicador: 56.4254, cvIndicador: 3.9036, fechaCalculoIndicador: new Date() } }
+);
+
+// 5.2 Historial de Usuario (inactivación o cambio de rol)
+db.createCollection("usuario_historico");
+db.usuario_historico.createIndex({ idUsuario: 1, fechaHistorico: -1 });
+
+// Ejemplo: se inactiva un usuario
+const usuarioAnterior = db.usuario.findOne({ idUsuario: 5 });
+db.usuario_historico.insertOne({
+  idUsuario: usuarioAnterior.idUsuario,
+  rolAnterior: usuarioAnterior.rolUsuario,
+  activoAnterior: usuarioAnterior.activo,
+  accion: "UPDATE",
+  fechaHistorico: new Date()
+});
+db.usuario.updateOne({ idUsuario: 5 }, { $set: { activo: 0 } });
+
+// 5.3 Historial de TipoIndicador (cambio en la fórmula o definición)
+db.createCollection("tipoIndicador_historico");
+db.tipoIndicador_historico.createIndex({ idTipoIndicador: 1, fechaHistorico: -1 });
+
+// Ejemplo: se ajusta la fórmula de la tasa de informalidad nacional
+const tipoAnterior = db.tipoIndicador.findOne({ idTipoIndicador: 79 });
+db.tipoIndicador_historico.insertOne({
+  idTipoIndicador: tipoAnterior.idTipoIndicador,
+  formulaAnterior: tipoAnterior.formula,
+  accion: "UPDATE",
+  fechaHistorico: new Date()
+});
+db.tipoIndicador.updateOne(
+  { idTipoIndicador: 79 },
+  { $set: { formula: "Ocupados que no cotizan a pensión / total de ocupados x 100, ponderado por el factor de expansión" } }
+);
+
+// Consulta del historial: cambios más recientes primero
+db.indicador_historico.find().sort({ fechaHistorico: -1 });
+db.usuario_historico.find().sort({ fechaHistorico: -1 });
+db.tipoIndicador_historico.find().sort({ fechaHistorico: -1 });
